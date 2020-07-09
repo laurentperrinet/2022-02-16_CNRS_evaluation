@@ -1,0 +1,224 @@
+%!TEX root = perrinet20cnrs.tex
+%!TeX TS-program = Lualatex
+%!TeX encoding = UTF-8 Unicode
+%!TeX spellcheck = fr-FR
+%!BIB TS-program = biber
+% -*- coding: UTF-8; -*-
+% vim: set fenc=utf-8
+\documentclass[11pt,french,a4paper,oneside]{article}%,twoside,draft
+%============ common ===================
+\usepackage[utf8]{inputenc}%
+\usepackage[french]{babel}%
+\usepackage{csquotes}%
+\usepackage{etaremune}%
+\usepackage[final]{pdfpages}%
+%% --- unit formatting ---
+\usepackage{microtype}	% Better typography \tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\widowpenalty=10000
+\vfuzz \hfuzz
+\raggedbottom
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amsthm}			% Math packages
+\usepackage{bm}%This package defines commands to access bold math symbols
+\usepackage{graphicx}					% Enable pdflatex
+%============ front-matter ===================
+\newcommand{\BookTitle}{Centre National de la Recherche Scientifique}
+\newcommand{\Title}{%
+Programme de recherche: Une approche bio-mimétique de la vision comme processus prédictif
+}%
+\newcommand{\Resume}{%
+Mon programme de recherche s'articule autour de l'hypothèse que la dynamique de la vision est un processus prédictif. Cette hypothèse permet alors de construire une architecture innovante de calcul que nous appliquerons à un modèle du cortex visuel primaire. La démarche qui est suivie est de confronter directement ces modèles en testant leurs prédictions avec des expériences neurophysiologiques, notamment sur le caractère impulsionnel et parcimonieux du code neural. L'objectif est à la fois une meilleure compréhension des mécanismes neuraux dans les aires visuelles primaires mais aussi l'application de ces principes computationnels pour créer de nouveaux paradigmes computationnels en vision par ordinateur. En se focalisant sur cette approche bio-mimétique, l'ambition à long terme est de dépasser les limites des réseaux de neurones convolutionnels profonds actuels et créer une nouvelle génération de réseaux de neurones artificiels.
+}%
+\newcommand{\Keywords}{%
+Vision; Biomimetics; Predictive processes; Computational Neuroscience; Artificial Intelligence
+}%
+\newcommand{\SubTitle}{%
+Pour évaluation par les sections du Comité national}%
+\newcommand{\Author}{Laurent U.~Perrinet}%
+\newcommand{\Team}{\'Equipe NEural OPerations in TOpographies (NeOpTo)}%
+\newcommand{\Institute}{Institut de Neurosciences de la Timone}%
+\newcommand{\InstituteUMR}{UMR 7289, CNRS / Aix-Marseille Université}% 
+\newcommand{\Address}{27, Bd. Jean Moulin, 13385 Marseille Cedex 5, France}
+\newcommand{\Website}{https://laurentperrinet.github.io/}
+\newcommand{\Email}{Laurent.Perrinet@univ-amu.fr}
+%%%%%%%%%%%%%%%%%%
+%BIBLIOGRAPHY
+%%%%%%%%%%%%%%%%%%
+\usepackage[natbib=true,
+			bibencoding=utf8,
+%			encoding=utf8,
+			maxcitenames=7,
+			maxnames=7,
+			%minnames=3,
+			maxbibnames=7,
+            sortcites=true,
+            block=space,
+            backend=biber,
+%            doi=false,isbn=false,url=false,
+            citestyle=alphabetic,%authoryear-comp,
+            backref=true,
+%            bibstyle=alphabetic
+            ]{biblatex}%
+\addbibresource{../2020-07-06_Perrinet20PredictiveProcessing/Perrinet20PredictiveProcessing.bib}
+\addbibresource{~/quantic/blog/perrinet_curriculum-vitae_tex/LaurentPerrinet_publications.bib}
+\addbibresource{~/quantic/blog/perrinet_curriculum-vitae_tex/LaurentPerrinet_Presentations.bib}
+%\usepackage[normalem]{ulem} %for \uline{}
+%\DeclareNameFormat{given-family}{
+%  \ifgiveninits
+%  {\ifthenelse{\equal{\namepartfamily}{Toto}}
+%    {\uline{\namepartfamily\addspace\namepartgiveni\namepartsuffix}}
+%    {\namepartfamily\addspace\namepartgiveni\namepartsuffix}
+%    \ifthenelse{\value{listcount} < \value{liststop}}
+%    {\addcomma}
+%    {\ifthenelse{\ifmorenames}{~et \,al \adddot}}
+%    {}
+%  }
+%}
+% https://tex.stackexchange.com/questions/359311/how-to-underline-name-of-specific-authors-in-biblatex
+\usepackage{xpatch}
+\usepackage[normalem]{ulem}
+
+\newbox\savenamebox
+
+%\newbibmacro*{name:bbold}[2]{%
+%  \def\do##1{\iffieldequalstr{hash}{##1}{\bfseries\setbox\savenamebox\hbox\bgroup \listbreak}{}}%
+%  \dolistloop{\boldnames}%
+%}
+\newbibmacro*{name:bbold}[2]{%
+  \def\do##1{\iffieldequalstr{hash}{##1}{\setbox\savenamebox\hbox\bgroup \listbreak}{}}%
+  \dolistloop{\boldnames}%
+}
+
+\newbibmacro*{name:ebold}[2]{%
+  \def\do##1{\iffieldequalstr{hash}{##1}{\egroup\uline{\usebox\savenamebox}\listbreak}{}}%
+  \dolistloop{\boldnames}%
+}
+
+\xpatchbibmacro{name:given-family}{\usebibmacro{name:delim}{#2#3#1}}{\usebibmacro{name:delim}{#2#3#1}\begingroup\usebibmacro{name:bbold}{#1}{#2}}{}{}
+
+%\xpretobibmacro{name:given-family}{\begingroup\usebibmacro{name:bbold}{#1}{#2}}{}{}
+\xapptobibmacro{name:delim}{\begingroup\normalfont}{}{}
+
+\xapptobibmacro{name:given-family}{\usebibmacro{name:ebold}{#1}{#2}\endgroup}{}{}
+\xapptobibmacro{name:delim}{\endgroup}{}{}
+
+\newcommand*{\boldnames}{}
+\forcsvlist{\listadd\boldnames}{
+  {8fa031352aa34db95f5c1022358042a3}, % InBold
+  {01b588ba4e4ad753feae6c81709fc04b}} % Highlight
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% OPTIONAL MACRO FILES
+%\usepackage{fltpage}
+%\usepackage{tikz}
+%%%%%%%%%%%%%%%%%%
+%\usepackage{multicol}
+%\usepackage{nag}
+%============ graphics ===================
+\usepackage{graphicx}
+%============ hyperref ===================
+\usepackage[unicode,linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue,%pdfborder={0 0 0}
+]{hyperref}%
+\hypersetup{%
+unicode = true, %
+pdftitle={\Title},%
+pdfauthor={\Author < \Email > - \Institute, \InstituteUMR , \Address - \Website},%
+pdfsubject={\Title}%
+}%
+%\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue}
+%\hyphenpenalty=5000
+%\tolerance=1000
+%% DOCUMENT LAYOUT
+%\usepackage{geometry}
+%\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+%\setlength\parindent{0in}
+%% ---- MARGIN YEARS
+\newcommand{\years}[1]{\marginpar{\textit{\scriptsize #1}}}
+\providecommand{\natexlab}[1]{#1}
+%\providecommand{\url}[1]{\texttt{#1}}
+%\expandafter\ifx\csname urlstyle\endcsname\relax
+ \providecommand{\doi}[1]{doi: #1}%\else
+%  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+%\makepagestyle{chapter}
+%\makeoddfoot{chapter}{\addRevisionData}{\thepage}{}
+%\makeevenfoot{chapter}{\addRevisionData}{\thepage}{}
+\graphicspath{{./../2020-07-06_Perrinet20PredictiveProcessing/figures/}}%
+%\graphicspath{{figures/}}%,{./khoei13jpp/figures/},{./bednar/},{./kaplan13/},{./friston/},{../../sci/dyva/lup/Learning/mp_sparsenet/mp_sparsenet/results/20080502T174325}}%
+%%%%%%%%%%%% Her begynner selve dokumentet %%%%%%%%%%%%%%%
+
+% for units
+\usepackage{siunitx}%
+\newcommand{\ms}{\si{\milli\second}}%
+
+\usepackage{geometry}
+\geometry{hscale=0.66,vscale=0.8,centering}
+
+\begin{document}
+
+\begin{titlepage}
+
+\begin{center}
+%\vskip 2cm
+\emph{\Large \BookTitle }%
+\vskip 2cm
+{\Huge \Title}
+\vskip 1cm
+{\Large Laurent \textsc{Perrinet}}
+\vskip 1cm
+\emph{\Large \SubTitle }\\%
+%\begin{tabular}[t]{ccc}
+%\includegraphics[height=2.5cm]{logo_cnrs-UAM.png} &%\includegraphics[]{}
+%\includegraphics[height=2.5cm]{logo_int.png} %& %
+%%	\includegraphics[height=2.5cm]{U2_logo.pdf}
+%\end{tabular}
+\vskip 1cm
+\includegraphics[width=1.\textwidth]{/Users/laurentperrinet/quantic/libraries/slides.py/figures/troislogos.png}
+\vskip 1cm
+\begin{tabular}[t]{|c|}
+\hline
+\Team \\\hline
+\Institute \\ \InstituteUMR \\\hline
+\Address \\\hline
+\url{\Website}\\\hline
+\url{\Email}\\\hline
+\end{tabular}
+\vskip .5cm
+\vfill
+{\large 7 janvier 2020}
+\end{center}
+\end{titlepage}
+
+%%%%%%%%%%%% Endyet daag koepf dokumentet %%%%%%%%%%%%%%%
+\begin{abstract}
+% TODO :Dans un souci d’homogénéisation, la Section appréciera que chacun des 2 dossiers « Travaux antérieurs » et « Projet de recherche » compte entre 15 et 20 pages au maximum (taille de caractères 12, interligne 1,5).
+\Resume
+%
+%26/01
+%DR2
+%
+%26
+%	Cerveau, cognition, comportement
+
+%51/01
+%DR2
+%	Modélisation et analyse des données et des systèmes biologiques : approches informatiques, mathématiques et physiques
+%
+
+%Ce rapport est l'occasion de faire le point sur un travail scientifique depuis ma soutenance d'habilitation à diriger des recherches en 2014 en focalisant sur les cinq derniers semestres (de mars 2017 à septembre 2019).
+
+%La première partie résume ce parcours : l
+%Le Chapitre~\ref{chap:projet} présente mon programme de recherche, tandis que le chapitre~\ref{chap:cv} détaille mon CV et le chapitre~\ref{chap:publis} comprend la liste exhaustive de mes publications.
+
+%La dernière partie du manuscrit (Chapitre 6) présente enfin une description des perspectives de cette démarche scientifique.
+
+\end{abstract}
+\newpage
+\tableofcontents
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{projet}%
+\printbibliography
+\end{document} %
