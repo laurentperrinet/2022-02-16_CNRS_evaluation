@@ -2,8 +2,7 @@
 
 Le dossier comprenait:
 
-* [Programme de recherche: Une approche bio-mimétique de la vision comme processus prédictif
-](perrinet20cnrs.pdf)
+* [Programme de recherche: La vision comme processus prédictif: Une approche bio-mimétique.](perrinet20cnrs.pdf)
 * [Rapport d'activité scientifique sur les travaux effectués](perrinet20cnrs_done.pdf)
 * [Curriculum Vitæ détaillé](perrinet20cnrs_cv.pdf)
 * [Liste complète des publications](perrinet20cnrs_publications.pdf)
