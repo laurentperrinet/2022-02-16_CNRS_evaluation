@@ -1,10 +1,10 @@
-# Projet de recherche soumis le 2020-01-07 au concours de directeur de recherche CNRS (section 51)
+# Document soumis le 2022-02-16 pour évaluation (section 51)
 
-Le dossier comprenait:
+Le dossier comprend:
 
-* [Programme de recherche: La vision comme processus prédictif: Une approche bio-mimétique.](perrinet20cnrs.pdf)
-* [Rapport d'activité scientifique sur les travaux effectués](perrinet20cnrs_done.pdf)
-* [Curriculum Vitæ détaillé](perrinet20cnrs_cv.pdf)
-* [Liste complète des publications](perrinet20cnrs_publications.pdf)
+* [Programme de recherche: Une approche neuro-mimétique de la vision comme processus prédictif.](perrinet22cnrs.pdf)
+* [Rapport d'activité scientifique sur les travaux effectués](perrinet22cnrs_done.pdf)
+* [Curriculum Vitæ détaillé](perrinet22cnrs_cv.pdf)
+* [Liste complète des publications](perrinet22cnrs_publications.pdf)
 
 Les sources LaTeX sont disponibles, pour réutilisation sous [licence](LICENSE) libre.
