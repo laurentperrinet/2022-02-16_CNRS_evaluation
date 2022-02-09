@@ -4,7 +4,7 @@
 %!BIB TS-program = biber
 % -*- coding: UTF-8; -*-
 % vim: set fenc=utf-8
-\documentclass[11pt,french,a4paper,oneside]{article}%,twoside,draft
+\documentclass[10pt,french,a4paper,oneside]{article}%,twoside,draft
 %============ common ===================
 \usepackage[utf8]{inputenc}%
 \usepackage[official]{eurosym}
@@ -33,10 +33,10 @@ Curriculum Vit\ae\ détaillé
 }%
 \newcommand{\SubTitle}{%
 Pour évaluation par les sections du Comité national}%
-\newcommand{\Author}{Laurent U.~Perrinet}%
+\newcommand{\Author}{Laurent U~Perrinet}%
 \newcommand{\Team}{\'Equipe NEural OPerations in TOpographies (NeOpTo)}%
 \newcommand{\Institute}{Institut de Neurosciences de la Timone}%
-\newcommand{\InstituteUMR}{UMR 7289, CNRS / Aix-Marseille Université}%
+\newcommand{\InstituteUMR}{UMR 7289, CNRS~/~Aix-Marseille Université}%
 \newcommand{\Address}{27, Bd. Jean Moulin, 13385 Marseille Cedex 5, France}
 \newcommand{\Website}{https://laurentperrinet.github.io/}
 \newcommand{\Email}{Laurent.Perrinet@univ-amu.fr}
@@ -58,7 +58,7 @@ Pour évaluation par les sections du Comité national}%
             backref=true,
 %            bibstyle=alphabetic
             ]{biblatex}%
-\addbibresource{Perrinet20PredictiveProcessing.bib}
+% \addbibresource{Perrinet20PredictiveProcessing.bib}
 \addbibresource{~/metagit/blog/perrinet_curriculum-vitae_tex/LaurentPerrinet_Publications.bib}
 \addbibresource{~/metagit/blog/perrinet_curriculum-vitae_tex/LaurentPerrinet_Presentations.bib}
 %\usepackage[normalem]{ulem} %for \uline{}
@@ -141,8 +141,7 @@ pdfsubject={\Title}%
 %\makepagestyle{chapter}
 %\makeoddfoot{chapter}{\addRevisionData}{\thepage}{}
 %\makeevenfoot{chapter}{\addRevisionData}{\thepage}{}
-\graphicspath{{./../2020-07-06_Perrinet20PredictiveProcessing/figures/}}%
-%\graphicspath{{figures/}}%,{./khoei13jpp/figures/},{./bednar/},{./kaplan13/},{./friston/},{../../sci/dyva/lup/Learning/mp_sparsenet/mp_sparsenet/results/20080502T174325}}%
+
 %%%%%%%%%%%% Her begynner selve dokumentet %%%%%%%%%%%%%%%
 
 % for units
@@ -162,7 +161,7 @@ pdfsubject={\Title}%
 \vskip 2cm
 {\Huge \Title}
 \vskip 1cm
-{\Large Laurent \textsc{Perrinet}}
+{\Large Laurent U~\textsc{Perrinet}}
 \vskip 1cm
 \emph{\Large \SubTitle }\\%
 %\begin{tabular}[t]{ccc}
@@ -188,14 +187,15 @@ pdfsubject={\Title}%
 \end{titlepage}
 
 %%%%%%%%%%%% Endyet daag koepf dokumentet %%%%%%%%%%%%%%%
+
 \section{Curriculum Vit\ae\ }
 \subsection{Présentation rapide}%
-%\subsection{ Curriculum Vit\ae\ : Laurent U. Perrinet}%
+%\subsection{ Curriculum Vit\ae\ : Laurent U Perrinet}%
 %\begin{resume}
-\indent 46 ans, né le 23 Février 1973 à Talence (Gironde, France).  %\\
+\indent 48 ans, né le 23 Février 1973 à Talence (Gironde, France).  %\\
 
 \begin{itemize}
-\item Affiliation: Chargé de Recherche (CRCN, CNRS), \Team\ - \Institute\ (\InstituteUMR)
+\item Directeur de Recherche (DR2, CNRS), Affiliation: \Team\ - \Institute\ (\InstituteUMR)
 \item Adresse: \Address
 \item E-mail: \url{mailto:\Email}
 \item Téléphone: 04 91 32 40 44
@@ -208,27 +208,26 @@ pdfsubject={\Title}%
 %\vspace{.25in}
 \subsection*{Objectifs de Recherche}
 
-Mon objectif de recherche est d'étudier l'hypothèse selon laquelle on peut comprendre les liens entre la structure neurale et la fonction des systèmes sensoriels comme l'optimisation de leur adaptation aux statistiques des scènes naturelles par des processus de type prédictif.
+Mon objectif de recherche est d'étudier l'hypothèse selon laquelle on peut comprendre les liens entre la structure neurale, notamment l'arranegement topographique des neurones entre eux et la nature du signal nerveux, et la fonction des systèmes sensoriels comme l'optimisation de leur adaptation aux statistiques des scènes naturelles par des processus de type prédictif.
 
 Plus précisément, je vise à étendre la compréhension des facultés sensorielles et cognitives sous la forme de modèles de réseaux de neurones impulsionnels qui réalisent de façon efficace des algorithmes de  perception visuelle. En effet, les brèves impulsions du potentiel de membrane se propageant au fil des neurones sont une caractéristique universelle des systèmes nerveux et permettent de construire des modèles efficaces du traitement dynamique de l'information. Dans un but fonctionnel, je désire notamment implanter dans ces modèles des stratégies d'inférence grâce à des mécanismes d'apprentissage auto-organisés fixant les relations spatio-temporelles entre les neurones. Dans une démarche applicative, nous envisageons la création de nouveaux types d'algorithmes basés sur ces recherches.
 
 \subsection*{Résumé des travaux antérieurs et de leur impact scientifique}
-Mes travaux de thèse dirigés par Simon Thorpe et Manuel Samuelides ont permis d'explorer dans un cadre mathématique de nouveaux paradigmes de codage neural de type impulsionnel pour des images statiques~\citep{Perrinet03ieee} et en particulier comment ceux-ci peuvent être appris~\citep{Perrinet10shl}. Ceux-ci ont été étendus en collaboration avec Guillaume Masson à des modèles d'inférence statistique appliqués aux mouvements des yeux et à la boucle perception action~\citep{Simoncini12}. Un cadre théorique précis a été élaboré, sous le patronage de Karl Friston, pour tenir compte de la présence de délais temporels~\citep{PerrinetAdamsFriston14}. Actuellement, en collaboration avec Frédéric Chavane, j'étends des modèles dynamiques du traitement dynamique de scènes visuelles en mouvement~\citep{KhoeiMassonPerrinet17} dans des réseaux hiérarchiques~\citep{BoutinFranciosiniChavaneRuffierPerrinet19}.
-
+Mes travaux de thèse dirigés par Simon Thorpe et Manuel Samuelides ont permis d'explorer dans un cadre mathématique de nouveaux paradigmes de codage neural de type impulsionnel pour des images statiques~\citep{Perrinet03ieee} et en particulier comment ceux-ci peuvent être appris~\citep{Perrinet10shl}. Ceux-ci ont été étendus en collaboration avec Guillaume Masson à des modèles d'inférence statistique appliqués aux mouvements des yeux et à la boucle perception action~\citep{Simoncini12}. Un cadre théorique précis a été élaboré, sous le patronage de Karl Friston, pour tenir compte de la présence de délais temporels~\citep{PerrinetAdamsFriston14}. Actuellement, en collaboration avec Frédéric Chavane, j'étends des modèles dynamiques du traitement dynamique de scènes visuelles en mouvement~\citep{KhoeiMassonPerrinet17} dans des réseaux hiérarchiques~\citep{BoutinFranciosiniChavaneRuffierPerrinet20,Franciosini21}. Nous avons récemment mis en évidence le rôle de la précision dans ce traitement d'information~\citep{Ladret22} et qui nous permet de construire de nouveaux algorithmes neuromorphiques de type Spiking Neural Networks~\citep{Grimaldi22pami}. Une contribution de ces travaux est enfin d'apporter un regard nouveau sur la structure des réseaux neuraux, notamment dans les aires corticales visuelles~\citep{Chavane22}.
 
 \subsection*{Résumé quantitatif des contributions}
 
 \begin{itemize}
 
-\item  	46 publications dans les revues avec comité de lecture (dont 4 en révision, 16 en premier auteur, 12 en dernier auteur), avec 2313 citations, indice h$=21$ et  indice i10$=38$\footnote{Au 16 Février 2022, cf.~\url{https://scholar.google.com/citations?user=TVyUV38AAAAJ&hl=fr}},
-\item	102 publications dans des actes de congrès avec comité de lecture,
-\item	3 livres et 5 chapitres de livres,
-\item	44 conférences invitées (dont 19 dans des congrès internationaux),
-\item	4 thèses dirigées (Hugo Ladret, Angelo Franciosini, Victor Boutin, Mina Khoei),
-\item	4 Post-docs dirigés (Wahiba Taouali, Nicole Voges, 2 à venir),
-\item	3 thèses co-dirigées (Mansour Pour, JB Damasse, J. Kremkow),
-\item	1 contrat en PI local ($150 k$\euro{}), 1 AAP ($10 k$\euro{}), 3 bourses de thèse obtenues,
-\item	12 contrats en collaborateur (dont 7 ANRs).
+\item  	$51$ publications dans les revues avec comité de lecture (dont $4$ en révision, $16$ en premier auteur, $15$ en dernier auteur), avec un total de $2916$ citations, indice h$=26$ et  indice i10$=46$\footnote{Au 16 Février 2022, cf.~\url{https://scholar.google.com/citations?user=TVyUV38AAAAJ&hl=fr}},
+\item	$120$ publications dans des actes de congrès avec comité de lecture,
+\item	$4$ livres et $6$ chapitres de livres,
+\item	$53$ conférences invitées (dont 19 dans des congrès internationaux),
+\item	$3$ thèses en cours de direction (Hugo Ladret, Jean-Nicolas Jérémie, Antoine Grimaldi) et $3$ finalisées (Angelo Franciosini, Victor Boutin, Mina Khoei),
+\item	$4$ Post-docs dirigés (Wahiba Taouali, Nicole Voges, Alberto Vergani, 1 à venir),
+\item	$4$ thèses co-dirigées (A Gruel, Mansour Pour, JB Damasse, J. Kremkow),
+\item	$1$ contrat en PI local ($150 k$\euro{}), 1 AAP ($100 k$\euro{}), $3$ bourses de thèse obtenues,
+\item	$20$ contrats en collaborateur (dont $12$ ANRs).
 
 \end{itemize} %
 
@@ -310,8 +309,10 @@ pour l'utili\-sation d'un code basé sur le rang d'activation des neurones. \ite
 \subsection{Expérience scientifique professionnelle}
 %%%%%%%%%% CNRS %%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace*{.1cm}
+	\textbf{Directeur de Recherche (DR2)} (section CID51), INT/CNRS, Marseille  \years{\textbf{2020-\ldots}} \\
 
-	\textbf{Chargé de Recherche Classe Normale}, INT/CNRS, Marseille  \years{\textbf{2019-\ldots}} \\
+
+	\textbf{Chargé de Recherche Classe Normale}, INT/CNRS, Marseille  \years{\textbf{2019-2020}} \\
 	 % (\emph{sous réserve de financement})
 	 Au 1er janvier 2019, j'ai intégré l'équipe \href{http://www.int.univ-amu.fr/spip.php?page=equipe&equipe=NeOpTo&lang=en}{NeOpTo} de Frédéric Chavane (DR, CNRS). J'implémente les modèles prédictifs dans des architectures bio-mimétiques.
 
@@ -323,7 +324,7 @@ pour l'utili\-sation d'un code basé sur le rang d'activation des neurones. \ite
 	%\item[]
 \textbf{Mission longue} \years{10/2010-01/2012}  Karl Friston's theoretical neurobiology group (The Wellcome Trust Centre for Neuroimaging, University College London, London, UK). Collaboration avec Karl Friston sur l'application de modèles d'énergie libre aux mouvements oculaires.
 
-	\textbf{Chargé de Recherche grade 2}, INCM/CNRS, Marseille  \years{\textbf{2004-2012}} \\
+	\textbf{Chargé de Recherche grade 2} (section 7), INCM/CNRS, Marseille  \years{\textbf{2004-2012}} \\
 	 Sous la conduite de Guillaume Masson à  l'INCM à  Marseille, j'ai étudié des modèles spatio-temporels d'inférence dans des scènes naturelles en application de la compréhension des mouvements oculaires.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% post-doc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -336,28 +337,32 @@ pour l'utili\-sation d'un code basé sur le rang d'activation des neurones. \ite
 
 \subsection{Encadrement de thèse et post-doctorants} %
 
-
-
-Sur des contrats déjà financés, nous prévoyons les recrutements suivants:
-\begin{itemize}
-	\item \href{https://laurentperrinet.github.io/post/2019-10-28_postdoc-position/}{Post-Doc, 18 mois} 	``Postdoc position on Visual computations using Spatio-temporal Diffusion Kernels and Traveling Waves'' (04/2020-10/2021)
-	\item \href{https://laurentperrinet.github.io/grant/aprovis-3-d/}{Post-Doc, 30 mois} 	``Analog computing for artificial intelligence using Spiking Neural Networks (SNNs).'' (10/2020-04/2023)
-\end{itemize}
+%
+%
+% Sur des contrats déjà financés, nous prévoyons les recrutements suivants:
+% \begin{itemize}
+% 	\item \href{https://laurentperrinet.github.io/post/2019-10-28_postdoc-position/}{Post-Doc, 18 mois} 	``Postdoc position on Visual computations using Spatio-temporal Diffusion Kernels and Traveling Waves'' (04/2020-10/2021)
+% 	\item \href{https://laurentperrinet.github.io/grant/aprovis-3-d/}{Post-Doc, 30 mois} 	``Analog computing for artificial intelligence using Spiking Neural Networks (SNNs).'' (10/2020-04/2023)
+% \end{itemize}
 
 
 Actuellement, j'ai l'occasion d'encadrer trois doctorants %et un post doctorant
-en tant qu'encadrant principal: %. À noter qu'\href{https://laurentperrinet.github.io/authors/hugo-ladret/}{Hugo Ladret} vient de commencer sa thèse sur un contrat dont je suis investigateur principal.
+en tant qu'encadrant principal:
 \begin{itemize}
-	\item \href{https://laurentperrinet.github.io/authors/victor-boutin/}{Victor Boutin} 	``Controlling an aerial robot by human semaphore gestures using a bio-inspired neural network'' (PhD, bourse AMIDEX, 12/2016-03/2020)
-	\item \href{https://laurentperrinet.github.io/authors/angelo-franciosini/}{Angelo Franciosini} ``Trajectories in natural images and the sensory processing of contours'' (PhD, bourse PhD program, 2017 / 2021)
-	\item \href{https://laurentperrinet.github.io/authors/hugo-ladret/}{Hugo Ladret} ``A multiscale cortical model to account for orientation selectivity in natural-like stimulations''  (direction, bourse AMU, co-direction avec Christian Casanova, en cotutelle avec l'Université de Montréal, 2019 / 2022)
+	\item \href{https://laurentperrinet.github.io/author/jean-nicolas-jeremie/}{Jean-Nicolas Jérémie} 	``Bio-mimetic agile aerial robots flying in real-life conditions'' (PhD, bourse AgileNeuroBot (ANR-20-CE23-0021), 10/2021-09/2024)
+	\item \href{https://laurentperrinet.github.io/author/antoine-grimaldi/}{Antoine Grimaldi} ``Ultra-fast vision using Spiking Neural Networks'' (PhD, APROVIS3D grant (ANR-19-CHR3-0008-03), 2020 / 2023)
+	\item \href{https://laurentperrinet.github.io/authors/hugo-ladret/}{Hugo Ladret} ``A multiscale cortical model to account for orientation selectivity in natural-like stimulations''  (direction, bourse AMU, co-direction avec Christian Casanova, en cotutelle avec l'Université de Montréal, 2019 / 2023)
 \end{itemize}
 
 %TODO : étudiants en Master
+%TODO : IE Chloé Pasturel
 
 
-Précédemment, j'ai eu l'occasion d'encadrer des étudiants en direction de thèse, en post-doctorat ou en co-direction de thèse : %, notamment sur l'ANR \href{https://laurentperrinet.github.io/project/anr-rem/}{REM} et le contrat \href{https://laurentperrinet.github.io/project/pace-itn/}{PACE-ITN}: % FACETS-ITN:
+Précédemment, j'ai eu l'occasion d'encadrer des étudiants en direction de thèse, en post-doctorat ou en co-direction de thèse : %, notamment sur l'ANR \href{https://laurentperrinet.github.io/project/anr-rem/}{REM} et le contrat \href{https://laurentperrinet.github.io/grant/pace-itn/}{PACE-ITN}: % FACETS-ITN:
 \begin{itemize}
+	\item \href{https://laurentperrinet.github.io/author/alberto-arturo-vergani/}{Alberto Arturo Vergani} 	``Visual computations using Spatio-temporal Diffusion Kernels and Traveling Waves'' (Post-Doc, 04/2020 - 09/2021)
+	\item \href{https://laurentperrinet.github.io/authors/victor-boutin/}{Victor Boutin} 	``Controlling an aerial robot by human semaphore gestures using a bio-inspired neural network'' (PhD, bourse AMIDEX, 12/2016-03/2020)
+	\item \href{https://laurentperrinet.github.io/authors/angelo-franciosini/}{Angelo Franciosini} ``Trajectories in natural images and the sensory processing of contours'' (PhD, bourse PhD program, 2017 / 2021)
 	\item \href{https://laurentperrinet.github.io/authors/kiana-mansour-pour/}{Kiana Mansour Pour} 	``Predicting and selecting sensory events: inference for smooth eye movements'' (PhD, 2015 - 2018)
 	\item \href{https://laurentperrinet.github.io/authors/jean-bernard-damasse/}{Jean-Bernard Damasse} 	``Smooth pursuit eye movements and learning: Role of motion probability and reinforcement contingencies'' (PhD, 2014-2017)
 	\item \href{https://laurentperrinet.github.io/authors/mina-a-khoei/}{Mina A Khoei} 	``Emerging properties in a neural field model implementing probabilistic prediction'' (PhD, 2011-2014)
@@ -371,17 +376,19 @@ Précédemment, j'ai eu l'occasion d'encadrer des étudiants en direction de th�
 
 \subsection{Participation à des activités grand public} %
 
-Je participe ou initie de nombreuses rencontres avec le grand public (cf. \url{https://laurentperrinet.github.io/project/tout-public/}) et en particulier pour l'année 2019:
+Je participe ou initie de nombreuses rencontres avec le grand public (cf. \url{https://laurentperrinet.github.io/project/tout-public/}) et récemment:
 
 \begin{itemize}
 
+	\item Article de dissemination sur le \href{https://laurentperrinet.github.io/publication/perrinet-21-hasard/}{hasard} dans ``The conversation'' ($6200$ lectures au 16 Février 2022).
+
 	\item Participation à une présentation ``stand up'' des NeuroStories : conférence invitée  ``\href{https://laurentperrinet.github.io/post/2019-10-07_neurostories/}{Le temps des sens}''.
 
-	\item Article de dissemination sur le \href{https://laurentperrinet.github.io/publication/perrinet-19-temps/}{temps dans la perception} dans ``The conversation'' (4600 lectures au 16 Février 2022).
+	\item Article de dissemination sur le \href{https://laurentperrinet.github.io/publication/perrinet-19-temps/}{temps dans la perception} dans ``The conversation'' ($11600$ lectures au 16 Février 2022).
 
 	\item Participation à des activités de dissémination aux des Journées de Neurologie de Langue Française (JNLF) : conférence invitée  ``\href{https://laurentperrinet.github.io/talk/2019-04-18-jnlf/}{Des illusions aux hallucinations visuelles: une porte sur la perception}".
 
-	\item Article de dissemination sur les \href{https://theconversation.com/illusions-et-hallucinations-visuelles-une-porte-sur-la-perception-117389}{illusions visuelles} dans ``The conversation'' (7000 lectures au 16 Février 2022).
+	\item Article de dissemination sur les \href{https://theconversation.com/illusions-et-hallucinations-visuelles-une-porte-sur-la-perception-117389}{illusions visuelles} dans ``The conversation'' ($12500$ lectures au 16 Février 2022).
 
 	\item Participation à des activités grand public: \href{https://laurentperrinet.github.io/talk/2019-01-10-polly-maggoo/}{Rencontre avec les collégiens marseillais}, \href{https://laurentperrinet.github.io/talk/2018-10-10-polly-maggoo/}{fête de la science}, participation à un jury autour de \href{https://laurentperrinet.github.io/talk/2017-11-17-festival-interferences/}{la société, la science et le cinéma}.
 
@@ -405,6 +412,7 @@ Je participe ou initie de nombreuses rencontres avec le grand public (cf. \url{h
 En parallèle avec les actions grand public, je développe une collaboration active avec un artiste plasticien, \href{https://laurentperrinet.github.io/authors/etienne-rey/}{Etienne Rey} (friche Belle de Mai, Marseille, voir~\url{https://laurentperrinet.github.io/project/art-science/}). Nous avons produit plusieurs actions, entre autres:
 
 \begin{itemize}
+	\item ``\href{https://laurentperrinet.github.io/post/2021-10-04_interstices/}{Horizon Faille}'' – interstices, Caen \years{2021},
 	\item ``\href{https://laurentperrinet.github.io/post/2019-06-22_ardemone/}{Sans gravité – une poétique de l’air}'' – Ardenome à Avignon\years{2019},
 	\item ``\href{https://laurentperrinet.github.io/post/2018-09-09_artorama/}{Instabilité (series)}''\years{2018} @ Art-O-Rama, Installation avec sérigraphie, dessin mural, lumière,
 %	\item \href{https://laurentperrinet.github.io/talk/2018-01-25-meetup-neuronautes/}{Meetup Art et Neurosciences} : conférence avec des étudiants de neurosciences.
@@ -463,43 +471,47 @@ J'ai eu l'occasion de collaborer sur plusieurs contrats de niveau national (ANR)
 
 Actuellement, je suis impliqué dans les contrats suivants
 \begin{itemize}
+\item soit à titre d'investigateur principal :
+\begin{itemize}
+	\item  \href{https://laurentperrinet.github.io/grant/anr-anb/}{ANR AgileNeuroBot} (Co-ordinateur principal): ``Robots aériens agiles bio-mimetiques pour le vol en conditions réelles'' (2021/2024)
+	\item  \href{https://laurentperrinet.github.io/grant/aprovis-3-d/}{APROVIS3D}: ``Aprovis3D: Event-Based Artificial Inteligence'' (2019--2023, coordination globale du projet par Jean Martinet, université de Nice).
+ 	\item \href{https://laurentperrinet.github.io/grant/anr-priosens/}{ANR PRIOSENS} (2021/2024): ``Modelling behavioural and neuronal data within the active inference framework'' avec Anna Montagnini,
+\end{itemize}
 \item soit à titre de collaborateur :
 
 \begin{itemize}
- \item \href{https://laurentperrinet.github.io/project/anr-horizontal-v1/}{ANR Horizontal-V1} (2017--2021): ``Connectivité Horizontale et Prédiction de Cohérences dans l’Intégration de Contour'' avec Yves Fregnac et Frédéric Chavane,
- \item \href{https://laurentperrinet.github.io/project/anr-causal/}{ANR CausaL} (2017--2021): ``Cognitive Architectures of  Causal  Learning'' avec Andrea Brovelli,
- \item \href{https://laurentperrinet.github.io/project/anr-predicteye/}{ANR PredictEye} (2018--2022) : ``Mapping and predicting trajectories for eye movements'', avec Guillaume Masson.
+ \item \href{https://laurentperrinet.github.io/grant/anr-shootingstar/}{ANR ShootingStar} (2021/2024) avec Frédéric Chavane,
+ \item \href{https://laurentperrinet.github.io/grant/anr-aces/}{ANR ACES} (2021/2024): ``CAssignment of credit and constraints on eye movement learning'' avec Anna Montagnini,
+ \item \href{https://laurentperrinet.github.io/grant/anr-predicteye/}{ANR RubinVase} (2021/2024) avec \href{https://scholar.google.com/citations?user=22p8Wc4AAAAJ}{Dario Prandi} et \href{https://scholar.google.com/citations?user=dRVPKmkAAAAJ}{Luca Calatroni}.
 \end{itemize}
 
-\item soit à titre d'investigateur principal :
-\begin{itemize}
-	\item  \href{https://laurentperrinet.github.io/project/doc-2-amu/}{PhD DOC2AMU}: An Excellence Fellowship, H2020 (Excellence Scientifique) : Actions Marie Sklodowska-Curie (IF, ITN, RISE, COFUND) (2016--2019)
-	\item \href{https://laurentperrinet.github.io/project/phd-icn/}{PhD ICN} A grant from the Ph.D. program in Integrative and Clinical Neuroscience (PhD position, 2017 / 2021).
-	\item Contrats Doctoraux d’Aix-Marseille Université de 2019 (PhD position, 2019--2022).
-	\item  \href{https://laurentperrinet.github.io/project/spikeai/}{SpikeAI}: laureat du Défi Biomimétisme (2019) ``Algorithmes événementiels d’Intelligence Artificielle / Event-Based Artificial Inteligence'' (2019).
-	\item  \href{https://laurentperrinet.github.io/project/aprovis3D/}{aprovis3D}: ``Aprovis3D: Event-Based Artificial Inteligence'' (2019--2023, coordination globale du projet par Jean Martinet, université de Nice).
-
-\end{itemize}
 
 \end{itemize}
 
 Précédemment, j'ai eu l'occasion de collaborer sur les contrats suivants :
 \begin{itemize}
-	\item \href{https://laurentperrinet.github.io/project/pace-itn/}{PACE-ITN}: ITN Marie Curie network (2015--2019) avec Anna Montagnini.
+	\item  \href{https://laurentperrinet.github.io/grant/doc-2-amu/}{PhD DOC2AMU}: An Excellence Fellowship, H2020 (Excellence Scientifique) : Actions Marie Sklodowska-Curie (IF, ITN, RISE, COFUND) (2016--2019)
+	\item \href{https://laurentperrinet.github.io/grant/phd-icn/}{PhD ICN} A grant from the Ph.D. program in Integrative and Clinical Neuroscience (PhD position, 2017 / 2021).
+	\item  \href{https://laurentperrinet.github.io/grant/spikeai/}{SpikeAI}: laureat du Défi Biomimétisme (2019) ``Algorithmes événementiels d’Intelligence Artificielle / Event-Based Artificial Inteligence'' (2019).
+	 \item \href{https://laurentperrinet.github.io/grant/anr-horizontal-v1/}{ANR Horizontal-V1} (2017--2021): ``Connectivité Horizontale et Prédiction de Cohérences dans l’Intégration de Contour'' avec Yves Fregnac et Frédéric Chavane,
+	 \item \href{https://laurentperrinet.github.io/grant/anr-causal/}{ANR CausaL} (2017--2021): ``Cognitive Architectures of  Causal  Learning'' avec Andrea Brovelli,
+	 \item \href{https://laurentperrinet.github.io/grant/anr-predicteye/}{ANR PredictEye} (2018--2022) : ``Mapping and predicting trajectories for eye movements'', avec Guillaume Masson.
+	\item \href{https://laurentperrinet.github.io/grant/pace-itn/}{PACE-ITN}: ITN Marie Curie network (2015--2019) avec Anna Montagnini.
 	\item \href{https://laurentperrinet.github.io/grant/anr-bala-v1/}{ANR BalaV1}: Balanced states in area V1 (2013--2016) avec Frédéric Chavane,
-	\item \href{https://laurentperrinet.github.io/project/anr-rem/}{ANR REM} : Renforcement et mouvements oculaires (2013--2016) avec Anna Montagnini,
-	\item \href{https://laurentperrinet.github.io/project/anr-speed/}{ANR SPEED}: Traitement de la vitesse dans les scènes visuelles naturelles (2013--2016)  avec Guillaume Masson,
-	\item \href{https://laurentperrinet.github.io/project/anr-trajectory/}{ANR TRAJECTORY} (2016--2019) avec Frédéric Chavane,
+	\item \href{https://laurentperrinet.github.io/grant/anr-rem/}{ANR REM} : Renforcement et mouvements oculaires (2013--2016) avec Anna Montagnini,
+	\item \href{https://laurentperrinet.github.io/grant/anr-speed/}{ANR SPEED}: Traitement de la vitesse dans les scènes visuelles naturelles (2013--2016)  avec Guillaume Masson,
+	\item \href{https://laurentperrinet.github.io/grant/anr-trajectory/}{ANR TRAJECTORY} (2016--2019) avec Frédéric Chavane,
 	\item  \href{https://laurentperrinet.github.io/grant/brain-scales/}{BrainScaleS}: Brain-inspired multiscale computation in neuromorphic hybrid systems (2011-2014) avec Guillaume Masson,
-	\item \href{https://laurentperrinet.github.io/project/anr-rem/}{CODDE}: understanding brain and behaviour (2008--2012) avec Guillaume Masson,
-	\item \href{https://laurentperrinet.github.io/project/anr-rem/}{FACETS-ITN}: From Neuroscience to neuro-inspired computing (2010--2013) avec Guillaume Masson,
-	\item \href{https://laurentperrinet.github.io/project/anr-rem/}{FACETS}: Fast Analog Computing with Emergent Transient States (2006--2010) avec Guillaume Masson.
+	\item \href{https://laurentperrinet.github.io/grant/codde/}{CODDE}: understanding brain and behaviour (2008--2012) avec Guillaume Masson,
+	\item \href{https://laurentperrinet.github.io/grant/facets-itn/}{FACETS-ITN}: From Neuroscience to neuro-inspired computing (2010--2013) avec Guillaume Masson,
+	\item \href{https://laurentperrinet.github.io/grant/facets/}{FACETS}: Fast Analog Computing with Emergent Transient States (2006--2010) avec Guillaume Masson.
 \end{itemize}
 
 
 \subsection{Développements de logiciels} %
 
-Nous développons plusieurs lignes de recherche pour appliquer nos résultats à des problèmes concrets, sous forme de logiciels \emph{open source}:
+Nous développons plusieurs lignes de recherche pour appliquer nos résultats à des problèmes concrets, sous forme de logiciels \href{https://laurentperrinet.github.io/project/open-science/}{open source}:
+
 \subsubsection{Mouvements des yeux et mouvement} %
 \begin{itemize}
 
@@ -513,7 +525,7 @@ Nous développons plusieurs lignes de recherche pour appliquer nos résultats à
 \subsubsection{Biologically-Inspired Computer Vision} %
 \begin{itemize}
 	\item \href{https://github.com/laurentperrinet/openRetina}{openRetina}: caméra événementielle minimale,
-%	\item  collaboration avec Gabriel Crist\'obal (CSIC, Madrid), par exemple pour la classification d'emphysèmes~\citep{Nava13} % avec "Rodrigo Nava, J. Victor Marcos, Boris Escalante-Ram\'\irez, Gabriel Crist\'obal, Laurent U. Perrinet, Ra\'ul S. J. Estépar. Advances in Texture Analysis for Emphysema Classification. 8259:214--221, 2013"
+%	\item  collaboration avec Gabriel Crist\'obal (CSIC, Madrid), par exemple pour la classification d'emphysèmes~\citep{Nava13} % avec "Rodrigo Nava, J. Victor Marcos, Boris Escalante-Ram\'\irez, Gabriel Crist\'obal, Laurent U Perrinet, Ra\'ul S. J. Estépar. Advances in Texture Analysis for Emphysema Classification. 8259:214--221, 2013"
 %	\item  collaboration avec I3S (Sophia-Antipolis) pour la classification d'images industrielles en suivant la méthodolgie développée dans~\citep{PerrinetBednar15},
 	\item \href{http://github.com/bicv/SparseHebbianLearning }{SparseHebbianLearning }: apprentissage non-supervisé d'images naturelles~\citep{Perrinet10shl,Perrinet19hulk},
 	\item \href{http://github.com/bicv/SLIP}{Simple Library for Image Processing}: techniques de traitement de l'image, utilisé notamment dans~\citep{Perrinet15bicv,Ravello16droplets,PerrinetBednar15,Perrinet15eusipco,Perrinet16EUVIP},
@@ -532,7 +544,7 @@ Je participe à différentes initiatives afin de promouvoir les pratiques du log
 
 \subsection{Expertise scientifique} %
 
-D'autre part, je participe occasionellement au développement de différentes entreprise de type ``start-up'' dans le cadre d'une autorisation de cumul:
+J'ai participé au développement de différentes entreprise de type ``start-up'' dans le cadre d'une autorisation de cumul:
 
 \begin{itemize}
 	\item en 2019-2020 : missions d'expertise scientifique avec Arnaud Malvache à \href{https://unistellaroptics.com/}{Unistellar}, Marseille.
@@ -548,14 +560,12 @@ D'autre part, je participe occasionellement au développement de différentes en
 %vos autres responsabilités ou activités collectives au sein du CNRS ou plus largement (management de la recherche, fonctions ou missions d?intérêt général, participation à des conseils scientifiques et autres commissions, participation à des comités de lecture, etc.) ;
 %autres.
 
+Depuis Janvier 2022, je suis nommé à la \href{https://www.cnrs.fr/comitenational/cid/cid.php?cid=51}{commission interdisciplinaire (CID) 51} : Modélisation mathématique, informatique et physique pour les sciences du vivant.
 
 Outre ces responsabilités scientifiques, je participe à l'animation scientifique sous d'autres formes. Tout d'abord pour l'évaluation de la recherche par les chercheurs en tant que membre d'un comité éditorial ou en temps que relecteur. Je développe aussi des collaborations internationales et en même temps dans la vie sociale de l'organisme:
 
 
 \begin{itemize}
-
-%	\item Collaboration dans le cadre de l'ANR \href{https://laurentperrinet.github.io/project/anr-horizontal-v1/}{HORIZONTAL V1} sur un modèle intégré d'étude du code neural dans la rétine de rongeurs:  mise en place de stimuli adaptés sous forme de textures synthétiques aléatoires, enregistrements in vitro (Organisme: Institute of Complex Systems of Valparaiso, Chili).
-%
 
 	\item Scientific reports (Nature group) Membre du comité éditorial
 
@@ -568,6 +578,6 @@ Outre ces responsabilités scientifiques, je participe à l'animation scientifiq
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
+%\newpage
 \printbibliography
 \end{document} %
