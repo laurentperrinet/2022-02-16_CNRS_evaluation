@@ -58,7 +58,7 @@ Pour évaluation par les sections du Comité national}%
             backref=true,
 %            bibstyle=alphabetic
             ]{biblatex}%
-% \addbibresource{Perrinet20PredictiveProcessing.bib}
+\addbibresource{Perrinet20PredictiveProcessing.bib}
 \addbibresource{~/metagit/blog/perrinet_curriculum-vitae_tex/LaurentPerrinet_Publications.bib}
 \addbibresource{~/metagit/blog/perrinet_curriculum-vitae_tex/LaurentPerrinet_Presentations.bib}
 %\usepackage[normalem]{ulem} %for \uline{}
@@ -115,6 +115,7 @@ Pour évaluation par les sections du Comité national}%
 %\usepackage{nag}
 %============ graphics ===================
 \usepackage{graphicx}
+\graphicspath{{./figures/}}%
 %============ hyperref ===================
 \usepackage[unicode,linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue,%pdfborder={0 0 0}
 ]{hyperref}%
@@ -147,7 +148,8 @@ pdfsubject={\Title}%
 % for units
 \usepackage{siunitx}%
 \newcommand{\ms}{\si{\milli\second}}%
-
+\newcommand{\m}{\si{\meter}}%
+\newcommand{\s}{\si{\second}}%
 \usepackage{geometry}
 \geometry{hscale=0.66,vscale=0.8,centering}
 
@@ -343,7 +345,8 @@ Perception, vision, détection du mouvement. Calcul parallèle événementiel, �
 \newpage
 \section{Rapport d’activité} %{\small(journaux à  comité de lecture)}}
 
-% \input{perrinet22cnrs_done}
+\input{perrinet22cnrs_done}
+
 \subsection{Productions scientifiques sélectionnées}
 
 Je présente ici un choix de 10 productions scientifiques pour les 10 derniers
@@ -436,8 +439,8 @@ En parallèle avec les actions grand public, je développe une collaboration act
 	\item ``\href{https://laurentperrinet.github.io/post/2018-09-09_artorama/}{Instabilité (series)}''\years{2018} @ Art-O-Rama, Installation avec sérigraphie, dessin mural, lumière,
 %	\item \href{https://laurentperrinet.github.io/talk/2018-01-25-meetup-neuronautes/}{Meetup Art et Neurosciences} : conférence avec des étudiants de neurosciences.
 	\item projet ``\href{https://laurentperrinet.github.io/post/2018-04-10_trames/}{TRAMES}'' présentation à la Fondation Vasarely (Aix)\years{2016},
-	\item projet ``\href{https://laurentperrinet.github.io/post/2016-06-02_elasticite/}{ELASTICITE}''\years{2015} présentation à la Fondation Vasarely (Aix), au 104 (Paris),
-	\item projet ``\href{https://laurentperrinet.github.io/post/2013-10-10_tropique/}{TROPIQUE}'', label "Marseille-Provence capitale européenne de la culture 2013" Conseil scientifique : Collaboration artistique avec\years{2011-2013} le plasticien \'Etienne Rey en préparation de Marseille MPM capitale de la culture européenne 2013. Résidence à l'IMERA (Marseille), présentation aux festivals d'Enghien-les-bains et Ososphère (Strasbourg). Organisation de l'installation \years{Juin 2013}de l'\oe uvre sur le site de l'INT. Exposition de l'installation à la fondation\years{Octobre 2013} Vasarely (Aix-en-Provence).
+	% \item projet ``\href{https://laurentperrinet.github.io/post/2016-06-02_elasticite/}{ELASTICITE}''\years{2015} présentation à la Fondation Vasarely (Aix), au 104 (Paris),
+	% \item projet ``\href{https://laurentperrinet.github.io/post/2013-10-10_tropique/}{TROPIQUE}'', label "Marseille-Provence capitale européenne de la culture 2013" Conseil scientifique : Collaboration artistique avec\years{2011-2013} le plasticien \'Etienne Rey en préparation de Marseille MPM capitale de la culture européenne 2013. Résidence à l'IMERA (Marseille), présentation aux festivals d'Enghien-les-bains et Ososphère (Strasbourg). Organisation de l'installation \years{Juin 2013}de l'\oe uvre sur le site de l'INT. Exposition de l'installation à la fondation\years{Octobre 2013} Vasarely (Aix-en-Provence).
 \end{itemize}
 
 
@@ -460,22 +463,22 @@ J'ai récemment pris part à une école d'été organisée en janvier 2019 par l
 
 \end{itemize}
 
-
-Cours magistraux de Neurosciences Computationnelles \years{2015} dans le cadre du programme de thèse Marseillais en Neurosciences \url{http://2015-12-08_cours-NeuroComp}. Ces cours seront renouvelés en 2017.
-
-\begin{itemize}
-	\item An introduction to the field of Computational Neuroscience ,
-	\item Decoding of feature selectivity in neural activity: Concrete applications in visual data
-\end{itemize}
-
-
-J'ai aussi pris par récemment à une école d'été organisée par le centre de neurosciences computationnelles de Valparaiso au Chili. Les thèmes abordés au cours de cette école étaient:
-\begin{itemize}
-	\item compensation des délais \url{2017-01-18_LACONEU},
-	\item codage des images \url{2017-01-19_LACONEU}
-	\item modélisation Bayesienne \url{2017-01-20_LACONEU}
-
-\end{itemize}
+%
+% Cours magistraux de Neurosciences Computationnelles \years{2015} dans le cadre du programme de thèse Marseillais en Neurosciences \url{http://2015-12-08_cours-NeuroComp}. Ces cours seront renouvelés en 2017.
+%
+% \begin{itemize}
+% 	\item An introduction to the field of Computational Neuroscience ,
+% 	\item Decoding of feature selectivity in neural activity: Concrete applications in visual data
+% \end{itemize}
+%
+%
+% J'ai aussi pris par récemment à une école d'été organisée par le centre de neurosciences computationnelles de Valparaiso au Chili. Les thèmes abordés au cours de cette école étaient:
+% \begin{itemize}
+% 	\item compensation des délais \url{2017-01-18_LACONEU},
+% 	\item codage des images \url{2017-01-19_LACONEU}
+% 	\item modélisation Bayesienne \url{2017-01-20_LACONEU}
+%
+% \end{itemize}
 
 \section{Transfert technologique, relations industrielles et valorisation} %
 %Vous présenterez, pour les 5 ou 10 derniers semestres :
@@ -526,50 +529,50 @@ Précédemment, j'ai eu l'occasion de collaborer sur les contrats suivants duran
 	% \item \href{https://laurentperrinet.github.io/grant/facets/}{FACETS}: Fast Analog Computing with Emergent Transient States (2006--2010) avec Guillaume Masson.
 \end{itemize}
 
-%
-% \subsection{Développements de logiciels} %
-%
-% Nous développons plusieurs lignes de recherche pour appliquer nos résultats à des problèmes concrets, sous forme de logiciels \href{https://laurentperrinet.github.io/project/open-science/}{open source}:
-%
-% \subsubsection{Mouvements des yeux et mouvement} %
-% \begin{itemize}
-%
-% 	\item \href{https://github.com/invibe/AnEMo}{AnEMo} : traitement du signal pour l'analyse des mouvements des yeux~\citep{Pasturel18anemo},
-% 	\item \href{http://github.com/NeuralEnsemble/MotionClouds}{MotionClouds}: génération de textures pour la perception du mouvement~\citep{Sanz12,Vacher15nips,Vacher16},
-% 	\item \href{https://github.com/laurentperrinet/LeCheapEyeTracker}{LeCheapEyeTracker} -- \url{https://github.com/laurentperrinet/CatchTheEye} : Oculomètre minimal utilisant l'apprentissage profond;
-% \end{itemize}
-%
-%
-%
-% \subsubsection{Biologically-Inspired Computer Vision} %
-% \begin{itemize}
-% 	\item \href{https://github.com/laurentperrinet/openRetina}{openRetina}: caméra événementielle minimale,
-% %	\item  collaboration avec Gabriel Crist\'obal (CSIC, Madrid), par exemple pour la classification d'emphysèmes~\citep{Nava13} % avec "Rodrigo Nava, J. Victor Marcos, Boris Escalante-Ram\'\irez, Gabriel Crist\'obal, Laurent U Perrinet, Ra\'ul S. J. Estépar. Advances in Texture Analysis for Emphysema Classification. 8259:214--221, 2013"
-% %	\item  collaboration avec I3S (Sophia-Antipolis) pour la classification d'images industrielles en suivant la méthodolgie développée dans~\citep{PerrinetBednar15},
-% 	\item \href{http://github.com/bicv/SparseHebbianLearning }{SparseHebbianLearning }: apprentissage non-supervisé d'images naturelles~\citep{Perrinet10shl,Perrinet19hulk},
-% 	\item \href{http://github.com/bicv/SLIP}{Simple Library for Image Processing}: techniques de traitement de l'image, utilisé notamment dans~\citep{Perrinet15bicv,Ravello16droplets,PerrinetBednar15,Perrinet15eusipco,Perrinet16EUVIP},
-% 	\item \href{http://github.com/bicv/LogGabor}{LogGabor}: représentations multi-échelles des contours~\citep{Fischer07,Fischer07cv},
-% 	\item \href{http://github.com/bicv/SparseEdges}{SparseEdges}: codage épars (parcimonieux) d'images naturelles~\citep{Perrinet15bicv,PerrinetBednar15},
-% 	\item \href{https://github.com/laurentperrinet/Khoei_2017_PLoSCB}{MotionParticles}: prédiction dynamique par filtrage particulaire (permet de reproduire~\citep{Perrinet12pred,Khoei13jpp,KhoeiMassonPerrinet17}).
-% \end{itemize}
-%
-% \subsubsection{Promotion du logiciel libre} %
-% Je participe à différentes initiatives afin de promouvoir les pratiques du logiciel libre
-% \begin{itemize}
-% 	\item écriture régulière d'un \href{https://laurentperrinet.github.io/sciblog/}{blog scientifique},
-% 	\item participation à des réseaux sociaux à des fins de dissémination comme \href{https://twitter.com/laurentperrinet}{twitter}, \href{https://stackoverflow.com/users/234547/meduz}{stackOverflow}, \href{https://www.instagram.com/laurentperrinet/}{instagram} ou \href{https://github.com/laurentperrinet}{gitHub}.
-% \end{itemize}
-%
-%
-% \subsection{Expertise scientifique} %
-%
-% J'ai participé au développement de différentes entreprise de type ``start-up'' dans le cadre d'une autorisation de cumul:
-%
-% \begin{itemize}
-% 	\item en 2019-2020 : missions d'expertise scientifique avec Arnaud Malvache à \href{https://unistellaroptics.com/}{Unistellar}, Marseille.
-%
-% 	\item 2019-2020 : missions d'expertise scientifique en collaboration avec Sid Kouider à \href{https://www.next-mind.com/}{NextMind}, Paris.
-% \end{itemize}
+
+\subsection{Développements de logiciels} %
+
+Nous développons plusieurs lignes de recherche pour appliquer nos résultats à des problèmes concrets, sous forme de logiciels \href{https://laurentperrinet.github.io/project/open-science/}{open source}:
+
+\subsubsection{Mouvements des yeux et mouvement} %
+\begin{itemize}
+
+	\item \href{https://github.com/invibe/AnEMo}{AnEMo} : traitement du signal pour l'analyse des mouvements des yeux~\citep{Pasturel18anemo},
+	\item \href{http://github.com/NeuralEnsemble/MotionClouds}{MotionClouds}: génération de textures pour la perception du mouvement~\citep{Sanz12,Vacher15nips,Vacher16},
+	\item \href{https://github.com/laurentperrinet/LeCheapEyeTracker}{LeCheapEyeTracker} -- \url{https://github.com/laurentperrinet/CatchTheEye} : Oculomètre minimal utilisant l'apprentissage profond;
+\end{itemize}
+
+
+
+\subsubsection{Biologically-Inspired Computer Vision} %
+\begin{itemize}
+	\item \href{https://github.com/laurentperrinet/openRetina}{openRetina}: caméra événementielle minimale,
+%	\item  collaboration avec Gabriel Crist\'obal (CSIC, Madrid), par exemple pour la classification d'emphysèmes~\citep{Nava13} % avec "Rodrigo Nava, J. Victor Marcos, Boris Escalante-Ram\'\irez, Gabriel Crist\'obal, Laurent U Perrinet, Ra\'ul S. J. Estépar. Advances in Texture Analysis for Emphysema Classification. 8259:214--221, 2013"
+%	\item  collaboration avec I3S (Sophia-Antipolis) pour la classification d'images industrielles en suivant la méthodolgie développée dans~\citep{PerrinetBednar15},
+	\item \href{http://github.com/bicv/SparseHebbianLearning }{SparseHebbianLearning }: apprentissage non-supervisé d'images naturelles~\citep{Perrinet10shl,Perrinet19hulk},
+	\item \href{http://github.com/bicv/SLIP}{Simple Library for Image Processing}: techniques de traitement de l'image, utilisé notamment dans~\citep{Perrinet15bicv,Ravello16droplets,PerrinetBednar15,Perrinet15eusipco,Perrinet16EUVIP},
+	\item \href{http://github.com/bicv/LogGabor}{LogGabor}: représentations multi-échelles des contours~\citep{Fischer07,Fischer07cv},
+	\item \href{http://github.com/bicv/SparseEdges}{SparseEdges}: codage épars (parcimonieux) d'images naturelles~\citep{Perrinet15bicv,PerrinetBednar15},
+	\item \href{https://github.com/laurentperrinet/Khoei_2017_PLoSCB}{MotionParticles}: prédiction dynamique par filtrage particulaire (permet de reproduire~\citep{Perrinet12pred,Khoei13jpp,KhoeiMassonPerrinet17}).
+\end{itemize}
+
+\subsubsection{Promotion du logiciel libre} %
+Je participe à différentes initiatives afin de promouvoir les pratiques du logiciel libre
+\begin{itemize}
+	\item écriture régulière d'un \href{https://laurentperrinet.github.io/sciblog/}{blog scientifique},
+	\item participation à des réseaux sociaux à des fins de dissémination comme \href{https://twitter.com/laurentperrinet}{twitter}, \href{https://stackoverflow.com/users/234547/meduz}{stackOverflow}, \href{https://www.instagram.com/laurentperrinet/}{instagram} ou \href{https://github.com/laurentperrinet}{gitHub}.
+\end{itemize}
+
+
+\subsection{Expertise scientifique} %
+
+J'ai participé au développement de différentes entreprise de type ``start-up'' dans le cadre d'une autorisation de cumul:
+
+\begin{itemize}
+	\item en 2019-2020 : missions d'expertise scientifique avec Arnaud Malvache à \href{https://unistellaroptics.com/}{Unistellar}, Marseille.
+
+	\item 2019-2020 : missions d'expertise scientifique en collaboration avec Sid Kouider à \href{https://www.next-mind.com/}{NextMind}, Paris.
+\end{itemize}
 
 \section{Encadrement, animation et management de la recherche}
 
@@ -589,6 +592,8 @@ Outre ces responsabilités scientifiques, je participe à l'animation scientifiq
 	\item Scientific reports (Nature group) Membre du comité éditorial
 
 	\item  Relecteur dans de nombreuses revues et conférences, voir \url{https://publons.com/author/1206845/laurent-u-perrinet#profile}
+
+	\item  Membre de différents jurys internationaux (BE, NL) pour des évaluations de projets,
 
 	\item Membre élu CLAS GLM de Marseille-Joseph Aiguier/Timone, responsable de la petite enfance.
 
