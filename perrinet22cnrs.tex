@@ -353,6 +353,20 @@ disséquer les différents processus visuels. {\bf En particulier, nous nous
 concentrerons dans ce programme de recherche sur ma contribution dans l'étude
 du rôle de ces contraintes
 temporelles sur la dynamique des processus prédictifs}.
+%-------------------------------------------------------------%
+\begin{figure}[!ht]
+\vspace{-0.25cm}%\captionsetup{width=1\textwidth}
+\centerline{
+  \includegraphics[width=\textwidth]{fig_areadne.png}
+}
+\caption{
+Dans un modèle à double voie du système visuel~\citep{Dauce20}, la voie périphérique (rangée supérieure) est appliquée à une image de grande taille provenant d'une scène naturelle (A) : Il est d'abord transformé en une entrée log-polaire rétinotopique (B), puis on apprend à renvoyer une "carte de sallience" (C). Cette dernière déduit, pour différentes positions dans la cible, la valeur de précision prédite qui peut être atteinte par la voie fovéale, imitant la voie "Où" utilisée pour la localisation globale. La position présentant la meilleure précision alimentera un système de saccades (D), ajustant le point de fixation à l'entrée de la voie fovéale (ligne du bas). Il prend un sous-échantillon (E) de la large image (A), sur laquelle une catégorisation est effectuée (F), imitant la voie "Quoi".
+La modélisation de cette architecture à double voie permet d'offrir un modèle efficace de la recherche visuelle en tant que vision active. En particulier, elle permet de combler les lacunes des CNN en matière de performances physiologiques. Dans le futur, nous espérons appliquer ce modèle pour mieux comprendre les pathologies visuelles dans lesquelles il existerait une déficience de l'une des deux voies.
+}
+\label{fig:JNJER22}
+\end{figure}
+%-------------------------------------------------------------%
+
 
 Pour illustrer le défi de représenter un signal dynamique, prenons
 l'exemple de l'enregistrement d'un ensemble de cellules neurales dans
@@ -398,12 +412,12 @@ des yeux. En étendant le principe précédent à la capacité
 d'échantillonner activement les données sensorielles, nous définirons
 l'inférence active (IA) et illustrerons son rôle potentiel dans la
 compréhension de la vision, ainsi que des comportements comme les
-mouvements oculaires. Ensuite, nous l'étendrons pour
+mouvements oculaires  (voir Figure~\ref{fig:JNJER22} pour une implémentation que nous proposons). Ensuite, nous l'étendrons pour
 comprendre comment de tels processus peuvent être mis en œuvre sur des
-cartes rétinotopiques. En particulier, nous montrerons
-comment un tel modèle peut expliquer une illusion visuelle, l'effet du flash retardé. %Flash-lag.
+cartes rétinotopiques. %En particulier, nous montrerons
+% comment un tel modèle peut expliquer une illusion visuelle, l'effet du flash retardé. %Flash-lag.
 Ces données seront ensuite comparées aux données
-neurophysiologiques. Enfin, nous examinerons les implémentations
+neurophysiologiques et nous examinerons les implémentations
 possibles de tels modèles dans les réseaux de neurones impulsionnels. En particulier, nous passerons en revue quelques modèles de
 micro-circuits élémentaires et détaillerons quelques règles potentielles
 pour apprendre la structure de leurs connexions d'une manière non
@@ -986,7 +1000,7 @@ La nature discrète de l'adressage des neurones, d'une part, et la nature
 analogique de la synchronisation des spikes, d'autre part, sont
 essentielles dans ce nouveau type de représentation. Des résultats
 notables utilisant de telles architectures ont été obtenus dans la
-classification en temps réel et la fusion de capteurs~\citep{Oconnor13} et dans la reconnaissance de formes~\citep{Lagorce17}. En
+classification en temps réel et la fusion de capteurs~\citep{Oconnor13} et dans la reconnaissance de formes~\citep{Lagorce17,Grimaldi21cbmi,Grimaldi22pami}. En
 effet, une propriété importante des SNNs est la capacité d'encoder
 dynamiquement une variable interne latente (le potentiel de membrane en
 neuro-physiologie) et d'émettre un spike quand (et seulement quand) un
@@ -997,7 +1011,7 @@ Cette capacité à moduler le traitement en fonction de la synchronisation
 relative des spikes présynaptiques constitue un nouveau paradigme pour les
 calculs neuraux~\citep{Paugam12}. Cela montre en
 particulier que l'équilibre du flux des spikes excitateurs et inhibiteurs
-entrants est crucial pour maximiser l'efficacité de ces SNN~\citep{Hansel12}. Nous envisageon à court terme d'utiliser des méthodes d'analyse de ``raster plots'' pour mieux élucider le rôle des événements dans le code neural (voir \ref{fig:Grimaldi22}).
+entrants est crucial pour maximiser l'efficacité de ces SNN~\citep{Hansel12}. Nous envisageon à court terme d'utiliser des méthodes d'analyse de ``raster plots'' pour mieux élucider le rôle des événements dans le code neural (voir Figure~\ref{fig:Grimaldi22} pour une telle hypothèse).
 
 
 \subsubsection{Le rôle des vagues d'activité corticales dans le traitement
@@ -1063,8 +1077,7 @@ correct~\citep{Tring18}. Au lieu de cela, il a été constaté que
 l'activité peut devenir plus précise à mesure que les caractéristiques
 visuelles s'accumulent. Par exemple,~\citep{Baudot13} a montré que
 les neurones de l'aire 17 du chat réagissent plus sélectivement
-lorsqu'ils présentent des images naturelles (qui consistent localement
-en une somme de bords) qu'à un seul bord isolé. Récemment,
+lorsqu'ils se voient présenter des images naturelles (qui consistent localement en une somme de bords) qu'à un seul bord isolé. Récemment,
 nous avons montré qu'un résultat similaire peut se produire chez les rongeurs dès
 la rétine~\citep{Ravello19}. Sur le plan comportemental, cela correspond
 également à l'observation chez l'homme que des textures plus complexes
@@ -1117,9 +1130,9 @@ d'images.
 \subsection{Résumé et conclusions}
 En résumé, nous avons examiné dans ce programme de recherche différents modèles de
 codage prédictif appliqués à la vision. Nous avons vu à l'échelle
-macroscopique le rôle de la dynamique à l'aide de l'inférence active
-(voir section~\ref{sec:ai}). En étendant ce modèle à une carte rétinotopique, nous
-pourrions décrire une onde progressive fonctionnelle pour améliorer la sélectivité à des
+macroscopique le rôle de la dynamique à l'aide de l'inférence active. %(voir section~\ref{sec:ai}).
+En étendant ce modèle à une carte rétinotopique, nous
+pourrions décrire le rôle fonctionnelle des vagues d'activité pour améliorer la sélectivité à des
 stimuli visuels (voir section~\ref{sec:maps}). Cependant, nous avons également montré
 une limite de ces modèles à l'échelle microscopique (voir section~\ref{sec:spikes}). En
 particulier, on ne comprend pas encore, au niveau de la cellule unique,
