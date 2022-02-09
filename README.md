@@ -2,7 +2,7 @@
 
 Le dossier comprend:
 
-* [Programme de recherche: Une approche neuro-mimétique de la vision comme processus prédictif.](perrinet22cnrs.pdf)
+* [Programme de recherche: Une approche neuro-mimétique des processus prédictifs dans la vision.](perrinet22cnrs.pdf)
 * [Rapport d'activité scientifique sur les travaux effectués](perrinet22cnrs_done.pdf)
 * [Curriculum Vitæ détaillé](perrinet22cnrs_cv.pdf)
 * [Liste complète des publications](perrinet22cnrs_publications.pdf)
