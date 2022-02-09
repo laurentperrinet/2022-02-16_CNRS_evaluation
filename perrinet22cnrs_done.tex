@@ -491,10 +491,121 @@ Une première application de cette méthode a consisté à résoudre le problèm
 % \end{figure}%
 % - - - - - - - - - - - - - - - - - - - - - ----------------------------------------------- - - - - - - - - - - - -
 
+
+\subsection{Traitement prédictif sur les cartes visuelles}
+\label{sec:maps}
+Dans un premier temps, nous ayons montré le rôle du traitement prédictif à l'échelle
+macroscopique en concevant chaque assemblage neural comme un nœud dans
+un graphe de dépendance. Mais existe-t-il des preuves de l'existence de tels
+processus à l'échelle de l'espace visuel ?
+
+\subsubsection{L'effet du flash retardé comme preuve pour le traitement
+prédictif dans les cartes
+topographiques}
+%-------------------------------------------------------------%
+\begin{figure}%[b!]
+\centering{
+\includegraphics[width=\linewidth]{KhoeiMassonPerrinet17.pdf}
+}
+\caption{
+Dans~\citep{KhoeiMassonPerrinet17}, nous proposons un
+modèle de traitement prédictif sur une carte topographique. \textbf{(A)}
+le modèle consiste en une carte à deux couches : une cible source
+d'entrée intègre les informations des capteurs visuels. Par souci de
+simplicité, nous n'affichons ici que la dimension horizontale et cette
+carte représente sur chaque axe respectivement la position et la
+vitesse. En utilisant cette carte comme représentation de la croyance
+(ici en utilisant une fonction de distribution de probabilités), il est
+possible de projeter cette information sur une deuxième couche cible qui
+intègre l'information tout en compensant pour ce délai. Dans
+ce cas particulier, la vitesse est positive et donc l'information de
+position est transportée vers la droite. \textbf{(B)} Réponse d'un
+modèle compensant un délai de $100~\ms$ pour le mouvement d'un point en mouvement.
+Représentation de la probabilité inférée de position et de vitesse avec
+compensation de délai en fonction des itérations du modèle (temps). Les
+couleurs plus foncées dénotent des probabilités plus élevées, tandis
+qu'une couleur claire correspond à une estimation improbable. En
+particulier, nous nous concentrons sur trois époques particulières le
+long de la trajectoire, correspondant à l'initiation, au milieu et à l'extinction.
+Le moment de ces trois époques est indiqué par des traits
+verticaux en pointillés: en noir pour le temps physique (réel) et en
+vert pour l'entrée retardée sachant un délai de $100~\ms$. Voir le texte
+pour une interprétation des résultats. (Reproduit de~\citep{KhoeiMassonPerrinet17} selon les termes de la
+\href{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005068}{Creative
+Commons Attribution License}, © The Authors 2017.)
+}
+\label{fig:KhoeiMassonPerrinet17}
+\end{figure}
+%-------------------------------------------------------------%
+
+L'\href{https://en.wikipedia.org/wiki/Flash_lag_illusion}{effet
+du flash retardé} (Flash-Lag Effect, FLE) est une illusion visuelle populaire pour sa généralité
+et sa simplicité. Dans sa forme originale~\citep{MacKay58}, on demande à
+l'observateur de fixer une croix centrale sur l'écran
+pendant qu'un point traverse l'écran avec un mouvement constant et
+horizontal. Lorsqu'il atteint le centre de l'écran, un autre point
+clignote brièvement juste en dessous du point en mouvement. Alors qu'ils
+sont parfaitement alignés verticalement, le point clignotant est perçu
+comme \emph{en retard} par rapport au point en mouvement~\citep{Perrinet19temps}. Cette illusion visuelle a
+vu un regain d'intérêt scientifique avec le modèle d'extrapolation de
+mouvement~\citep{Nijhawan02,Nijhawan09}. Cependant, d'autres
+modèles tels que le modèle de latence différentielle ou la post-diction ont
+également été proposés, de sorte que l'on ne savait pas encore clairement
+quel est le substrat neural du FLE. Ici, en étendant le modèle de
+compensation des délais~\citep{PerrinetAdamsFriston14}, nous
+avons défini un modèle de traitement prédictif généralisé sur la
+topographie visuelle en utilisant une représentation interne du
+mouvement visuel~\citep{Perrinet12pred} qui utilise une diffusion
+anisotrope des informations~\ref{fig:KhoeiMassonPerrinet17}-A.
+
+Le modèle que nous avons utilisé pour le FLE peut être utilisé avec
+n'importe quelle image. En particulier, un point lumineux isolé évoque une
+activité isotrope en expansion puis en contraction, tandis qu'un point
+en mouvement peut produire une onde de type soliton qui peut traverser
+une occlusion~\citep{Khoei13jpp}. Plus généralement, ce
+modèle peut être décrit comme  utilisant le terme d'advection de l'équation de Navier
+Stokes qui gouverne la dynamique des fluides. Ainsi,
+les solutions à ces équations sont typiquement des ``vagues'' qui se
+déplacent sur la carte rétinotopique. Une caractéristique particulière
+de ces équations prédictives est qu'elles comprennent un terme d'amplification pour les
+mouvements rectilignes. Par conséquent, une fois qu'un objet commence à
+être suivi, sa position est prévue dans le futur, de sorte que la
+position et la vitesse sont mieux estimées. Au contraire, un point qui
+se déplace sur une trajectoire imprévisible est éliminée par le système.
+Ceci explique certains des comportements non linéaires, de type
+binaire, qui sont expliqués par ce modèle~\citep{Perrinet12pred}. Il est
+particulièrement intéressant à ce stade de comprendre si un tel modèle
+s'étend à d'autres stimuli ou si l'on peut préciser son implémentation
+neurale.
+
+Appliquée à l'image du FLE, l'activité dans le modèle montre trois
+phases différentes, voir~\ref{fig:KhoeiMassonPerrinet17}-B. Premièrement, il y a une
+augmentation rapide de la précision de la cible après la première
+apparition du point mobile (à $300~\ms$). En cohérence avec
+l'\href{https://en.wikipedia.org/wiki/Fröhlich_effect}{effet Fröhlich}~\citep{Jancke10}, le début de la trajectoire est vu ``en avant'' par rapport à sa
+position physique. Pendant la deuxième phase, le point en mouvement est
+suivi efficacement car sa vitesse et sa position sont correctement
+déduites. Comme observé dans l'illusion, l'extrapolation de mouvement prédit correctement la
+position actuelle et la position suit la position physique réelle du
+point (ligne pointillée noire) : Le point est perçu en avant de la trajectoire retardée du point (ligne
+pointillée verte).
+De façon équivalente, le flash est perçu en retard par rapport au point en mouvement.
+Enfin, la troisième phase correspond à
+la fin du mouvement. Le point en mouvement disparaît et
+l'activité correspondante disparaît dans la couche source à $t=900~\ms$.
+Cependant, entre $t=800~\ms$ et $t=900~\ms$, la position du point a été
+extrapolée et prédite avant la position finale. À $t=900~\ms$, alors que
+l'information de mouvement est absente, l'information de position est
+encore transitoirement cohérente et extrapolée à l'aide d'une large
+distribution de vitesses centrée au préalable : Bien qu'elle soit moins
+précise, cette position du point à la fin du flash n'est donc pas perçue comme étant en avant du flash, mais \emph{rétrospectivement} dû à cette nouvelle information.
+
+
 %: extension avec motion extrapolation avec Anna Montagnini
 Il est étonnant de constater qu'avec des hypothèses simples ---le codage prédictif basé sur le mouvement, nous pouvons ainsi caractériser des propriétés du système oculomoteur attribués classiquement à des mécanismes complexes et non-linéaires. Nous avons ainsi étendu, en collaboration avec Mina Khoei (en thèse FACETS-ITN) et Anna Montagnini (inViBe-INT), notre étude à un autre modèle classique pour l'oculomotricité: l'extrapolation du mouvement.
 Cette extension consiste à étudier le comportement du modèle lors d'une interruption transiente de l'entrée sensorielle. En effet, il est courant ---par exemple lors d'un clignement de l'\oe il--- que l'entrée sensorielle soit perturbée ou suspendue, et il est important pour le système de représenter une certaine continuité. Celle-ci se traduit à partir de certaines étapes dans la hiérarchie du système visuel par une activité neurale soutenue pendant l'interruption, comme montré dans le cortex infero-temporal chez le macaque~\citep{Assad95}. Nous avons mis en évidence que notre modèle pouvait répliquer un tel comportement et en particulier, nous avons apporté trois points: 1) une prédiction à la fois en position et en vitesse est nécessaire pour avoir un comportement robuste, 2) la représentation du mouvement perd progressivement de sa précision lors de l'interruption, et 3) le système doit avoir accumulé assez d'information pour être dans un mode de suivi. Nous avons publié ces résultats dans différentes conférences et journaux~\citep{Khoei13jpp,KhoeiMassonPerrinet17}. Bien que ce modèle se base sur une conceptualisation de la propagation de l'information au sein d'une carte corticale (utilisant les filtres particulaires), nous verrons dans la section suivante (Sec.~\ref{sec:spikes}) qu'elle admet une implantation neuromimétique.
 %
+
 % \subsection{Rôle fonctionnel des interactions latérales dans l'intégration spatiale~\citep{PerrinetBednar15}%
 % }%
 % \label{sec:PerrinetBednar15}%
@@ -546,10 +657,10 @@ Cette extension consiste à étudier le comportement du modèle lors d'une inter
 \subsection{Activités de recherche dans l'équipe NeOpTo (2018-2022)}
 \label{sec:neopto}
 
-Afin de confronter de tels modèles avec des données physiologiques et comportementales, j'ai rejoint l'équipe NeOpto en 2018. Nous allons résumer les travaux effectués dans cette période et tout d'abord montrer des modèles de réseaux neuraux impulsionnels à grande échelle, tout en formalisant une théorie de décodage de cette activité neurale en terme d'information visuelle (Sec.~\ref{sec:spikes}).
+Afin de confronter de tels modèles avec des données physiologiques et comportementales, j'ai rejoint l'équipe NeOpto en 2018. Nous allons résumer les travaux effectués dans cette période et tout d'abord montrer des modèles de réseaux neuraux impulsionnels à grande échelle, tout en formalisant une théorie de décodage de cette activité neurale en terme d'information visuelle (Sec.~\ref{sec:spikes_neopto}).
 
 \subsubsection{Modélisation de réseaux de neurones impulsionnels}%~\citep{Taouali15}
-\label{sec:spikes}
+\label{sec:spikes_neopto}
 L'étude que nous menons sur les régularités statistiques ---dans les trajectoires des objets et dans l'espace--- se doivent d'être validés par les résultats expérimentaux. Pour ce faire, nous utilisons deux approches complémentaires. La première consiste à utiliser des simulations à grande échelle des conductivités que nous avons mis en évidence pour comprendre si ces principes s'étendent tels quels à des réseaux de neurones. La deuxième approche consiste à utiliser les données neurales collectées au laboratoire et d'utiliser nos modèles pour décoder de l'activité neurale l'information visuelle pertinente.
 
 %: modélisation avec Lansner et Kaplan / anisotropic = novel /

@@ -230,7 +230,7 @@ unifiée pour expliquer une large variété de mécanismes visuels. Toutefois, \
 nous manque encore une approche normative globale unifiant les
 processus visuels.}
 
-\textbf{Le projet de recherche que j'ai développé
+\textbf{Le projet de recherche que je développe
 explore la dynamique du traitement prédictif dans le système visuel,
 de la rétine à l'action.}
 Afin de le définir, nous passerons rapidement en revue ici quelques approches récentes et
@@ -408,527 +408,527 @@ possibles de tels modèles dans les réseaux de neurones impulsionnels. En parti
 micro-circuits élémentaires et détaillerons quelques règles potentielles
 pour apprendre la structure de leurs connexions d'une manière non
 supervisée. Nous pourrons ainsi conclure en dessinant les perspectives de résultats de ce programme de recherche.
-
-\subsection{L'inférence active et ``l'optimalité de la vision''}
-\label{sec:ai}
-Les principes d'optimisation semblent le seul choix pour comprendre
-``L'efficacité déraisonnable de la vision dans le monde naturel''.
-Cependant, essayer de comprendre la vision comme un processus émergent
-d'un principe d'optimisation semble être un principe téléologique dans
-lequel la causalité serait inversée~\citep{Turkheimer19}. Pourtant,
-``l'utilisation du principe téléologique n'est qu'un moyen, et non la
-totalité ou l'unique, par lequel nous pouvons chercher à apprendre
-comment les choses sont apparues et ont pris leur place dans la
-complexité harmonieuse du monde.''~\citep[chap. 1, ma traduction]{DArcy-Thompson17}. En
-d'autres termes, il n'est pas important d'un point de vue scientifique
-de savoir si le cerveau utilise explicitement un tel principe (par
-exemple que certaines de ses parties puissent utiliser la règle de
-Bayes), mais plutôt qu'un tel ensemble de règles offre une explication
-plus simple des enregistrements neuraux en mettant en lumière les
-processus se produisant dans ce système complexe~\citep{Varoquaux19}.
-Nous suivrons les principes de base du comportement auto-organisé
-: à savoir, l'impératif de prédire au mieux les données sensorielles,
-c'est-à-dire, en termes techniques, de minimiser l'entropie des états
-cachés du monde et leurs conséquences sensorielles.
-
-\subsubsection{Les perceptions comme hypothèses, les actions comme expériences: du principe de
-l'énergie libre (Free-Energy Principle, FEP) à l'Inférence Active (IA)}
-Par exemple, on ne sait pas encore pourquoi le système saccadique, qui est le mécanisme qui
-permet de diriger notre regard vers n'importe quelle position dans l'espace
-(visuel), est en même temps rapide et flexible. Par
-exemple, ce système peut s'adapter rapidement aux contexte,
-par exemple si on demande à l'observateur d'une photo de groupe d'identifier des visages ou plutôt de compter le nombre de personnes. La plupart des théories pour le système saccadique expliquent ces mécanismes à l'aide de
-modèles de contrôle sensoriel ou moteur, mais peu de théories intègrent
-le système dans son ensemble. Dans cette perspective, le FEP offre une
-solution élégante. Dans un premier temps, nous avons considéré un agent
-simpliste qui reçoit un sous-ensemble de la scène visuelle (sa
-projection sur l'espace rétinotopique). L'agent a la capacité de diriger
-son regard à l'aide de saccades. En dotant l'agent de la capacité
-d'échantillonner activement le monde visuel, cela nous permet d'explorer
-l'idée que les actions (le mouvements oculaires de saccade) sont des
-expériences optimales, par lesquelles l'agent cherche à confirmer les
-modèles prédictifs du monde qui lui est caché. Cela rappelle la définition de la
-perception par~\citet{vonHelmholtz1867} comme un test d'hypothèse~\citep{Gregory80}. Ceci fournit un modèle plausible de recherche visuelle
-qui peut être motivé à partir des principes de base du comportement
-auto-organisé. En termes mathématiques, cet impératif de maximiser le
-résultat des actions prévues équivaut à minimiser l'entropie des états
-cachés du monde et leurs conséquences sensorielles. Cet impératif est
-atteint si les agents échantillonnent efficacement les états cachés du
-monde. En pratique, une fois le modèle génératif défini, cet
-échantillonnage efficace de l'information saillante peut être dérivé en
-utilisant une inférence Bayesienne approchée et une minimisation
-variationnelle (c'est-à-dire qu'elle utilise une descente de gradient) de l'énergie libre~\citep{Friston10}. Un ingrédient clé
-de ce processus est la représentation (interne) des prédictions
-contrefactuelles, c'est-à-dire des conséquences probables des hypothèses
-possibles telles qu'elles seraient si elles étaient réalisées en actions.
-Cela étend
-la modélisation d'un agent utilisant le FEP de manière à définir l'inférence
-active~(IA).
-
-En utilisant l'environnement de simulation SPM~\citep{SPM12}, nous avons produit des simulations du comportement d'un tel agent qui détecte
-des images de visages, connaissant un modèle interne de leur architecture~\citep{Friston12}. En modélisant l'agent, nous avons clairement  délimité l'état externe caché (l'image visuelle, la position réelle de l'œil ou la
-commande motrice) de l'état interne de l'agent. Ces croyances (``beliefs'') internes
-sont reliées par un graphe probabiliste de dépendance qui définit le
-modèle génératif. L'application du FEP à ce modèle génératif se traduit
-(ou se compile en termes informatiques) un ensemble d'équations
-différentielles qui règle la dynamique des croyances internes
-et les actions contrefactuelles. Un agent forme des attentes sur les
-conséquences sensorielles qu'il attend dans le futur pour chaque action
-possible. Cette formulation de l'inférence active définit de façon équivalente ce qu'on appelle
-un processus décisionnel de Markov~\citep{Mirza18}. En tant que système
-suivant la FEP, ce processus est prédictif. Pourtant, il étend le
-traitement prédictif classique de~\citet{Rao99}
-en incluant l'action (et les antécédents liés aux commandes moteur) au
-schéma d'optimisation global. L'action choisie est celle qui est censée
-réduire la surprise sensorielle et qui est finalement réalisée par un
-arc réflexe.
-
-Les simulations du schéma d'IA qui en résulte reproduit des
-mouvements oculaires qui rappellent les saccades observées
-empiriquement et fournissent des résultats contre-intuitifs sur la
-façon dont les entrées sensorielles sont accumulées ou assimilées dans
-notre modèle du monde. En particulier, connaissant l'image localisée
-détectée sur la rétine, les saccades exploreront les points d'intérêt
-(yeux, bouche, nez) jusqu'à ce qu'une représentation interne de l'image
-globale soit faite. Ce processus d'IA permet de faire le pont entre
-l'image en coordonnées intrinsèques (rétiniennes) et les coordonnées
-extrinsèques du monde qui prévalent dans la perception visuelle mais qui
-sont cachées à l'agent. Il est intéressant de noter que si l'on ne
-s'intéressait qu'au comportement de cet agent, on pourrait l'englober
-par un ensemble d'équations différentielles, mais cela passerait à côté
-de la relation causale avec les variables internes telles que définies
-ci-dessus. De plus, ce modèle met en lumière une solution à une idée
-fausse courante au sujet du PEF, à savoir la minimisation des
-surprises. En effet, si l'agent devait fermer les yeux, la surprise
-sensorielle serait minime puisqu'on s'attendrait alors précisément à une
-scène visuelle sombre. Cependant, dans le graphe des dépendances
-(c'est-à-dire le modèle génératif) qui définit l'agent, une telle
-hypothèse contrefactuelle (prospective) serait fortement pénalisée car
-il serait également \emph{a priori} connu qu'une telle action ne produirait pas
-une minimisation de la surprise sur la scène visuelle. Globalement, il
-est donc plus écologique de garder les yeux ouverts pour explorer les
-différentes parties de la scène visuelle.
-
-\subsubsection{Existe-t-il une implémentation neurale pour l'inférence
-active (IA)?}
-Comme nous l'avons vu plus haut, une fois résolu le problème
-d'optimisation étant donné l'ensemble de la paramétrisation (modèle génératif, modèle interne,
-\ldots) l'agent que nous avons défini est simplement régi par un
-ensemble d'équations différentielles régissant sa dynamique.
-Techniquement, ces équations sont le résultat d'une approximation
-générique sur la forme de la représentation interne. En particulier, le
-problème d'optimisation est simplifié lorsqu'on utilise l'approximation
-de Laplace, c'est-à-dire lorsque les croyances internes sont
-représentées par des fonctions multidimensionnelles de distribution de
-probabilités Gaussiennes. Cette approximation est validée en toute généralité lorsque
-l'on transforme des variables en dimensions supérieures, comme c'est le
-cas pour les coordonnées généralisées~\citep{Friston10generalized}.
-Mathématiquement, ces
-coordonnées représentent à tout moment l'expansion de Taylor temporelle de la
-trajectoire d'une variable, c'est-à-dire le vecteur contenant
-la position, la vitesse, l'accélération et les autres ordres de
-mouvement. Par conséquent, la solution fournie par ces équations donne
-une implémentation neurale plausible sous la forme d'un ensemble
-d'équations linéaires / non linéaires organisées hiérarchiquement~\citep{Heeger17}. En particulier, ces équations sont la solution de
-filtrage de Kalman-Bucy~\citep{Kalman60} qui fournit une estimation
-Bayes-optimale des états et actions cachés en coordonnées de mouvement
-généralisées. Cela généralise le cadre du codage prédictif proposé par~\citet{Rao99}
- pour expliquer les mécanismes de traitement dans
-le cortex visuel primaire. Comme dans ce modèle, l'évolution dynamique
-de l'activité aux différents niveaux de la hiérarchie est régie par
-l'équilibre dans l'intégration des croyances internes (passées) et des
-informations sensorielles (présentes)~\citep{Heeger17}. En particulier, les
-pondérations relatives attribuées à la modulation de la transmission de
-l'information sont proportionnelles à la précision (inférée) de chaque
-variable individuelle du graphe de dépendance. Cela nous permet de
-prédire l'influence de la connaissance préalable de la précision à un
-niveau donné sur le résultat final.
-
-En pratique, le pouvoir prédictif de l'IA dans la modélisation d'un tel
-agent est révélé par l'étude des écarts par rapport au comportement
-typique dans une population d'agents. Par exemple, il existe des
-différences aiguës dans les mouvements oculaires de poursuite lente
-(SPEM) entre les patients de groupes neurotypiques ou schizophrènes.
-Tout d'abord, les SPEM se distinguent des saccades définies
-ci-dessus car ce sont des mouvements oculaires volontaires qui visent à
-stabiliser l'image rétinienne d'un objet visuel en mouvement régulier.
-Pour une cible suivant le mouvement d'un pendule par exemple, l'œil
-produira une réponse prototypique pour suivre cette cible prévisible. Il
-est intéressant de noter que les agents schizophrènes ont tendance à
-produire un modèle différent de SPEM dans le cas où le pendule est
-occlus sur des demi-cycles (par exemple, lorsqu'il passe derrière un
-carton opaque d'un côté de la ligne médiane). En général, le SPEM peut
-toujours suivre la cible, car il est occlus (derrière le carton) mais
-avec un gain inférieur~\citep{Barnes91}. Lorsque la cible
-réapparaît de derrière l'occlusion, les agents schizophrènes s'engagent
-plus rapidement dans une réponse SPEM~\citep{Avila06}. En étendant
-l'agent modélisé dans~\citep{Friston12}, nous avons  modélisé dans~\citep{Adams12}
-un agent qui a la capacité de suivre continûment un tel objet en mouvement.
-Ce modèle permet en particulier de
-comprendre la plupart des SPEM prototypiques comme une solution
-probabiliste optimale  pour minimiser la surprise dans la boucle perception
-/ action mise en œuvre dans le graphe de dépendance de l'agent.
-
-En particulier, en manipulant la précision \emph{a priori} des croyances
-internes aux différents niveaux du modèle hiérarchique, on pourrait
-reproduire différentes classes de comportements SPEM qui reproduisent
-des stimuli psychophysiques classiques. Par exemple, nous avons trouvé (pour le pendule à demi-cycle occlus) des comportements qui reproduisent les observations dans les populations schizophrènes et témoins en manipulant
-le gain post-synaptique des neurones
-prédictifs~\citep{Adams12}. Une
-telle différence dans l'équilibre des flux d'information pourrait par
-exemple avoir une origine génétique dans l'expression de ce gain et par
-conséquence dans le comportement de cette population. Il est important
-de noter qu'une telle méthode permet donc d'effectuer des prédictions
-quantitatives : De telles applications des neurosciences
-computationnelles semblent particulièrement pertinentes pour une
-meilleure compréhension de la diversité des comportements dans la
-population humaine (voir par exemple~\citep{Karvelis18autistic,Kent19}.
-
-\subsubsection{Introduire des délais réalistes dans l'Inférence Active : dynamique du
-traitement prédictif}
-%-------------------------------------------------------------%
-\begin{figure}%[b!]
-\centering{
-\includegraphics[width=\linewidth]{PerrinetAdamsFriston14.pdf}
-}
-\caption{\textbf{(A)} Cette figure montre la réponse du traitement
-prédictif lors de la simulation du début de la poursuite tout en
-compensant les délais sensoriels moteurs, en utilisant un mouvement sigmoïdal simple
-d'une cible visuelle. Ici, nous voyons des excursions horizontales de
-l'angle oculomoteur (trait bleu foncé). On peut voir clairement le
-déplacement initial de la cible qui est supprimé par l'action après
-environ $200~\ms$, modélisant un mouvement oculaire prototype de poursuite.
-De plus, nous illustrons les effets de l'hypothèse de la connaissance d'un délai
-sensori-moteur erroné sur le déclenchement de la poursuite. Avec
-un délai sensoriel pur (pointillés rouges), on peut voir
-clairement le délai des prédictions sensorielles par rapport aux
-entrées réelles. En cas de délai moteur pur (tirets rouges) et de délai sensori-moteur combiné (trait rouge), il y a un
-défaut de contrôle optimal avec des fluctuations oscillatoires dans les
-trajectoires oculomotrices, qui comme ici peuvent devenir instables. \textbf{(B)}
-Cette figure montre la simulation d'une poursuite oculaire lorsque le
-mouvement de la cible est hémisinusoïdal, comme dans le cas d'un pendule
-qui serait arrêté à chaque demi-cycle à gauche de la verticale (lignes
-noires discontinues). Le modèle génératif utilisé ici a été équipé d'un
-deuxième niveau hiérarchique qui contient des états cachés, modélisant
-le comportement périodique latent des causes (cachées) du mouvement de
-la cible. Avec cet ajout, l'amélioration de la précision de poursuite
-est apparente dès le début du deuxième cycle de mouvement (aire
-rouge ombragée), de façon semblable aux expériences psychophysiques~\citep{Barnes91}. (Reproduit de~\citep{PerrinetAdamsFriston14} selon
-les termes de la
-\href{https://link.springer.com/article/10.1007/s00422-014-0620-8\#copyrightInformation}{Creative
-Commons Attribution License}, © The Authors 2014.)
-}
-\label{fig:PerrinetAdamsFriston14}
-\end{figure}
-%-------------------------------------------------------------%
-Une perspective intéressante pour étudier le rôle de la dynamique
-neurale dans la cognition est d'étendre ce modèle à une description plus
-réaliste des contraintes écologiques auxquelles fait face le système
-visuel. En effet, le système nerveux central est confronté à des délais
-axonaux, tant au niveau sensoriel que moteur. Comme nous l'avons vu dans
-l'introduction, il faut environ $50~\ms$ pour que l'image rétinienne
-atteigne les aires visuelles impliquées dans la détection de mouvement,
-et $50~\ms$ supplémentaires pour atteindre les muscles oculomoteurs et
-réaliser l'action~\citep{Kirchner06}. L'un des défis de la
-modélisation du système visuo-oculomoteur humain est de comprendre les
-mouvements oculaires comme un problème de contrôle moteur optimal avec
-des délais axonaux. Prenons l'exemple d'un joueur de tennis qui tente
-d'intercepter une balle qui passe à une vitesse (conservatrice) de 20
-m/s. La position détectée sur l'espace rétinien correspond à l'instant
-où l'image s'est formée sur les photorécepteurs de la rétine, et jusqu'à
-ce qu'elle atteigne notre hypothétique aire de perception du mouvement.
-À cet instant, la position physique détectée est en fait en décalage d'un
-mètre, c'est-à-dire approximativement à une excentricité de 45 degrés.
-Cependant, la position au moment de l'émission de la commande du moteur
-sera également de 45 degrés \emph{en avant de} sa position physique
-actuelle dans l'espace visuel. Par conséquent, si le regard du joueur
-n'est pas dirigé vers l'image de la balle sur la rétine mais vers la
-balle dans sa position (physique) actuelle, c'est peut-être parce qu'il
-prend en compte, de manière anticipée, la distance parcourue par la
-balle pendant le délai sensoriel. Alternativement, un contrôle optimal
-peut diriger l'action (mouvement futur de l'œil) vers la position
-attendue lorsque les commandes motrices atteignent la périphérie
-(muscles). Un tel exemple montre que même avec un délai relativement
-court, le système visuel est confronté à des perturbations importantes
-qui entraînent des choix ambigus. Cette ambiguïté est évidemment un défi
-intéressant pour la modélisation du traitement prédictif dans le système
-visuel.
-
-En étendant notre précédent cadre de modélisation de la poursuite ocularire~\citep{Adams12},
-nous avons observé dans~\citep{PerrinetAdamsFriston14}
-que la représentation des états cachés en coordonnées généralisées offre
-un moyen simple de compenser les délais sensoriels et moteurs. Une nouveauté de cette
-approche est d'inclure les délais dans la dynamique en tirant profit
-des coordonnées généralisées. Techniquement, cela définit un opérateur
-linéaire sur ces variables qui permet de virtuellement ``voyager dans le temps''
- avec des intervalles
-de temps arbitraires, permettant en particulier de représenter les
-variables d'état dans le passé (délai sensoriel) ou dans le futur
-(délai moteur). Notons que (1) cette représentation est seulement définie à
-l'instant présent, (2) qu'elle permet la représentation concomitante de
-la précision des variables d'état, et (3) qu'elle permet d'évaluer
-l'hypothèse contrefactuelle des états sensoriels (basée sur les états
-sensoriels passés) et d'une action qui doit être inférée maintenant,
-tout en sachant que celle-ci sera effective après le délai moteur.
-L'application d'un tel opérateur au FEP génère une formulation
-mathématique légèrement différente et plus complexe. Cependant, il est
-important de noter que pour compenser les délais, il n'y a pas de
-changement dans la structure du réseau mais seulement dans la façon dont
-les poids synaptiques sont réglés (comme nous l'avons fait dans la
-première partie de ce programme) :``Neurobiologiquement, l'application
-d'opérateurs de délai signifie simplement changer les forces de
-connexion synaptique pour prendre différents mélanges de sensations
-généralisées et leurs erreurs de prédiction.''~\citep[section 3.1, ma traduction]{PerrinetAdamsFriston14}. En particulier, lorsque l'agent a une
-certaine croyance au sujet de ces délais, il peut intégrer de façon
-optimale (au sens de Bayes) les croyances internes. Un tel comportement est
-toujours régulé par le même type d'équation interne.
-
-Nous avons illustré l'efficacité de ce schéma à l'aide de simulations
-neurales des réponses d'initiation à la poursuite, avec et sans
-compensation. La figure~\ref{fig:PerrinetAdamsFriston14}-A présente les estimations des probabilités conditionnelles
-des états cachés et des causes pendant la simulation de l'initiation de
-la poursuite, en utilisant un simple mouvement rectiligne d'une cible visuelle, tout
-en compensant les délais sensoriels et moteurs. Ici, nous voyons les
-excursions horizontales de l'angle oculomoteur (trait bleu) par rapport à la
-position angulaire de la cible (pointillés noirs). %, réelle mais cachée
-On peut clairement voir
-le déplacement initial de la cible qui est supprimé après
-quelques centaines de millisecondes. Cette figure illustre également les
-effets des délais sensorimoteurs sur le déclenchement de la poursuite
-(lignes rouges) par rapport à l'inférence active compensée (optimale).
-Sous les délais sensoriels purs (ligne pointillée), on peut voir
-clairement le délai des prédictions sensorielles, par rapport aux
-entrées réelles. A noter ici l'échec du contrôle optimal avec des
-fluctuations oscillatoires dans les trajectoires oculomotrices, qui
-deviennent instables sous l'effet de délais sensorimoteurs combinés.
-
-Il est intéressant de noter que ce modèle s'étend à des trajectoires
-visuelles plus complexes. En particulier, il a été démontré que le
-regard sera dirigé vers la position physique actuelle de la cible (donc
-de manière anticipée) si cette cible suit une trajectoire lisse
-(comme un pendule). Plus frappant, c'est également vrai si la
-trajectoire est \emph{prévisible}, par exemple pour un pendule derrière
-une occlusion statique~\citep{Barnes91,Adams12}. La figure~\ref{fig:PerrinetAdamsFriston14}-B montre la simulation d'une poursuite
-en douceur lorsque le mouvement de la cible est hémisinusoïdal, comme
-dans le cas d'un pendule qui serait arrêté à chaque demi-cycle, à gauche
-de la verticale. Notons que contrairement à l'agent modélisé dans~\citep{Adams12}, cet agent inclut la contrainte biologique
-que le traitement sensoriel et moteur sont retardés. Le modèle génératif a
-été équipé d'un deuxième niveau hiérarchique qui contient des états
-cachés et qui tiennent compte du comportement périodique latent du
-mouvement de la cible. On peut clairement voir le déplacement initial de
-la cible qui est supprimé après quelques centaines de millisecondes
-(aire rouge). L'amélioration de la précision de la poursuite
-est apparente au début du deuxième cycle de mouvement, semblable aux
-expériences psychophysiques~\citep{Barnes91}. En effet, le
-modèle a une représentation interne des causes latentes du mouvement de
-la cible qui peut être utilisée même lorsque ces causes ne sont pas
-exprimées explicitement (occultées) dans la trajectoire cible. Un
-avantage particulier de ce modèle est qu'il fournit une solution pour
-l'intégration de l'information passée et future tout en étant gouverné
-par des équations différentielles en ligne. Ceci met donc en œuvre une
-certaine forme de mémoire temporelle optimale de Bayes.
-
-\subsubsection{Résumé}
-En résumé, nous avons montré ici qu'un cycle complet de perception
-/ action pourrait être compris comme un processus prédictif
-dans le cadre de l'inférence active~(IA). En particulier, nous avons
-montré que de tels modèles pouvaient reproduire la dynamique observée
-dans les mouvements oculaires, notamment en introduisant des contraintes
-réalistes telles que les délais sensorimoteurs. D'autres modèles
-devraient permettre l'introduction de contraintes structurelles encore
-plus complexes, comme les lois physiques régissant le mouvement des
-objets visuels comme le biais \emph{a priori}~\citep{Damasse18}, la
-gravité ou les repères externes~\citep{Kowler14}. Cela peut aider à
-synthétiser la plupart des lois qui régissent l'organisation de la
-perception visuelle, comme l'a formalisé la théorie de la Gestalt.
-
-\subsection{Traitement prédictif sur les cartes visuelles}
-\label{sec:maps}
-Dans un premier temps, nous ayons montré le rôle du traitement prédictif à l'échelle
-macroscopique en concevant chaque assemblage neural comme un nœud dans
-un graphe de dépendance. Mais existe-t-il des preuves de l'existence de tels
-processus à l'échelle de l'espace visuel ?
-
-\subsubsection{L'effet du flash retardé comme preuve pour le traitement
-prédictif dans les cartes
-topographiques}
-%-------------------------------------------------------------%
-\begin{figure}%[b!]
-\centering{
-\includegraphics[width=\linewidth]{KhoeiMassonPerrinet17.pdf}
-}
-\caption{
-Dans~\citep{KhoeiMassonPerrinet17}, nous proposons un
-modèle de traitement prédictif sur une carte topographique. \textbf{(A)}
-le modèle consiste en une carte à deux couches : une cible source
-d'entrée intègre les informations des capteurs visuels. Par souci de
-simplicité, nous n'affichons ici que la dimension horizontale et cette
-carte représente sur chaque axe respectivement la position et la
-vitesse. En utilisant cette carte comme représentation de la croyance
-(ici en utilisant une fonction de distribution de probabilités), il est
-possible de projeter cette information sur une deuxième couche cible qui
-intègre l'information tout en compensant pour ce délai. Dans
-ce cas particulier, la vitesse est positive et donc l'information de
-position est transportée vers la droite. \textbf{(B)} Réponse d'un
-modèle compensant un délai de $100~\ms$ pour le mouvement d'un point en mouvement.
-Représentation de la probabilité inférée de position et de vitesse avec
-compensation de délai en fonction des itérations du modèle (temps). Les
-couleurs plus foncées dénotent des probabilités plus élevées, tandis
-qu'une couleur claire correspond à une estimation improbable. En
-particulier, nous nous concentrons sur trois époques particulières le
-long de la trajectoire, correspondant à l'initiation, au milieu et à l'extinction.
-Le moment de ces trois époques est indiqué par des traits
-verticaux en pointillés: en noir pour le temps physique (réel) et en
-vert pour l'entrée retardée sachant un délai de $100~\ms$. Voir le texte
-pour une interprétation des résultats. (Reproduit de~\citep{KhoeiMassonPerrinet17} selon les termes de la
-\href{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005068}{Creative
-Commons Attribution License}, © The Authors 2017.)
-}
-\label{fig:KhoeiMassonPerrinet17}
-\end{figure}
-%-------------------------------------------------------------%
-
-L'\href{https://en.wikipedia.org/wiki/Flash_lag_illusion}{effet
-du flash retardé} (Flash-Lag Effect, FLE) est une illusion visuelle populaire pour sa généralité
-et sa simplicité. Dans sa forme originale~\citep{MacKay58}, on demande à
-l'observateur de fixer une croix centrale sur l'écran
-pendant qu'un point traverse l'écran avec un mouvement constant et
-horizontal. Lorsqu'il atteint le centre de l'écran, un autre point
-clignote brièvement juste en dessous du point en mouvement. Alors qu'ils
-sont parfaitement alignés verticalement, le point clignotant est perçu
-comme \emph{en retard} par rapport au point en mouvement~\citep{Perrinet19temps}. Cette illusion visuelle a
-vu un regain d'intérêt scientifique avec le modèle d'extrapolation de
-mouvement~\citep{Nijhawan02,Nijhawan09}. Cependant, d'autres
-modèles tels que le modèle de latence différentielle ou la post-diction ont
-également été proposés, de sorte que l'on ne savait pas encore clairement
-quel est le substrat neural du FLE. Ici, en étendant le modèle de
-compensation des délais~\citep{PerrinetAdamsFriston14}, nous
-avons défini un modèle de traitement prédictif généralisé sur la
-topographie visuelle en utilisant une représentation interne du
-mouvement visuel~\citep{Perrinet12pred} qui utilise une diffusion
-anisotrope des informations~\ref{fig:KhoeiMassonPerrinet17}-A.
-
-Le modèle que nous avons utilisé pour le FLE peut être utilisé avec
-n'importe quelle image. En particulier, un point lumineux isolé évoque une
-activité isotrope en expansion puis en contraction, tandis qu'un point
-en mouvement peut produire une onde de type soliton qui peut traverser
-une occlusion~\citep{Khoei13jpp}. Plus généralement, ce
-modèle peut être décrit comme  utilisant le terme d'advection de l'équation de Navier
-Stokes qui gouverne la dynamique des fluides. Ainsi,
-les solutions à ces équations sont typiquement des ``vagues'' qui se
-déplacent sur la carte rétinotopique. Une caractéristique particulière
-de ces équations prédictives est qu'elles comprennent un terme d'amplification pour les
-mouvements rectilignes. Par conséquent, une fois qu'un objet commence à
-être suivi, sa position est prévue dans le futur, de sorte que la
-position et la vitesse sont mieux estimées. Au contraire, un point qui
-se déplace sur une trajectoire imprévisible est éliminée par le système.
-Ceci explique certains des comportements non linéaires, de type
-binaire, qui sont expliqués par ce modèle~\citep{Perrinet12pred}. Il est
-particulièrement intéressant à ce stade de comprendre si un tel modèle
-s'étend à d'autres stimuli ou si l'on peut préciser son implémentation
-neurale.
-
-Appliquée à l'image du FLE, l'activité dans le modèle montre trois
-phases différentes, voir~\ref{fig:KhoeiMassonPerrinet17}-B. Premièrement, il y a une
-augmentation rapide de la précision de la cible après la première
-apparition du point mobile (à $300~\ms$). En cohérence avec
-l'\href{https://en.wikipedia.org/wiki/Fröhlich_effect}{effet Fröhlich}~\citep{Jancke10}, le début de la trajectoire est vu ``en avant'' par rapport à sa
-position physique. Pendant la deuxième phase, le point en mouvement est
-suivi efficacement car sa vitesse et sa position sont correctement
-déduites. Comme observé dans l'illusion, l'extrapolation de mouvement prédit correctement la
-position actuelle et la position suit la position physique réelle du
-point (ligne pointillée noire) : Le point est perçu en avant de la trajectoire retardée du point (ligne
-pointillée verte).
-De façon équivalente, le flash est perçu en retard par rapport au point en mouvement.
-Enfin, la troisième phase correspond à
-la fin du mouvement. Le point en mouvement disparaît et
-l'activité correspondante disparaît dans la couche source à $t=900~\ms$.
-Cependant, entre $t=800~\ms$ et $t=900~\ms$, la position du point a été
-extrapolée et prédite avant la position finale. À $t=900~\ms$, alors que
-l'information de mouvement est absente, l'information de position est
-encore transitoirement cohérente et extrapolée à l'aide d'une large
-distribution de vitesses centrée au préalable : Bien qu'elle soit moins
-précise, cette position du point à la fin du flash n'est donc pas perçue comme étant en avant du flash, mais \emph{rétrospectivement} dû à cette nouvelle information.
-
-\subsubsection{Corrélat neural du mouvement apparent}
-Appliquons une approche similaire à une autre illusion visuelle :
-Lorsque deux points stationnaires clignotent à des positions et à des
-moments rapprochés l'un de l'autre, l'observateur peut percevoir une
-sensation de mouvement. Ce processus transforme la présentation d'un motif
-discret en un motif continu et est à la base des processus qui nous font percevoir au cinéma une image animée alors que nos yeux ne ressentent qu'une succession rapide d'images statiques.
-Cette illusion visuelle est appelée
-\href{https://en.wikipedia.org/wiki/Beta_movement}{mouvement apparent}
-et peut persister sur une distance spatiale relativement longue (supérieure à la
-taille caractéristique de la RF d'un neurone dans le cortex visuel
-primaire, V1). Comme dans l'étude ci-dessus pour le FLE, nous pensons que ce
-mouvement apparent à longue portée (long-range Apparent Motion, lrAM) peut s'expliquer par des
-processus prédictifs. En raison des caractéristiques dynamiques du lrAM,
-une implémentation neurale de cette illusion peut consister en la
-propagation d'informations visuelles par des interactions
-intra-corticales. En particulier, ces interactions latérales peuvent
-évoquer des vagues d'activité dans V1 qui peuvent moduler l'intégration de
-l'information sensorielle provenant des connexions thalamo-corticales.
-Une perspective intéressante est donc d'enregistrer l'activité neurale
-lors de la présentation du stimulus lrAM. Ceci permet d'évaluer
-quantitativement pourquoi la superposition de deux points comme dans le
-lrAM est ``plus'' que la somme des deux points isolés.
-
-Dans une étude récente~\citep{Chemla19}, nous avons utilisé la VSDI
-pour enregistrer l'activité du cortex visuel primaire (V1) de macaques
-éveillés. Y a-t-il une différence entre la réponse au point unique et
-celle aux deux points ? En effet, les enregistrements VSD permettent
-d'enregistrer l'activité de populations de neurones V1 qui sont
-approximativement à l'échelle d'une colonne corticale. De plus, la
-réponse enregistrée est assez rapide pour saisir la dynamique du
-stimulus lrAM. Les enregistrements montrent que lorsque l'activité
-évoquée par le second point atteint V1, une onde corticale suppressive se
-propage vers la vague rétinotopique évoquée par le premier point. Cela a
-été mis en évidence en comparant statistiquement la réponse du cerveau à
-la réponse des deux points isolés. En particulier, nous avons constaté
-que grâce à cette onde suppressive, l'activité du stimulus cérébral
-était plus précise, ce qui suggère que cette onde suppressive pourrait
-servir d'étape de traitement prédictive pour être lue dans les aires
-corticales en amont.
-
-En particulier, nous avons constaté que l'activité que nous avons
-enregistrée était bien décrite par un modèle de champ moyen utilisant un
-contrôle de gain dynamique. Qualitativement, ce modèle reproduit la
-propagation de l'activité sur le cortex. Il est important de noter que
-ce modèle a permis de montrer que l'activité observée était mieux
-ajustée lorsque la vitesse des connexions latérales dans le champ moyen
-était d'environ $1 m/s$, une vitesse de propagation qui est de l'ordre de
-celle mesurée pour les connexions intra-corticales dans le cortex visuel
-primaire (pour une revue, voir~\citep{Muller18}). Un modèle plus
-fonctionnel (probabiliste) a également montré que la vague
-corticale suppressive permettait de lever l'ambiguïté sur le stimulus en supprimant
-les alternatives improbables. Par conséquent,
-(1) les interactions latérales sont essentielles pour générer des vagues d'activité
-en mouvement à la surface du cortex et (2) ces vagues aident à affiner la représentation
-du stimulus en entrée. Cela correspond à la mise en œuvre d'un processus
-prédictif utilisant une connaissance \emph{a priori} des objets visuels
-en mouvement régulier.
-
-\subsubsection{Résumé}
-En résumé, nous avons vu qu'il est possible d'étendre le traitement
-prédictif aux cartes topographiques. En particulier, les calculs qui en
-résultent sont particulièrement adaptés à la vision. Nous avons montré
-(voir~\ref{fig:KhoeiMassonPerrinet17}) un modèle qui représente (à un instant donné) différentes
-variables (ici ``Source'' et ``Cible''). Dans un modèle plus réaliste,
-l'activité neurale est plus susceptible de former des représentations
-intermédiaires entre les représentations passées, présentes et futures~\citep{Glaser18} et à différents niveaux d'adaptation comme
-l'illustre le stimulus lrAM~\citep{Chemla19}. En conséquence, de
-tels processus sont observés phénoménologiquement comme la propagation
-de l'information neurale tangentiellement à la surface corticale,
-modulant dynamiquement les flux convergeant sur l'aire corticale (``feed-forward'' vs ``feed-back''). En
-particulier, la question reste ouverte de savoir si de tels calculs
-neuraux pourraient être mis en œuvre par des vagues d'activité sur la
-surface corticale~\citep{Muller18}.
+%
+% \subsection{L'inférence active et ``l'optimalité de la vision''}
+% \label{sec:ai}
+% Les principes d'optimisation semblent le seul choix pour comprendre
+% ``L'efficacité déraisonnable de la vision dans le monde naturel''.
+% Cependant, essayer de comprendre la vision comme un processus émergent
+% d'un principe d'optimisation semble être un principe téléologique dans
+% lequel la causalité serait inversée~\citep{Turkheimer19}. Pourtant,
+% ``l'utilisation du principe téléologique n'est qu'un moyen, et non la
+% totalité ou l'unique, par lequel nous pouvons chercher à apprendre
+% comment les choses sont apparues et ont pris leur place dans la
+% complexité harmonieuse du monde.''~\citep[chap. 1, ma traduction]{DArcy-Thompson17}. En
+% d'autres termes, il n'est pas important d'un point de vue scientifique
+% de savoir si le cerveau utilise explicitement un tel principe (par
+% exemple que certaines de ses parties puissent utiliser la règle de
+% Bayes), mais plutôt qu'un tel ensemble de règles offre une explication
+% plus simple des enregistrements neuraux en mettant en lumière les
+% processus se produisant dans ce système complexe~\citep{Varoquaux19}.
+% Nous suivrons les principes de base du comportement auto-organisé
+% : à savoir, l'impératif de prédire au mieux les données sensorielles,
+% c'est-à-dire, en termes techniques, de minimiser l'entropie des états
+% cachés du monde et leurs conséquences sensorielles.
+%
+% \subsubsection{Les perceptions comme hypothèses, les actions comme expériences: du principe de
+% l'énergie libre (Free-Energy Principle, FEP) à l'Inférence Active (IA)}
+% Par exemple, on ne sait pas encore pourquoi le système saccadique, qui est le mécanisme qui
+% permet de diriger notre regard vers n'importe quelle position dans l'espace
+% (visuel), est en même temps rapide et flexible. Par
+% exemple, ce système peut s'adapter rapidement aux contexte,
+% par exemple si on demande à l'observateur d'une photo de groupe d'identifier des visages ou plutôt de compter le nombre de personnes. La plupart des théories pour le système saccadique expliquent ces mécanismes à l'aide de
+% modèles de contrôle sensoriel ou moteur, mais peu de théories intègrent
+% le système dans son ensemble. Dans cette perspective, le FEP offre une
+% solution élégante. Dans un premier temps, nous avons considéré un agent
+% simpliste qui reçoit un sous-ensemble de la scène visuelle (sa
+% projection sur l'espace rétinotopique). L'agent a la capacité de diriger
+% son regard à l'aide de saccades. En dotant l'agent de la capacité
+% d'échantillonner activement le monde visuel, cela nous permet d'explorer
+% l'idée que les actions (le mouvements oculaires de saccade) sont des
+% expériences optimales, par lesquelles l'agent cherche à confirmer les
+% modèles prédictifs du monde qui lui est caché. Cela rappelle la définition de la
+% perception par~\citet{vonHelmholtz1867} comme un test d'hypothèse~\citep{Gregory80}. Ceci fournit un modèle plausible de recherche visuelle
+% qui peut être motivé à partir des principes de base du comportement
+% auto-organisé. En termes mathématiques, cet impératif de maximiser le
+% résultat des actions prévues équivaut à minimiser l'entropie des états
+% cachés du monde et leurs conséquences sensorielles. Cet impératif est
+% atteint si les agents échantillonnent efficacement les états cachés du
+% monde. En pratique, une fois le modèle génératif défini, cet
+% échantillonnage efficace de l'information saillante peut être dérivé en
+% utilisant une inférence Bayesienne approchée et une minimisation
+% variationnelle (c'est-à-dire qu'elle utilise une descente de gradient) de l'énergie libre~\citep{Friston10}. Un ingrédient clé
+% de ce processus est la représentation (interne) des prédictions
+% contrefactuelles, c'est-à-dire des conséquences probables des hypothèses
+% possibles telles qu'elles seraient si elles étaient réalisées en actions.
+% Cela étend
+% la modélisation d'un agent utilisant le FEP de manière à définir l'inférence
+% active~(IA).
+%
+% En utilisant l'environnement de simulation SPM~\citep{SPM12}, nous avons produit des simulations du comportement d'un tel agent qui détecte
+% des images de visages, connaissant un modèle interne de leur architecture~\citep{Friston12}. En modélisant l'agent, nous avons clairement  délimité l'état externe caché (l'image visuelle, la position réelle de l'œil ou la
+% commande motrice) de l'état interne de l'agent. Ces croyances (``beliefs'') internes
+% sont reliées par un graphe probabiliste de dépendance qui définit le
+% modèle génératif. L'application du FEP à ce modèle génératif se traduit
+% (ou se compile en termes informatiques) un ensemble d'équations
+% différentielles qui règle la dynamique des croyances internes
+% et les actions contrefactuelles. Un agent forme des attentes sur les
+% conséquences sensorielles qu'il attend dans le futur pour chaque action
+% possible. Cette formulation de l'inférence active définit de façon équivalente ce qu'on appelle
+% un processus décisionnel de Markov~\citep{Mirza18}. En tant que système
+% suivant la FEP, ce processus est prédictif. Pourtant, il étend le
+% traitement prédictif classique de~\citet{Rao99}
+% en incluant l'action (et les antécédents liés aux commandes moteur) au
+% schéma d'optimisation global. L'action choisie est celle qui est censée
+% réduire la surprise sensorielle et qui est finalement réalisée par un
+% arc réflexe.
+%
+% Les simulations du schéma d'IA qui en résulte reproduit des
+% mouvements oculaires qui rappellent les saccades observées
+% empiriquement et fournissent des résultats contre-intuitifs sur la
+% façon dont les entrées sensorielles sont accumulées ou assimilées dans
+% notre modèle du monde. En particulier, connaissant l'image localisée
+% détectée sur la rétine, les saccades exploreront les points d'intérêt
+% (yeux, bouche, nez) jusqu'à ce qu'une représentation interne de l'image
+% globale soit faite. Ce processus d'IA permet de faire le pont entre
+% l'image en coordonnées intrinsèques (rétiniennes) et les coordonnées
+% extrinsèques du monde qui prévalent dans la perception visuelle mais qui
+% sont cachées à l'agent. Il est intéressant de noter que si l'on ne
+% s'intéressait qu'au comportement de cet agent, on pourrait l'englober
+% par un ensemble d'équations différentielles, mais cela passerait à côté
+% de la relation causale avec les variables internes telles que définies
+% ci-dessus. De plus, ce modèle met en lumière une solution à une idée
+% fausse courante au sujet du PEF, à savoir la minimisation des
+% surprises. En effet, si l'agent devait fermer les yeux, la surprise
+% sensorielle serait minime puisqu'on s'attendrait alors précisément à une
+% scène visuelle sombre. Cependant, dans le graphe des dépendances
+% (c'est-à-dire le modèle génératif) qui définit l'agent, une telle
+% hypothèse contrefactuelle (prospective) serait fortement pénalisée car
+% il serait également \emph{a priori} connu qu'une telle action ne produirait pas
+% une minimisation de la surprise sur la scène visuelle. Globalement, il
+% est donc plus écologique de garder les yeux ouverts pour explorer les
+% différentes parties de la scène visuelle.
+%
+% \subsubsection{Existe-t-il une implémentation neurale pour l'inférence
+% active (IA)?}
+% Comme nous l'avons vu plus haut, une fois résolu le problème
+% d'optimisation étant donné l'ensemble de la paramétrisation (modèle génératif, modèle interne,
+% \ldots) l'agent que nous avons défini est simplement régi par un
+% ensemble d'équations différentielles régissant sa dynamique.
+% Techniquement, ces équations sont le résultat d'une approximation
+% générique sur la forme de la représentation interne. En particulier, le
+% problème d'optimisation est simplifié lorsqu'on utilise l'approximation
+% de Laplace, c'est-à-dire lorsque les croyances internes sont
+% représentées par des fonctions multidimensionnelles de distribution de
+% probabilités Gaussiennes. Cette approximation est validée en toute généralité lorsque
+% l'on transforme des variables en dimensions supérieures, comme c'est le
+% cas pour les coordonnées généralisées~\citep{Friston10generalized}.
+% Mathématiquement, ces
+% coordonnées représentent à tout moment l'expansion de Taylor temporelle de la
+% trajectoire d'une variable, c'est-à-dire le vecteur contenant
+% la position, la vitesse, l'accélération et les autres ordres de
+% mouvement. Par conséquent, la solution fournie par ces équations donne
+% une implémentation neurale plausible sous la forme d'un ensemble
+% d'équations linéaires / non linéaires organisées hiérarchiquement~\citep{Heeger17}. En particulier, ces équations sont la solution de
+% filtrage de Kalman-Bucy~\citep{Kalman60} qui fournit une estimation
+% Bayes-optimale des états et actions cachés en coordonnées de mouvement
+% généralisées. Cela généralise le cadre du codage prédictif proposé par~\citet{Rao99}
+%  pour expliquer les mécanismes de traitement dans
+% le cortex visuel primaire. Comme dans ce modèle, l'évolution dynamique
+% de l'activité aux différents niveaux de la hiérarchie est régie par
+% l'équilibre dans l'intégration des croyances internes (passées) et des
+% informations sensorielles (présentes)~\citep{Heeger17}. En particulier, les
+% pondérations relatives attribuées à la modulation de la transmission de
+% l'information sont proportionnelles à la précision (inférée) de chaque
+% variable individuelle du graphe de dépendance. Cela nous permet de
+% prédire l'influence de la connaissance préalable de la précision à un
+% niveau donné sur le résultat final.
+%
+% En pratique, le pouvoir prédictif de l'IA dans la modélisation d'un tel
+% agent est révélé par l'étude des écarts par rapport au comportement
+% typique dans une population d'agents. Par exemple, il existe des
+% différences aiguës dans les mouvements oculaires de poursuite lente
+% (SPEM) entre les patients de groupes neurotypiques ou schizophrènes.
+% Tout d'abord, les SPEM se distinguent des saccades définies
+% ci-dessus car ce sont des mouvements oculaires volontaires qui visent à
+% stabiliser l'image rétinienne d'un objet visuel en mouvement régulier.
+% Pour une cible suivant le mouvement d'un pendule par exemple, l'œil
+% produira une réponse prototypique pour suivre cette cible prévisible. Il
+% est intéressant de noter que les agents schizophrènes ont tendance à
+% produire un modèle différent de SPEM dans le cas où le pendule est
+% occlus sur des demi-cycles (par exemple, lorsqu'il passe derrière un
+% carton opaque d'un côté de la ligne médiane). En général, le SPEM peut
+% toujours suivre la cible, car il est occlus (derrière le carton) mais
+% avec un gain inférieur~\citep{Barnes91}. Lorsque la cible
+% réapparaît de derrière l'occlusion, les agents schizophrènes s'engagent
+% plus rapidement dans une réponse SPEM~\citep{Avila06}. En étendant
+% l'agent modélisé dans~\citep{Friston12}, nous avons  modélisé dans~\citep{Adams12}
+% un agent qui a la capacité de suivre continûment un tel objet en mouvement.
+% Ce modèle permet en particulier de
+% comprendre la plupart des SPEM prototypiques comme une solution
+% probabiliste optimale  pour minimiser la surprise dans la boucle perception
+% / action mise en œuvre dans le graphe de dépendance de l'agent.
+%
+% En particulier, en manipulant la précision \emph{a priori} des croyances
+% internes aux différents niveaux du modèle hiérarchique, on pourrait
+% reproduire différentes classes de comportements SPEM qui reproduisent
+% des stimuli psychophysiques classiques. Par exemple, nous avons trouvé (pour le pendule à demi-cycle occlus) des comportements qui reproduisent les observations dans les populations schizophrènes et témoins en manipulant
+% le gain post-synaptique des neurones
+% prédictifs~\citep{Adams12}. Une
+% telle différence dans l'équilibre des flux d'information pourrait par
+% exemple avoir une origine génétique dans l'expression de ce gain et par
+% conséquence dans le comportement de cette population. Il est important
+% de noter qu'une telle méthode permet donc d'effectuer des prédictions
+% quantitatives : De telles applications des neurosciences
+% computationnelles semblent particulièrement pertinentes pour une
+% meilleure compréhension de la diversité des comportements dans la
+% population humaine (voir par exemple~\citep{Karvelis18autistic,Kent19}.
+%
+% \subsubsection{Introduire des délais réalistes dans l'Inférence Active : dynamique du
+% traitement prédictif}
+% %-------------------------------------------------------------%
+% \begin{figure}%[b!]
+% \centering{
+% \includegraphics[width=\linewidth]{PerrinetAdamsFriston14.pdf}
+% }
+% \caption{\textbf{(A)} Cette figure montre la réponse du traitement
+% prédictif lors de la simulation du début de la poursuite tout en
+% compensant les délais sensoriels moteurs, en utilisant un mouvement sigmoïdal simple
+% d'une cible visuelle. Ici, nous voyons des excursions horizontales de
+% l'angle oculomoteur (trait bleu foncé). On peut voir clairement le
+% déplacement initial de la cible qui est supprimé par l'action après
+% environ $200~\ms$, modélisant un mouvement oculaire prototype de poursuite.
+% De plus, nous illustrons les effets de l'hypothèse de la connaissance d'un délai
+% sensori-moteur erroné sur le déclenchement de la poursuite. Avec
+% un délai sensoriel pur (pointillés rouges), on peut voir
+% clairement le délai des prédictions sensorielles par rapport aux
+% entrées réelles. En cas de délai moteur pur (tirets rouges) et de délai sensori-moteur combiné (trait rouge), il y a un
+% défaut de contrôle optimal avec des fluctuations oscillatoires dans les
+% trajectoires oculomotrices, qui comme ici peuvent devenir instables. \textbf{(B)}
+% Cette figure montre la simulation d'une poursuite oculaire lorsque le
+% mouvement de la cible est hémisinusoïdal, comme dans le cas d'un pendule
+% qui serait arrêté à chaque demi-cycle à gauche de la verticale (lignes
+% noires discontinues). Le modèle génératif utilisé ici a été équipé d'un
+% deuxième niveau hiérarchique qui contient des états cachés, modélisant
+% le comportement périodique latent des causes (cachées) du mouvement de
+% la cible. Avec cet ajout, l'amélioration de la précision de poursuite
+% est apparente dès le début du deuxième cycle de mouvement (aire
+% rouge ombragée), de façon semblable aux expériences psychophysiques~\citep{Barnes91}. (Reproduit de~\citep{PerrinetAdamsFriston14} selon
+% les termes de la
+% \href{https://link.springer.com/article/10.1007/s00422-014-0620-8\#copyrightInformation}{Creative
+% Commons Attribution License}, © The Authors 2014.)
+% }
+% \label{fig:PerrinetAdamsFriston14}
+% \end{figure}
+% %-------------------------------------------------------------%
+% Une perspective intéressante pour étudier le rôle de la dynamique
+% neurale dans la cognition est d'étendre ce modèle à une description plus
+% réaliste des contraintes écologiques auxquelles fait face le système
+% visuel. En effet, le système nerveux central est confronté à des délais
+% axonaux, tant au niveau sensoriel que moteur. Comme nous l'avons vu dans
+% l'introduction, il faut environ $50~\ms$ pour que l'image rétinienne
+% atteigne les aires visuelles impliquées dans la détection de mouvement,
+% et $50~\ms$ supplémentaires pour atteindre les muscles oculomoteurs et
+% réaliser l'action~\citep{Kirchner06}. L'un des défis de la
+% modélisation du système visuo-oculomoteur humain est de comprendre les
+% mouvements oculaires comme un problème de contrôle moteur optimal avec
+% des délais axonaux. Prenons l'exemple d'un joueur de tennis qui tente
+% d'intercepter une balle qui passe à une vitesse (conservatrice) de 20
+% m/s. La position détectée sur l'espace rétinien correspond à l'instant
+% où l'image s'est formée sur les photorécepteurs de la rétine, et jusqu'à
+% ce qu'elle atteigne notre hypothétique aire de perception du mouvement.
+% À cet instant, la position physique détectée est en fait en décalage d'un
+% mètre, c'est-à-dire approximativement à une excentricité de 45 degrés.
+% Cependant, la position au moment de l'émission de la commande du moteur
+% sera également de 45 degrés \emph{en avant de} sa position physique
+% actuelle dans l'espace visuel. Par conséquent, si le regard du joueur
+% n'est pas dirigé vers l'image de la balle sur la rétine mais vers la
+% balle dans sa position (physique) actuelle, c'est peut-être parce qu'il
+% prend en compte, de manière anticipée, la distance parcourue par la
+% balle pendant le délai sensoriel. Alternativement, un contrôle optimal
+% peut diriger l'action (mouvement futur de l'œil) vers la position
+% attendue lorsque les commandes motrices atteignent la périphérie
+% (muscles). Un tel exemple montre que même avec un délai relativement
+% court, le système visuel est confronté à des perturbations importantes
+% qui entraînent des choix ambigus. Cette ambiguïté est évidemment un défi
+% intéressant pour la modélisation du traitement prédictif dans le système
+% visuel.
+%
+% En étendant notre précédent cadre de modélisation de la poursuite ocularire~\citep{Adams12},
+% nous avons observé dans~\citep{PerrinetAdamsFriston14}
+% que la représentation des états cachés en coordonnées généralisées offre
+% un moyen simple de compenser les délais sensoriels et moteurs. Une nouveauté de cette
+% approche est d'inclure les délais dans la dynamique en tirant profit
+% des coordonnées généralisées. Techniquement, cela définit un opérateur
+% linéaire sur ces variables qui permet de virtuellement ``voyager dans le temps''
+%  avec des intervalles
+% de temps arbitraires, permettant en particulier de représenter les
+% variables d'état dans le passé (délai sensoriel) ou dans le futur
+% (délai moteur). Notons que (1) cette représentation est seulement définie à
+% l'instant présent, (2) qu'elle permet la représentation concomitante de
+% la précision des variables d'état, et (3) qu'elle permet d'évaluer
+% l'hypothèse contrefactuelle des états sensoriels (basée sur les états
+% sensoriels passés) et d'une action qui doit être inférée maintenant,
+% tout en sachant que celle-ci sera effective après le délai moteur.
+% L'application d'un tel opérateur au FEP génère une formulation
+% mathématique légèrement différente et plus complexe. Cependant, il est
+% important de noter que pour compenser les délais, il n'y a pas de
+% changement dans la structure du réseau mais seulement dans la façon dont
+% les poids synaptiques sont réglés (comme nous l'avons fait dans la
+% première partie de ce programme) :``Neurobiologiquement, l'application
+% d'opérateurs de délai signifie simplement changer les forces de
+% connexion synaptique pour prendre différents mélanges de sensations
+% généralisées et leurs erreurs de prédiction.''~\citep[section 3.1, ma traduction]{PerrinetAdamsFriston14}. En particulier, lorsque l'agent a une
+% certaine croyance au sujet de ces délais, il peut intégrer de façon
+% optimale (au sens de Bayes) les croyances internes. Un tel comportement est
+% toujours régulé par le même type d'équation interne.
+%
+% Nous avons illustré l'efficacité de ce schéma à l'aide de simulations
+% neurales des réponses d'initiation à la poursuite, avec et sans
+% compensation. La figure~\ref{fig:PerrinetAdamsFriston14}-A présente les estimations des probabilités conditionnelles
+% des états cachés et des causes pendant la simulation de l'initiation de
+% la poursuite, en utilisant un simple mouvement rectiligne d'une cible visuelle, tout
+% en compensant les délais sensoriels et moteurs. Ici, nous voyons les
+% excursions horizontales de l'angle oculomoteur (trait bleu) par rapport à la
+% position angulaire de la cible (pointillés noirs). %, réelle mais cachée
+% On peut clairement voir
+% le déplacement initial de la cible qui est supprimé après
+% quelques centaines de millisecondes. Cette figure illustre également les
+% effets des délais sensorimoteurs sur le déclenchement de la poursuite
+% (lignes rouges) par rapport à l'inférence active compensée (optimale).
+% Sous les délais sensoriels purs (ligne pointillée), on peut voir
+% clairement le délai des prédictions sensorielles, par rapport aux
+% entrées réelles. A noter ici l'échec du contrôle optimal avec des
+% fluctuations oscillatoires dans les trajectoires oculomotrices, qui
+% deviennent instables sous l'effet de délais sensorimoteurs combinés.
+%
+% Il est intéressant de noter que ce modèle s'étend à des trajectoires
+% visuelles plus complexes. En particulier, il a été démontré que le
+% regard sera dirigé vers la position physique actuelle de la cible (donc
+% de manière anticipée) si cette cible suit une trajectoire lisse
+% (comme un pendule). Plus frappant, c'est également vrai si la
+% trajectoire est \emph{prévisible}, par exemple pour un pendule derrière
+% une occlusion statique~\citep{Barnes91,Adams12}. La figure~\ref{fig:PerrinetAdamsFriston14}-B montre la simulation d'une poursuite
+% en douceur lorsque le mouvement de la cible est hémisinusoïdal, comme
+% dans le cas d'un pendule qui serait arrêté à chaque demi-cycle, à gauche
+% de la verticale. Notons que contrairement à l'agent modélisé dans~\citep{Adams12}, cet agent inclut la contrainte biologique
+% que le traitement sensoriel et moteur sont retardés. Le modèle génératif a
+% été équipé d'un deuxième niveau hiérarchique qui contient des états
+% cachés et qui tiennent compte du comportement périodique latent du
+% mouvement de la cible. On peut clairement voir le déplacement initial de
+% la cible qui est supprimé après quelques centaines de millisecondes
+% (aire rouge). L'amélioration de la précision de la poursuite
+% est apparente au début du deuxième cycle de mouvement, semblable aux
+% expériences psychophysiques~\citep{Barnes91}. En effet, le
+% modèle a une représentation interne des causes latentes du mouvement de
+% la cible qui peut être utilisée même lorsque ces causes ne sont pas
+% exprimées explicitement (occultées) dans la trajectoire cible. Un
+% avantage particulier de ce modèle est qu'il fournit une solution pour
+% l'intégration de l'information passée et future tout en étant gouverné
+% par des équations différentielles en ligne. Ceci met donc en œuvre une
+% certaine forme de mémoire temporelle optimale de Bayes.
+%
+% \subsubsection{Résumé}
+% En résumé, nous avons montré ici qu'un cycle complet de perception
+% / action pourrait être compris comme un processus prédictif
+% dans le cadre de l'inférence active~(IA). En particulier, nous avons
+% montré que de tels modèles pouvaient reproduire la dynamique observée
+% dans les mouvements oculaires, notamment en introduisant des contraintes
+% réalistes telles que les délais sensorimoteurs. D'autres modèles
+% devraient permettre l'introduction de contraintes structurelles encore
+% plus complexes, comme les lois physiques régissant le mouvement des
+% objets visuels comme le biais \emph{a priori}~\citep{Damasse18}, la
+% gravité ou les repères externes~\citep{Kowler14}. Cela peut aider à
+% synthétiser la plupart des lois qui régissent l'organisation de la
+% perception visuelle, comme l'a formalisé la théorie de la Gestalt.
+%
+% \subsection{Traitement prédictif sur les cartes visuelles}
+% \label{sec:maps}
+% Dans un premier temps, nous ayons montré le rôle du traitement prédictif à l'échelle
+% macroscopique en concevant chaque assemblage neural comme un nœud dans
+% un graphe de dépendance. Mais existe-t-il des preuves de l'existence de tels
+% processus à l'échelle de l'espace visuel ?
+%
+% \subsubsection{L'effet du flash retardé comme preuve pour le traitement
+% prédictif dans les cartes
+% topographiques}
+% %-------------------------------------------------------------%
+% \begin{figure}%[b!]
+% \centering{
+% \includegraphics[width=\linewidth]{KhoeiMassonPerrinet17.pdf}
+% }
+% \caption{
+% Dans~\citep{KhoeiMassonPerrinet17}, nous proposons un
+% modèle de traitement prédictif sur une carte topographique. \textbf{(A)}
+% le modèle consiste en une carte à deux couches : une cible source
+% d'entrée intègre les informations des capteurs visuels. Par souci de
+% simplicité, nous n'affichons ici que la dimension horizontale et cette
+% carte représente sur chaque axe respectivement la position et la
+% vitesse. En utilisant cette carte comme représentation de la croyance
+% (ici en utilisant une fonction de distribution de probabilités), il est
+% possible de projeter cette information sur une deuxième couche cible qui
+% intègre l'information tout en compensant pour ce délai. Dans
+% ce cas particulier, la vitesse est positive et donc l'information de
+% position est transportée vers la droite. \textbf{(B)} Réponse d'un
+% modèle compensant un délai de $100~\ms$ pour le mouvement d'un point en mouvement.
+% Représentation de la probabilité inférée de position et de vitesse avec
+% compensation de délai en fonction des itérations du modèle (temps). Les
+% couleurs plus foncées dénotent des probabilités plus élevées, tandis
+% qu'une couleur claire correspond à une estimation improbable. En
+% particulier, nous nous concentrons sur trois époques particulières le
+% long de la trajectoire, correspondant à l'initiation, au milieu et à l'extinction.
+% Le moment de ces trois époques est indiqué par des traits
+% verticaux en pointillés: en noir pour le temps physique (réel) et en
+% vert pour l'entrée retardée sachant un délai de $100~\ms$. Voir le texte
+% pour une interprétation des résultats. (Reproduit de~\citep{KhoeiMassonPerrinet17} selon les termes de la
+% \href{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005068}{Creative
+% Commons Attribution License}, © The Authors 2017.)
+% }
+% \label{fig:KhoeiMassonPerrinet17}
+% \end{figure}
+% %-------------------------------------------------------------%
+%
+% L'\href{https://en.wikipedia.org/wiki/Flash_lag_illusion}{effet
+% du flash retardé} (Flash-Lag Effect, FLE) est une illusion visuelle populaire pour sa généralité
+% et sa simplicité. Dans sa forme originale~\citep{MacKay58}, on demande à
+% l'observateur de fixer une croix centrale sur l'écran
+% pendant qu'un point traverse l'écran avec un mouvement constant et
+% horizontal. Lorsqu'il atteint le centre de l'écran, un autre point
+% clignote brièvement juste en dessous du point en mouvement. Alors qu'ils
+% sont parfaitement alignés verticalement, le point clignotant est perçu
+% comme \emph{en retard} par rapport au point en mouvement~\citep{Perrinet19temps}. Cette illusion visuelle a
+% vu un regain d'intérêt scientifique avec le modèle d'extrapolation de
+% mouvement~\citep{Nijhawan02,Nijhawan09}. Cependant, d'autres
+% modèles tels que le modèle de latence différentielle ou la post-diction ont
+% également été proposés, de sorte que l'on ne savait pas encore clairement
+% quel est le substrat neural du FLE. Ici, en étendant le modèle de
+% compensation des délais~\citep{PerrinetAdamsFriston14}, nous
+% avons défini un modèle de traitement prédictif généralisé sur la
+% topographie visuelle en utilisant une représentation interne du
+% mouvement visuel~\citep{Perrinet12pred} qui utilise une diffusion
+% anisotrope des informations~\ref{fig:KhoeiMassonPerrinet17}-A.
+%
+% Le modèle que nous avons utilisé pour le FLE peut être utilisé avec
+% n'importe quelle image. En particulier, un point lumineux isolé évoque une
+% activité isotrope en expansion puis en contraction, tandis qu'un point
+% en mouvement peut produire une onde de type soliton qui peut traverser
+% une occlusion~\citep{Khoei13jpp}. Plus généralement, ce
+% modèle peut être décrit comme  utilisant le terme d'advection de l'équation de Navier
+% Stokes qui gouverne la dynamique des fluides. Ainsi,
+% les solutions à ces équations sont typiquement des ``vagues'' qui se
+% déplacent sur la carte rétinotopique. Une caractéristique particulière
+% de ces équations prédictives est qu'elles comprennent un terme d'amplification pour les
+% mouvements rectilignes. Par conséquent, une fois qu'un objet commence à
+% être suivi, sa position est prévue dans le futur, de sorte que la
+% position et la vitesse sont mieux estimées. Au contraire, un point qui
+% se déplace sur une trajectoire imprévisible est éliminée par le système.
+% Ceci explique certains des comportements non linéaires, de type
+% binaire, qui sont expliqués par ce modèle~\citep{Perrinet12pred}. Il est
+% particulièrement intéressant à ce stade de comprendre si un tel modèle
+% s'étend à d'autres stimuli ou si l'on peut préciser son implémentation
+% neurale.
+%
+% Appliquée à l'image du FLE, l'activité dans le modèle montre trois
+% phases différentes, voir~\ref{fig:KhoeiMassonPerrinet17}-B. Premièrement, il y a une
+% augmentation rapide de la précision de la cible après la première
+% apparition du point mobile (à $300~\ms$). En cohérence avec
+% l'\href{https://en.wikipedia.org/wiki/Fröhlich_effect}{effet Fröhlich}~\citep{Jancke10}, le début de la trajectoire est vu ``en avant'' par rapport à sa
+% position physique. Pendant la deuxième phase, le point en mouvement est
+% suivi efficacement car sa vitesse et sa position sont correctement
+% déduites. Comme observé dans l'illusion, l'extrapolation de mouvement prédit correctement la
+% position actuelle et la position suit la position physique réelle du
+% point (ligne pointillée noire) : Le point est perçu en avant de la trajectoire retardée du point (ligne
+% pointillée verte).
+% De façon équivalente, le flash est perçu en retard par rapport au point en mouvement.
+% Enfin, la troisième phase correspond à
+% la fin du mouvement. Le point en mouvement disparaît et
+% l'activité correspondante disparaît dans la couche source à $t=900~\ms$.
+% Cependant, entre $t=800~\ms$ et $t=900~\ms$, la position du point a été
+% extrapolée et prédite avant la position finale. À $t=900~\ms$, alors que
+% l'information de mouvement est absente, l'information de position est
+% encore transitoirement cohérente et extrapolée à l'aide d'une large
+% distribution de vitesses centrée au préalable : Bien qu'elle soit moins
+% précise, cette position du point à la fin du flash n'est donc pas perçue comme étant en avant du flash, mais \emph{rétrospectivement} dû à cette nouvelle information.
+%
+% \subsubsection{Corrélat neural du mouvement apparent}
+% Appliquons une approche similaire à une autre illusion visuelle :
+% Lorsque deux points stationnaires clignotent à des positions et à des
+% moments rapprochés l'un de l'autre, l'observateur peut percevoir une
+% sensation de mouvement. Ce processus transforme la présentation d'un motif
+% discret en un motif continu et est à la base des processus qui nous font percevoir au cinéma une image animée alors que nos yeux ne ressentent qu'une succession rapide d'images statiques.
+% Cette illusion visuelle est appelée
+% \href{https://en.wikipedia.org/wiki/Beta_movement}{mouvement apparent}
+% et peut persister sur une distance spatiale relativement longue (supérieure à la
+% taille caractéristique de la RF d'un neurone dans le cortex visuel
+% primaire, V1). Comme dans l'étude ci-dessus pour le FLE, nous pensons que ce
+% mouvement apparent à longue portée (long-range Apparent Motion, lrAM) peut s'expliquer par des
+% processus prédictifs. En raison des caractéristiques dynamiques du lrAM,
+% une implémentation neurale de cette illusion peut consister en la
+% propagation d'informations visuelles par des interactions
+% intra-corticales. En particulier, ces interactions latérales peuvent
+% évoquer des vagues d'activité dans V1 qui peuvent moduler l'intégration de
+% l'information sensorielle provenant des connexions thalamo-corticales.
+% Une perspective intéressante est donc d'enregistrer l'activité neurale
+% lors de la présentation du stimulus lrAM. Ceci permet d'évaluer
+% quantitativement pourquoi la superposition de deux points comme dans le
+% lrAM est ``plus'' que la somme des deux points isolés.
+%
+% Dans une étude récente~\citep{Chemla19}, nous avons utilisé la VSDI
+% pour enregistrer l'activité du cortex visuel primaire (V1) de macaques
+% éveillés. Y a-t-il une différence entre la réponse au point unique et
+% celle aux deux points ? En effet, les enregistrements VSD permettent
+% d'enregistrer l'activité de populations de neurones V1 qui sont
+% approximativement à l'échelle d'une colonne corticale. De plus, la
+% réponse enregistrée est assez rapide pour saisir la dynamique du
+% stimulus lrAM. Les enregistrements montrent que lorsque l'activité
+% évoquée par le second point atteint V1, une onde corticale suppressive se
+% propage vers la vague rétinotopique évoquée par le premier point. Cela a
+% été mis en évidence en comparant statistiquement la réponse du cerveau à
+% la réponse des deux points isolés. En particulier, nous avons constaté
+% que grâce à cette onde suppressive, l'activité du stimulus cérébral
+% était plus précise, ce qui suggère que cette onde suppressive pourrait
+% servir d'étape de traitement prédictive pour être lue dans les aires
+% corticales en amont.
+%
+% En particulier, nous avons constaté que l'activité que nous avons
+% enregistrée était bien décrite par un modèle de champ moyen utilisant un
+% contrôle de gain dynamique. Qualitativement, ce modèle reproduit la
+% propagation de l'activité sur le cortex. Il est important de noter que
+% ce modèle a permis de montrer que l'activité observée était mieux
+% ajustée lorsque la vitesse des connexions latérales dans le champ moyen
+% était d'environ $1 m/s$, une vitesse de propagation qui est de l'ordre de
+% celle mesurée pour les connexions intra-corticales dans le cortex visuel
+% primaire (pour une revue, voir~\citep{Muller18}). Un modèle plus
+% fonctionnel (probabiliste) a également montré que la vague
+% corticale suppressive permettait de lever l'ambiguïté sur le stimulus en supprimant
+% les alternatives improbables. Par conséquent,
+% (1) les interactions latérales sont essentielles pour générer des vagues d'activité
+% en mouvement à la surface du cortex et (2) ces vagues aident à affiner la représentation
+% du stimulus en entrée. Cela correspond à la mise en œuvre d'un processus
+% prédictif utilisant une connaissance \emph{a priori} des objets visuels
+% en mouvement régulier.
+%
+% \subsubsection{Résumé}
+% En résumé, nous avons vu qu'il est possible d'étendre le traitement
+% prédictif aux cartes topographiques. En particulier, les calculs qui en
+% résultent sont particulièrement adaptés à la vision. Nous avons montré
+% (voir~\ref{fig:KhoeiMassonPerrinet17}) un modèle qui représente (à un instant donné) différentes
+% variables (ici ``Source'' et ``Cible''). Dans un modèle plus réaliste,
+% l'activité neurale est plus susceptible de former des représentations
+% intermédiaires entre les représentations passées, présentes et futures~\citep{Glaser18} et à différents niveaux d'adaptation comme
+% l'illustre le stimulus lrAM~\citep{Chemla19}. En conséquence, de
+% tels processus sont observés phénoménologiquement comme la propagation
+% de l'information neurale tangentiellement à la surface corticale,
+% modulant dynamiquement les flux convergeant sur l'aire corticale (``feed-forward'' vs ``feed-back''). En
+% particulier, la question reste ouverte de savoir si de tels calculs
+% neuraux pourraient être mis en œuvre par des vagues d'activité sur la
+% surface corticale~\citep{Muller18}.
 
 \subsection{Problèmes ouverts des processus visuels prédictifs}
 \label{sec:spikes}
-Dans la section~\ref{sec:ai}, nous avons étudié la dynamique du traitement prédictif à
+Dans~\citep{PerrinetAdamsFriston14}, nous avons étudié la dynamique du traitement prédictif à
 l'échelle macroscopique, c'est-à-dire en considérant les aires
-(corticales) comme des noeuds d'un graphe de dépendance. En section~\ref{sec:maps},
+(corticales) comme des noeuds d'un graphe de dépendance. Dans la section~\ref{sec:maps},
 nous avons étendu ces modèles à la topographie de chaque aire visuelle. À une échelle
 encore plus fine que cette échelle mésoscopique intermédiaire se trouve
 l'échelle microscopique des cellules neurales. Pour mieux
