@@ -250,7 +250,7 @@ Néanmoins, la conception d'un tel
 circuit de traitement prédictif générique est un champ de recherche ouvert et nous énumérerons quelques implémentations possibles à l'aide
 de réseaux de neurones biomimétiques.
 
-\section{Motivation : Dynamique des calculs neuronaux
+\subsection{Motivation : Dynamique des calculs neuronaux
 sous-jacents au traitement
 visuel}
 La vision, c'est-à-dire la capacité de donner un sens à l'environnement
@@ -409,7 +409,7 @@ micro-circuits élémentaires et détaillerons quelques règles potentielles
 pour apprendre la structure de leurs connexions d'une manière non
 supervisée. Nous pourrons ainsi conclure en dessinant les perspectives de résultats de ce programme de recherche.
 
-\section{L'inférence active et ``l'optimalité de la vision''}
+\subsection{L'inférence active et ``l'optimalité de la vision''}
 \label{sec:ai}
 Les principes d'optimisation semblent le seul choix pour comprendre
 ``L'efficacité déraisonnable de la vision dans le monde naturel''.
@@ -431,7 +431,7 @@ Nous suivrons les principes de base du comportement auto-organisé
 c'est-à-dire, en termes techniques, de minimiser l'entropie des états
 cachés du monde et leurs conséquences sensorielles.
 
-\subsection{Les perceptions comme hypothèses, les actions comme expériences: du principe de
+\subsubsection{Les perceptions comme hypothèses, les actions comme expériences: du principe de
 l'énergie libre (Free-Energy Principle, FEP) à l'Inférence Active (IA)}
 Par exemple, on ne sait pas encore pourquoi le système saccadique, qui est le mécanisme qui
 permet de diriger notre regard vers n'importe quelle position dans l'espace
@@ -509,7 +509,7 @@ une minimisation de la surprise sur la scène visuelle. Globalement, il
 est donc plus écologique de garder les yeux ouverts pour explorer les
 différentes parties de la scène visuelle.
 
-\subsection{Existe-t-il une implémentation neurale pour l'inférence
+\subsubsection{Existe-t-il une implémentation neurale pour l'inférence
 active (IA)?}
 Comme nous l'avons vu plus haut, une fois résolu le problème
 d'optimisation étant donné l'ensemble de la paramétrisation (modèle génératif, modèle interne,
@@ -584,7 +584,7 @@ computationnelles semblent particulièrement pertinentes pour une
 meilleure compréhension de la diversité des comportements dans la
 population humaine (voir par exemple~\citep{Karvelis18autistic,Kent19}.
 
-\subsection{Introduire des délais réalistes dans l'Inférence Active : dynamique du
+\subsubsection{Introduire des délais réalistes dans l'Inférence Active : dynamique du
 traitement prédictif}
 %-------------------------------------------------------------%
 \begin{figure}%[b!]
@@ -728,7 +728,7 @@ l'intégration de l'information passée et future tout en étant gouverné
 par des équations différentielles en ligne. Ceci met donc en œuvre une
 certaine forme de mémoire temporelle optimale de Bayes.
 
-\subsection{Résumé}
+\subsubsection{Résumé}
 En résumé, nous avons montré ici qu'un cycle complet de perception
 / action pourrait être compris comme un processus prédictif
 dans le cadre de l'inférence active~(IA). En particulier, nous avons
@@ -742,14 +742,14 @@ gravité ou les repères externes~\citep{Kowler14}. Cela peut aider à
 synthétiser la plupart des lois qui régissent l'organisation de la
 perception visuelle, comme l'a formalisé la théorie de la Gestalt.
 
-\section{Traitement prédictif sur les cartes visuelles}
+\subsection{Traitement prédictif sur les cartes visuelles}
 \label{sec:maps}
 Dans un premier temps, nous ayons montré le rôle du traitement prédictif à l'échelle
 macroscopique en concevant chaque assemblage neural comme un nœud dans
 un graphe de dépendance. Mais existe-t-il des preuves de l'existence de tels
 processus à l'échelle de l'espace visuel ?
 
-\subsection{L'effet du flash retardé comme preuve pour le traitement
+\subsubsection{L'effet du flash retardé comme preuve pour le traitement
 prédictif dans les cartes
 topographiques}
 %-------------------------------------------------------------%
@@ -850,7 +850,7 @@ encore transitoirement cohérente et extrapolée à l'aide d'une large
 distribution de vitesses centrée au préalable : Bien qu'elle soit moins
 précise, cette position du point à la fin du flash n'est donc pas perçue comme étant en avant du flash, mais \emph{rétrospectivement} dû à cette nouvelle information.
 
-\subsection{Corrélat neural du mouvement apparent}
+\subsubsection{Corrélat neural du mouvement apparent}
 Appliquons une approche similaire à une autre illusion visuelle :
 Lorsque deux points stationnaires clignotent à des positions et à des
 moments rapprochés l'un de l'autre, l'observateur peut percevoir une
@@ -908,7 +908,7 @@ du stimulus en entrée. Cela correspond à la mise en œuvre d'un processus
 prédictif utilisant une connaissance \emph{a priori} des objets visuels
 en mouvement régulier.
 
-\subsection{Résumé}
+\subsubsection{Résumé}
 En résumé, nous avons vu qu'il est possible d'étendre le traitement
 prédictif aux cartes topographiques. En particulier, les calculs qui en
 résultent sont particulièrement adaptés à la vision. Nous avons montré
@@ -924,7 +924,7 @@ particulier, la question reste ouverte de savoir si de tels calculs
 neuraux pourraient être mis en œuvre par des vagues d'activité sur la
 surface corticale~\citep{Muller18}.
 
-\section{Problèmes ouverts des processus visuels prédictifs}
+\subsection{Problèmes ouverts des processus visuels prédictifs}
 \label{sec:spikes}
 Dans la section~\ref{sec:ai}, nous avons étudié la dynamique du traitement prédictif à
 l'échelle macroscopique, c'est-à-dire en considérant les aires
@@ -944,7 +944,7 @@ appelées potentiels d'action ou \emph{spikes}. Dans cette section, nous
 proposons trois problèmes ouverts qui sont soulevés lors de la
 modélisation de tels réseaux de neurones impulsionnels (Spiking Neural Networks, SNN), en particulier dans le contexte du traitement prédictif.
 
-\subsection{Les défis de la représentation de l'information visuelle
+\subsubsection{Les défis de la représentation de l'information visuelle
 dans les réseaux de neurones impulsionnel
 (SNN)}
 Après les premières générations d'ANN, les algorithmes actuels
@@ -979,7 +979,7 @@ calculs neuraux~\citep{Paugam12}. Cela montre en
 particulier que l'équilibre du flux des spikes excitateurs et inhibiteurs
 entrants est crucial pour maximiser l'efficacité de ces SNN~\citep{Hansel12}.
 
-\subsection{Le rôle des vagues d'activité corticales dans le traitement
+\subsubsection{Le rôle des vagues d'activité corticales dans le traitement
 dynamique de l'information
 visuelle}
 Un autre point crucial dans le décryptage des mécanismes de traitement
@@ -1010,14 +1010,14 @@ respectivement des états attendus et des erreurs de prédiction~\citep{Bastos12
 expliquer la réponse des neurones V1 aux scènes naturelles~\citep{Kremkow16} en utilisant un mécanisme push-pull. Des réseaux fonctionnels utilisant un apprentissage dépendant du temps des spikes ont aussi été utilisés pour expliquer des réponses obtenues chez le chat~\citep{Ladret19sfn}. Il n'en demeure pas moins
 qu'il est difficile de savoir comment un tel circuit peut émerger de principes computationnels généraux.
 
-\subsection{Propriétés intégratives des aires corticales}
+\subsubsection{Propriétés intégratives des aires corticales}
 %-------------------------------------------------------------%
 \begin{figure}%[b!]
 \centering{
 \includegraphics[width=\linewidth]{BoutinFranciosiniChavaneRuffierPerrinet19.pdf}
 }
 \caption{
-Dans~\citep{BoutinFranciosiniChavaneRuffierPerrinet19}, nous proposons un
+Dans~\citep{BoutinFranciosiniChavaneRuffierPerrinet20}, nous proposons un
 modèle de traitement hiérarchique de l'information visuelle (ici de 3 couches).
 De façon similaire à des réseaux de neurones convolutionnels classiques,
 chaque couche est constituée de canaux auxquels sont attribués des champs récepteurs.
@@ -1068,7 +1068,7 @@ dans les SNN devraient utiliser des principes directeurs similaires.
 
 Cependant, il nous manque encore des modèles réalistes d'un tel
 traitement prédictif visuel. Nous avons construit un modèle simplifié
-capable de traiter des images statiques~\citep{BoutinFranciosiniChavaneRuffierPerrinet19}. Il s'agit
+capable de traiter des images statiques~\citep{BoutinFranciosiniChavaneRuffierPerrinet20}. Il s'agit
 d'un réseau neural convolutionnel multicouche, où chaque couche comprend à la fois un
 mécanisme intra-cortical récursif pour générer des représentations
 parcimonieuses et la possibilité pour chaque couche d'intégrer des informations
@@ -1093,7 +1093,7 @@ traduction de cet algorithme en un réseau neural impulsionnel serait donc
 très bénéfique et permettrait de l'appliquer à un flux dynamique
 d'images.
 
-\section{Résumé et conclusions}
+\subsection{Résumé et conclusions}
 En résumé, nous avons examiné dans ce programme de recherche différents modèles de
 codage prédictif appliqués à la vision. Nous avons vu à l'échelle
 macroscopique le rôle de la dynamique à l'aide de l'inférence active
