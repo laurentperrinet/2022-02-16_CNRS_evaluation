@@ -215,7 +215,7 @@
 Au sein du système nerveux central, les aires visuelles sont
 essentielles pour transformer le signal lumineux brut en une
 représentation qui transmet efficacement des informations sur
-l'environnement. Ce processus est modelé par la nécessité d'être robuste
+l'environnement. Ce processus est contraint par la nécessité d'être robuste
 et rapide. En effet, il existe d'un coté une grande variété de
 changements possibles dans les caractéristiques géométriques de la
 scène visuelle et de l'autre, il existe une urgence continue d'être capable de répondre à chaque instant et le plus rapidement
@@ -223,7 +223,7 @@ possible au flux sensoriel entrant, par exemple pour entraîner un
 mouvement des yeux vers l'emplacement d'un danger potentiel. Des
 décennies d'études en neurophysiologie et en psychophysique aux
 différents niveaux de vision ont montré que de nombreuses facettes de ce système tirent profit des
-connaissances a priori sur la structure de l'information visuelle,
+connaissances \emph{a priori} sur la structure de l'information visuelle,
 telles que la régularité dans la forme et le mouvement des objets
 visuels. Ainsi, le cadre du \emph{traitement prédictif} offre une théorie
 unifiée pour expliquer une large variété de mécanismes visuels. Toutefois, \textbf{il
@@ -962,6 +962,26 @@ effectif des calculs au-delà des dernières générations de
 semi-conducteurs classiques (CPU, GPU) qui atteignent les limites de la
 loi de Moore.
 
+
+%-------------------------------------------------------------%
+\begin{figure}%[b!]
+\centering{
+%---------------------------
+\subfloat[Raster plot of PGs]{\includegraphics[width=.35\linewidth]{Grimaldi22_figure_1a_k.pdf}}%
+\hfill
+\subfloat[Raster plot of PGs]{\includegraphics[width=.25\linewidth]{Grimaldi22_figure_1b.pdf}}%
+\hfill
+\subfloat[Observed raster plot]{\includegraphics[width=.35\linewidth]{Grimaldi22_figure_1a.pdf}}%
+%\vspace{-55pt}
+\vspace{-.1cm}
+}
+\caption{
+Un exemple de ``raster plot'' synthétique est généré dans {\it (a)} comme la combinaison de PGs dont le timing et l'identité sont déterminés dans {\it (b)}, ici une superposition de $4$ PGs projetés sur l'espace synaptique de $10$ neurones et à une fréquence moyenne de $3$~Hz pendant $1000$~ms. En observant les spikes de {\it (a)}, le modèle décode l'identité et le timing des PGs dans {\it (b)}, ce qui nous permet de colorer les spikes dans {\it (c)}. % par rapport à celui du PG qui les a le plus probablement générés.
+}
+\label{fig:Grimaldi22}
+\end{figure}
+%-------------------------------------------------------------%
+
 La nature discrète de l'adressage des neurones, d'une part, et la nature
 analogique de la synchronisation des spikes, d'autre part, sont
 essentielles dans ce nouveau type de représentation. Des résultats
@@ -977,7 +997,8 @@ Cette capacité à moduler le traitement en fonction de la synchronisation
 relative des spikes présynaptiques constitue un nouveau paradigme pour les
 calculs neuraux~\citep{Paugam12}. Cela montre en
 particulier que l'équilibre du flux des spikes excitateurs et inhibiteurs
-entrants est crucial pour maximiser l'efficacité de ces SNN~\citep{Hansel12}.
+entrants est crucial pour maximiser l'efficacité de ces SNN~\citep{Hansel12}. Nous envisageon à court terme d'utiliser des méthodes d'analyse de ``raster plots'' pour mieux élucider le rôle des événements dans le code neural (voir \ref{fig:Grimaldi22}).
+
 
 \subsubsection{Le rôle des vagues d'activité corticales dans le traitement
 dynamique de l'information
