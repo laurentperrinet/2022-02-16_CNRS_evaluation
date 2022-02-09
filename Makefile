@@ -6,12 +6,14 @@ pdf: $(SRC)_publications.pdf
 #pdf: $(SRC).pdf $(SRC)_done.tex $(SRC)_cv.pdf $(SRC)_publications.pdf
 
 LATEXMK = latexmk -pdf -pdflatex=lualatex
-
+BIBTEX = biber
 $(SRC).pdf: $(SRC).tex
 	$(LATEXMK) $(SRC).tex
 
 # macros
 %.pdf: %.tex
+	$(LATEXMK) $<
+	$(BIBTEX) $<
 	$(LATEXMK) $<
 
 %.pdf: %.svg
