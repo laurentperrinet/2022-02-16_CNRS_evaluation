@@ -1,234 +1,226 @@
 %!TeX TS-program = Lualatex
-%!TeX encoding = UTF-8 Unicode
-%!TeX spellcheck = fr-FR
-%!BIB TS-program = biber
-% -*- coding: UTF-8; -*-
-% vim: set fenc=utf-8
-% based on 2017_backup/archives/2017_science/2017_CNRS/2017-02-01_évaluation/
-\documentclass[11pt,french,a4paper,oneside]{article}%,twoside,draft
-%============ common ===================
-\usepackage[utf8]{inputenc}%
-\usepackage[french]{babel}%
-\usepackage{csquotes}%
-\usepackage{etaremune}%
-\usepackage[final]{pdfpages}%
-%% --- unit formatting ---
-\usepackage{microtype}	% Better typography \tolerance 1414
-\hbadness 1414
-\emergencystretch 1.5em
-\hfuzz 0.3pt
-\widowpenalty=10000
-\vfuzz \hfuzz
-\raggedbottom
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{amsmath,amsfonts,amsthm}			% Math packages
-\usepackage{bm}%This package defines commands to access bold math symbols
-\usepackage{graphicx}					% Enable pdflatex
-%============ front-matter ===================
-\newcommand{\BookTitle}{Centre National de la Recherche Scientifique}
-\newcommand{\Title}{%
-Rapport d'activité scientifique sur les travaux effectués
-}%
-\newcommand{\SubTitle}{%
-Pour évaluation par les sections du Comité national}%
-\newcommand{\Author}{Laurent U.~Perrinet}%
-\newcommand{\Team}{\'Equipe NEural OPerations in TOpographies (NeOpTo)}%
-\newcommand{\Institute}{Institut de Neurosciences de la Timone}%
-\newcommand{\InstituteUMR}{UMR 7289, CNRS~/~Aix-Marseille Université}%
-\newcommand{\Address}{27, Bd. Jean Moulin, 13385 Marseille Cedex 5, France}
-\newcommand{\Website}{https://laurentperrinet.github.io/}
-\newcommand{\Email}{Laurent.Perrinet@univ-amu.fr}
-%%%%%%%%%%%%%%%%%%
-%BIBLIOGRAPHY
-%%%%%%%%%%%%%%%%%%
-\usepackage[natbib=true,
-			bibencoding=utf8,
-%			encoding=utf8,
-			maxcitenames=7,
-			maxnames=7,
-			%minnames=3,
-			maxbibnames=7,
-            sortcites=true,
-            block=space,
-            backend=biber,
-%            doi=false,isbn=false,url=false,
-            citestyle=alphabetic,%authoryear-comp,
-            backref=true,
-%            bibstyle=alphabetic
-            ]{biblatex}%
-\addbibresource{~/metagit/blog/perrinet_curriculum-vitae_tex/LaurentPerrinet_Publications.bib}
-\addbibresource{~/metagit/blog/perrinet_curriculum-vitae_tex/LaurentPerrinet_Presentations.bib}
-% \addbibresource{Perrinet20PredictiveProcessing.bib}
-\addbibresource{babel.bib}
-%\usepackage[normalem]{ulem} %for \uline{}
-%\DeclareNameFormat{given-family}{
-%  \ifgiveninits
-%  {\ifthenelse{\equal{\namepartfamily}{Toto}}
-%    {\uline{\namepartfamily\addspace\namepartgiveni\namepartsuffix}}
-%    {\namepartfamily\addspace\namepartgiveni\namepartsuffix}
-%    \ifthenelse{\value{listcount} < \value{liststop}}
-%    {\addcomma}
-%    {\ifthenelse{\ifmorenames}{~et \,al \adddot}}
-%    {}
-%  }
-%}
-% https://tex.stackexchange.com/questions/359311/how-to-underline-name-of-specific-authors-in-biblatex
-\usepackage{xpatch}
-\usepackage[normalem]{ulem}
-
-\newbox\savenamebox
-
-%\newbibmacro*{name:bbold}[2]{%
-%  \def\do##1{\iffieldequalstr{hash}{##1}{\bfseries\setbox\savenamebox\hbox\bgroup \listbreak}{}}%
-%  \dolistloop{\boldnames}%
-%}
-\newbibmacro*{name:bbold}[2]{%
-  \def\do##1{\iffieldequalstr{hash}{##1}{\setbox\savenamebox\hbox\bgroup \listbreak}{}}%
-  \dolistloop{\boldnames}%
-}
-
-\newbibmacro*{name:ebold}[2]{%
-  \def\do##1{\iffieldequalstr{hash}{##1}{\egroup\uline{\usebox\savenamebox}\listbreak}{}}%
-  \dolistloop{\boldnames}%
-}
-
-\xpatchbibmacro{name:given-family}{\usebibmacro{name:delim}{#2#3#1}}{\usebibmacro{name:delim}{#2#3#1}\begingroup\usebibmacro{name:bbold}{#1}{#2}}{}{}
-
-%\xpretobibmacro{name:given-family}{\begingroup\usebibmacro{name:bbold}{#1}{#2}}{}{}
-\xapptobibmacro{name:delim}{\begingroup\normalfont}{}{}
-
-\xapptobibmacro{name:given-family}{\usebibmacro{name:ebold}{#1}{#2}\endgroup}{}{}
-\xapptobibmacro{name:delim}{\endgroup}{}{}
-
-\newcommand*{\boldnames}{}
-\forcsvlist{\listadd\boldnames}{
-  {8fa031352aa34db95f5c1022358042a3}, % InBold
-  {01b588ba4e4ad753feae6c81709fc04b}} % Highlight
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% OPTIONAL MACRO FILES
-%\usepackage{fltpage}
-%\usepackage{tikz}
-%%%%%%%%%%%%%%%%%%
-%\usepackage{multicol}
-%\usepackage{nag}
-%============ graphics ===================
-\usepackage{graphicx}
-%============ hyperref ===================
-\usepackage[unicode,linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue,%pdfborder={0 0 0}
-]{hyperref}%
-\hypersetup{%
-unicode = true, %
-pdftitle={\Title},%
-pdfauthor={\Author < \Email > - \Institute, \InstituteUMR , \Address - \Website},%
-pdfsubject={\Title}%
-}%
-%\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue}
-%\hyphenpenalty=5000
-%\tolerance=1000
-%% DOCUMENT LAYOUT
-%\usepackage{geometry}
-%\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
-%\setlength\parindent{0in}
-%% ---- MARGIN YEARS
-\newcommand{\years}[1]{\marginpar{\textit{\scriptsize #1}}}
-\providecommand{\natexlab}[1]{#1}
-%\providecommand{\url}[1]{\texttt{#1}}
-%\expandafter\ifx\csname urlstyle\endcsname\relax
- \providecommand{\doi}[1]{doi: #1}%\else
-%  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
-%\makepagestyle{chapter}
-%\makeoddfoot{chapter}{\addRevisionData}{\thepage}{}
-%\makeevenfoot{chapter}{\addRevisionData}{\thepage}{}
-\graphicspath{{./figures/}}%
-%\graphicspath{{./../2020-07-06_Perrinet20PredictiveProcessing/figures/}}%
-%\graphicspath{{figures/}}%,{./khoei13jpp/figures/},{./bednar/},{./kaplan13/},{./friston/},{../../sci/dyva/lup/Learning/mp_sparsenet/mp_sparsenet/results/20080502T174325}}%
-%%%%%%%%%%%% Her begynner selve dokumentet %%%%%%%%%%%%%%%
-
-% for units
-\usepackage{siunitx}%
-\newcommand{\ms}{\si{\milli\second}}%
-\newcommand{\m}{\si{\meter}}%
-\newcommand{\s}{\si{\second}}%
-
-\usepackage{geometry}
-\geometry{hscale=0.66,vscale=0.8,centering}
-
-\begin{document}
-
-\begin{titlepage}
-
-\begin{center}
-%\vskip 2cm
-\emph{\Large \BookTitle }%
-\vskip 2cm
-{\Huge \Title}
-\vskip 1cm
-{\Large Laurent \textsc{Perrinet}}
-\vskip 1cm
-\emph{\Large \SubTitle }\\%
-%\begin{tabular}[t]{ccc}
-%\includegraphics[height=2.5cm]{logo_cnrs-UAM.png} &%\includegraphics[]{}
-%\includegraphics[height=2.5cm]{logo_int.png} %& %
-%%	\includegraphics[height=2.5cm]{U2_logo.pdf}
-%\end{tabular}
-\vskip 1cm
-\includegraphics[width=1.\textwidth]{/Users/laurentperrinet/quantic/libraries/slides.py/figures/troislogos.png}
-\vskip 1cm
-\begin{tabular}[t]{|c|}
-\hline
-\Team \\\hline
-\Institute \\ \InstituteUMR \\\hline
-\Address \\\hline
-\url{\Website}\\\hline
-\url{\Email}\\\hline
-\end{tabular}
-\vskip .5cm
-\vfill
-{\large 16 Février 2022}
-\end{center}
-\end{titlepage}
-
-%%%%%%%%%%%% Endyet daag koepf dokumentet %%%%%%%%%%%%%%%
-%\begin{abstract}
-%% TODO :Dans un souci d’homogénéisation, la Section appréciera que chacun des 2 dossiers « Travaux antérieurs » et « Projet de recherche » compte entre 15 et 20 pages au maximum (taille de caractères 12, interligne 1,5).
+% %!TeX encoding = UTF-8 Unicode
+% %!TeX spellcheck = fr-FR
+% %!BIB TS-program = biber
+% % -*- coding: UTF-8; -*-
+% % vim: set fenc=utf-8
+% % based on 2017_backup/archives/2017_science/2017_CNRS/2017-02-01_évaluation/
+% \documentclass[11pt,french,a4paper,oneside]{article}%,twoside,draft
+% %============ common ===================
+% \usepackage[utf8]{inputenc}%
+% \usepackage[french]{babel}%
+% \usepackage{csquotes}%
+% \usepackage{etaremune}%
+% \usepackage[final]{pdfpages}%
+% %% --- unit formatting ---
+% \usepackage{microtype}	% Better typography \tolerance 1414
+% \hbadness 1414
+% \emergencystretch 1.5em
+% \hfuzz 0.3pt
+% \widowpenalty=10000
+% \vfuzz \hfuzz
+% \raggedbottom
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage{amsmath,amsfonts,amsthm}			% Math packages
+% \usepackage{bm}%This package defines commands to access bold math symbols
+% \usepackage{graphicx}					% Enable pdflatex
+% %============ front-matter ===================
+% \newcommand{\BookTitle}{Centre National de la Recherche Scientifique}
+% \newcommand{\Title}{%
+% Rapport d'activité scientifique sur les travaux effectués
+% }%
+% \newcommand{\SubTitle}{%
+% Pour évaluation par les sections du Comité national}%
+% \newcommand{\Author}{Laurent U.~Perrinet}%
+% \newcommand{\Team}{\'Equipe NEural OPerations in TOpographies (NeOpTo)}%
+% \newcommand{\Institute}{Institut de Neurosciences de la Timone}%
+% \newcommand{\InstituteUMR}{UMR 7289, CNRS~/~Aix-Marseille Université}%
+% \newcommand{\Address}{27, Bd. Jean Moulin, 13385 Marseille Cedex 5, France}
+% \newcommand{\Website}{https://laurentperrinet.github.io/}
+% \newcommand{\Email}{Laurent.Perrinet@univ-amu.fr}
+% %%%%%%%%%%%%%%%%%%
+% %BIBLIOGRAPHY
+% %%%%%%%%%%%%%%%%%%
+% \usepackage[natbib=true,
+% 			bibencoding=utf8,
+% %			encoding=utf8,
+% 			maxcitenames=7,
+% 			maxnames=7,
+% 			%minnames=3,
+% 			maxbibnames=7,
+%             sortcites=true,
+%             block=space,
+%             backend=biber,
+% %            doi=false,isbn=false,url=false,
+%             citestyle=alphabetic,%authoryear-comp,
+%             backref=true,
+% %            bibstyle=alphabetic
+%             ]{biblatex}%
+% \addbibresource{~/metagit/blog/perrinet_curriculum-vitae_tex/LaurentPerrinet_Publications.bib}
+% \addbibresource{~/metagit/blog/perrinet_curriculum-vitae_tex/LaurentPerrinet_Presentations.bib}
+% % \addbibresource{Perrinet20PredictiveProcessing.bib}
+% \addbibresource{babel.bib}
+% %\usepackage[normalem]{ulem} %for \uline{}
+% %\DeclareNameFormat{given-family}{
+% %  \ifgiveninits
+% %  {\ifthenelse{\equal{\namepartfamily}{Toto}}
+% %    {\uline{\namepartfamily\addspace\namepartgiveni\namepartsuffix}}
+% %    {\namepartfamily\addspace\namepartgiveni\namepartsuffix}
+% %    \ifthenelse{\value{listcount} < \value{liststop}}
+% %    {\addcomma}
+% %    {\ifthenelse{\ifmorenames}{~et \,al \adddot}}
+% %    {}
+% %  }
+% %}
+% % https://tex.stackexchange.com/questions/359311/how-to-underline-name-of-specific-authors-in-biblatex
+% \usepackage{xpatch}
+% \usepackage[normalem]{ulem}
 %
+% \newbox\savenamebox
 %
-%\indent Ce manuscrit présente mon rapport d'activité scientifique sur les travaux effectués afin que celui-ci soit évalué par les sections du Comité national en vue de l'obtention du grade de Directeur de Recherche du CNRS. Il s'articule autour de l'hypothèse que la dynamique de la vision est un processus prédictif et que cette hypothèse permet de construire une architecture innovante de calcul que nous appliquerons à un modèle du cortex visuel primaire des primates. La démarche qui est suivie est de confronter directement ces modèles en testant leurs prédictions avec des expériences neurophysiologiques. L'objectif est à la fois une meilleure compréhension des mécanismes neuraux dans les aires visuelles primaires mais aussi
-%%
-%%26/01
-%%DR2
-%%
-%%26
-%%	Cerveau, cognition, comportement
+% %\newbibmacro*{name:bbold}[2]{%
+% %  \def\do##1{\iffieldequalstr{hash}{##1}{\bfseries\setbox\savenamebox\hbox\bgroup \listbreak}{}}%
+% %  \dolistloop{\boldnames}%
+% %}
+% \newbibmacro*{name:bbold}[2]{%
+%   \def\do##1{\iffieldequalstr{hash}{##1}{\setbox\savenamebox\hbox\bgroup \listbreak}{}}%
+%   \dolistloop{\boldnames}%
+% }
 %
-%%51/01
-%%DR2
-%%	Modélisation et analyse des données et des systèmes biologiques : approches informatiques, mathématiques et physiques
-%%
+% \newbibmacro*{name:ebold}[2]{%
+%   \def\do##1{\iffieldequalstr{hash}{##1}{\egroup\uline{\usebox\savenamebox}\listbreak}{}}%
+%   \dolistloop{\boldnames}%
+% }
 %
-%%Ce rapport est l'occasion de faire le point sur un travail scientifique depuis ma soutenance d'habilitation à diriger des recherches en 2014 en focalisant sur les cinq derniers semestres (de mars 2017 à septembre 2019).
+% \xpatchbibmacro{name:given-family}{\usebibmacro{name:delim}{#2#3#1}}{\usebibmacro{name:delim}{#2#3#1}\begingroup\usebibmacro{name:bbold}{#1}{#2}}{}{}
 %
-%%La première partie résume ce parcours : l
-%%Le Chapitre~\ref{chap:projet} présente mon programme de recherche, tandis que le chapitre~\ref{chap:cv} détaille mon CV et le chapitre~\ref{chap:publis} comprend la liste exhaustive de mes publications.
+% %\xpretobibmacro{name:given-family}{\begingroup\usebibmacro{name:bbold}{#1}{#2}}{}{}
+% \xapptobibmacro{name:delim}{\begingroup\normalfont}{}{}
 %
-%%La dernière partie du manuscrit (Chapitre 6) présente enfin une description des perspectives de cette démarche scientifique.
+% \xapptobibmacro{name:given-family}{\usebibmacro{name:ebold}{#1}{#2}\endgroup}{}{}
+% \xapptobibmacro{name:delim}{\endgroup}{}{}
 %
-%\end{abstract}
-%\newpage
-%\tableofcontents
-%\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcommand*{\boldnames}{}
+% \forcsvlist{\listadd\boldnames}{
+%   {8fa031352aa34db95f5c1022358042a3}, % InBold
+%   {01b588ba4e4ad753feae6c81709fc04b}} % Highlight
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %% OPTIONAL MACRO FILES
+% %\usepackage{fltpage}
+% %\usepackage{tikz}
+% %%%%%%%%%%%%%%%%%%
+% %\usepackage{multicol}
+% %\usepackage{nag}
+% %============ graphics ===================
+% \usepackage{graphicx}
+% %============ hyperref ===================
+% \usepackage[unicode,linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue,%pdfborder={0 0 0}
+% ]{hyperref}%
+% \hypersetup{%
+% unicode = true, %
+% pdftitle={\Title},%
+% pdfauthor={\Author < \Email > - \Institute, \InstituteUMR , \Address - \Website},%
+% pdfsubject={\Title}%
+% }%
+% %\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue}
+% %\hyphenpenalty=5000
+% %\tolerance=1000
+% %% DOCUMENT LAYOUT
+% %\usepackage{geometry}
+% %\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+% %\setlength\parindent{0in}
+% %% ---- MARGIN YEARS
+% \newcommand{\years}[1]{\marginpar{\textit{\scriptsize #1}}}
+% \providecommand{\natexlab}[1]{#1}
+% %\providecommand{\url}[1]{\texttt{#1}}
+% %\expandafter\ifx\csname urlstyle\endcsname\relax
+%  \providecommand{\doi}[1]{doi: #1}%\else
+% %  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+% %\makepagestyle{chapter}
+% %\makeoddfoot{chapter}{\addRevisionData}{\thepage}{}
+% %\makeevenfoot{chapter}{\addRevisionData}{\thepage}{}
+% \graphicspath{{./figures/}}%
+% %\graphicspath{{./../2020-07-06_Perrinet20PredictiveProcessing/figures/}}%
+% %\graphicspath{{figures/}}%,{./khoei13jpp/figures/},{./bednar/},{./kaplan13/},{./friston/},{../../sci/dyva/lup/Learning/mp_sparsenet/mp_sparsenet/results/20080502T174325}}%
+% %%%%%%%%%%%% Her begynner selve dokumentet %%%%%%%%%%%%%%%
+%
+% % for units
+% \usepackage{siunitx}%
+% \newcommand{\ms}{\si{\milli\second}}%
+% \newcommand{\m}{\si{\meter}}%
+% \newcommand{\s}{\si{\second}}%
+%
+% \usepackage{geometry}
+% \geometry{hscale=0.66,vscale=0.8,centering}
+%
+% \begin{document}
+%
+% \begin{titlepage}
+%
+% \begin{center}
+% %\vskip 2cm
+% \emph{\Large \BookTitle }%
+% \vskip 2cm
+% {\Huge \Title}
+% \vskip 1cm
+% {\Large Laurent \textsc{Perrinet}}
+% \vskip 1cm
+% \emph{\Large \SubTitle }\\%
+% %\begin{tabular}[t]{ccc}
+% %\includegraphics[height=2.5cm]{logo_cnrs-UAM.png} &%\includegraphics[]{}
+% %\includegraphics[height=2.5cm]{logo_int.png} %& %
+% %%	\includegraphics[height=2.5cm]{U2_logo.pdf}
+% %\end{tabular}
+% \vskip 1cm
+% \includegraphics[width=1.\textwidth]{/Users/laurentperrinet/quantic/libraries/slides.py/figures/troislogos.png}
+% \vskip 1cm
+% \begin{tabular}[t]{|c|}
+% \hline
+% \Team \\\hline
+% \Institute \\ \InstituteUMR \\\hline
+% \Address \\\hline
+% \url{\Website}\\\hline
+% \url{\Email}\\\hline
+% \end{tabular}
+% \vskip .5cm
+% \vfill
+% {\large 16 Février 2022}
+% \end{center}
+% \end{titlepage}
+%
+% %%%%%%%%%%%% Endyet daag koepf dokumentet %%%%%%%%%%%%%%%
+% %\begin{abstract}
+% %% TODO :Dans un souci d’homogénéisation, la Section appréciera que chacun des 2 dossiers « Travaux antérieurs » et « Projet de recherche » compte entre 15 et 20 pages au maximum (taille de caractères 12, interligne 1,5).
+% %
+% %
+% %\indent Ce manuscrit présente mon rapport d'activité scientifique sur les travaux effectués afin que celui-ci soit évalué par les sections du Comité national en vue de l'obtention du grade de Directeur de Recherche du CNRS. Il s'articule autour de l'hypothèse que la dynamique de la vision est un processus prédictif et que cette hypothèse permet de construire une architecture innovante de calcul que nous appliquerons à un modèle du cortex visuel primaire des primates. La démarche qui est suivie est de confronter directement ces modèles en testant leurs prédictions avec des expériences neurophysiologiques. L'objectif est à la fois une meilleure compréhension des mécanismes neuraux dans les aires visuelles primaires mais aussi
+% %%
+% %%26/01
+% %%DR2
+% %%
+% %%26
+% %%	Cerveau, cognition, comportement
+% %
+% %%51/01
+% %%DR2
+% %%	Modélisation et analyse des données et des systèmes biologiques : approches informatiques, mathématiques et physiques
+% %%
+% %
+% %%Ce rapport est l'occasion de faire le point sur un travail scientifique depuis ma soutenance d'habilitation à diriger des recherches en 2014 en focalisant sur les cinq derniers semestres (de mars 2017 à septembre 2019).
+% %
+% %%La première partie résume ce parcours : l
+% %%Le Chapitre~\ref{chap:projet} présente mon programme de recherche, tandis que le chapitre~\ref{chap:cv} détaille mon CV et le chapitre~\ref{chap:publis} comprend la liste exhaustive de mes publications.
+% %
+% %%La dernière partie du manuscrit (Chapitre 6) présente enfin une description des perspectives de cette démarche scientifique.
+% %
+% %\end{abstract}
+% %\newpage
+% %\tableofcontents
+% %\newpage
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Vous présenterez en 15 pages pour un rapport d?activité à 5 semestres ou en 30 pages maximum pour un rapport d?activité à 10 semestres :
-%votre activité de recherche au cours des 5 ou 10 derniers semestres, les résultats obtenus, leur portée et leur impact, et les éventuelles difficultés rencontrées ;
-%votre participation à des collaborations avec des partenaires académiques, contractuelles ou non, dans un cadre français, européen ou international (préciser votre rôle, les partenaires, les thèmes des travaux et leur impact) ;
-%         1
-% la place de votre recherche dans celle de votre unité, du point de vue des thématiques et des équipes (éventuellement sous forme d?organigramme) ; si vous êtes affecté(e) dans une structure autre qu?une unité de recherche rattachée au CNRS, vous adapterez la présentation de cette rubrique à votre situation ;
-%vos mobilités éventuelles durant les cinq ou dix derniers semestres, qu?elles soient d?ordre géographique, thématique ou fonctionnel (préciser les séjours dans d?autres laboratoires publics ou privés, en France, en Europe ou à l?étranger et indiquer les apports de ces mobilités) ;
-%les distinctions scientifiques que vous avez reçues.
-%Vous présenterez la liste de vos publications scientifiques depuis les 5 ou 10 derniers semestres (distincte de la liste exhaustive de vos publications, mise à jour et transmise en fichier séparé) selon l?une des deux listes suivantes :
-%
+%  activité scientifique s’étend de décembre 2016 à décembre 2021
 %----------------------------------------------------------------------------------------------------------------
 \section{Introduction: codage prédictif et code neural}%
 %----------------------------------------------------------------------------------------------------------------
@@ -435,13 +427,13 @@ Mesurer la vitesse et la direction d'un objet en translation est une étape comp
 
 
 % - - - - - - - - - - - - - - - - - - - - - ----------------------------------------------- - - - - - - - - - - - -
-%: figure MC artwork
-\begin{figure}%
-\centerline{\includegraphics[width=.9\linewidth]{MCartwork.png}}
-\caption{\textbf{Motion Clouds.} Les \emph{Motion Clouds}  (voir \url{https://neuralensemble.github.io/MotionClouds/}) constituent un ensemble de stimuli visant à explorer de manière systématique la réponse fonctionnelle d'un système sensoriel à un stimulus en mouvement de type naturel. Ceux-ci sont optimisées pour décrire un mouvement de translation pure en plein champ et sont par construction des textures synthétisées à partir de ``patchs" élémentaires de mouvement semblable placés au hasard dans l'espace~\citep{Sanz12,Vacher15nips}. L'objet de cet axe de recherche était de tester systématiquement le système visuel en variant les paramètres de telles textures sur les dimensions perceptives principales (vitesse moyenne, direction, l'orientation spatiale et fréquence). Nous montrons ici un \emph{espace de stimuli} comme une grille tri-dimensionnelle dont les n\oe dus correspondent à des stimuli et les axes des paramètres du mouvement: bande passante pour la vitesse (panneau de gauche), fréquence (panneau de droite) et orientation (partie supérieure). Chaque n\oe ud contient un cube élémentaire qui représente le film correspondant au stimulus, avec le temps qui s'écoule du coin inférieur gauche au coin en haut à droite dans les facettes à droite et en haut. Nous avons superposé en couleur une teinte qui représente une mesure de la réponse sensorielle (ici un modèle d'énergie du mouvement) dans cet espace de stimuli. Ce genre de caractérisation permet une étude systématique du système (ici oculomoteur) qui est étudié.
- }%
-\label{fig:motionclouds}%
-\end{figure}%
+%%: figure MC artwork
+%\begin{figure}%
+%\centerline{\includegraphics[width=.9\linewidth]{MCartwork.png}}
+%\caption{\textbf{Motion Clouds.} Les \emph{Motion Clouds}  (voir \url{https://neuralensemble.github.io/MotionClouds/}) constituent un ensemble de stimuli visant à explorer de manière systématique la réponse fonctionnelle d'un système sensoriel à un stimulus en mouvement de type naturel. Ceux-ci sont optimisées pour décrire un mouvement de translation pure en plein champ et sont par construction des textures synthétisées à partir de ``patchs" élémentaires de mouvement semblable placés au hasard dans l'espace~\citep{Sanz12,Vacher15nips}. L'objet de cet axe de recherche était de tester systématiquement le système visuel en variant les paramètres de telles textures sur les dimensions perceptives principales (vitesse moyenne, direction, l'orientation spatiale et fréquence). Nous montrons ici un \emph{espace de stimuli} comme une grille tri-dimensionnelle dont les n\oe dus correspondent à des stimuli et les axes des paramètres du mouvement: bande passante pour la vitesse (panneau de gauche), fréquence (panneau de droite) et orientation (partie supérieure). Chaque n\oe ud contient un cube élémentaire qui représente le film correspondant au stimulus, avec le temps qui s'écoule du coin inférieur gauche au coin en haut à droite dans les facettes à droite et en haut. Nous avons superposé en couleur une teinte qui représente une mesure de la réponse sensorielle (ici un modèle d'énergie du mouvement) dans cet espace de stimuli. Ce genre de caractérisation permet une étude systématique du système (ici oculomoteur) qui est étudié.
+% }%
+%\label{fig:motionclouds}%
+%\end{figure}%
 % - - - - - - - - - - - - - - - - - - - - - ----------------------------------------------- - - - - - - - - - - - -
 %----------------------------------------------------------------------------------------------------------------
 %motion clouds: kesako /
@@ -461,13 +453,13 @@ En modélisant la génération aléatoire de  textures en trois dimensions trans
 
 Ce projet a réuni des psychophysiciens, des spécialistes du contrôle oculomoteur chez l'homme et des modélisateurs pour caractériser le système oculomoteur. Notre but est d'étendre le travail élaboré ensemble ces dernières années pour comprendre comment mouvements de poursuite et perception visuelle tirent avantage d'un traitement multi-échelle pour estimer le mouvement d'une cible. Nous poursuivons notre travail de conception mathématique de stimuli de haute dimensionnalité grâce à notre modèle génératif des images naturelles. Grâce à eux, nous recherchons comment la vitesse est encodé grâce à l'extraction de l'énergie de mouvement dans différents filtres spatiotemporels. En analysant les réponses motrices et perceptives, nous mettons ainsi en évidence les mécanismes non-linéaires (dépendance au contraste, superposition, supra-linéarité, précision...) sous-jacente à l'intégration des sorties de ces filtres et nous pouvons donc modéliser ces mécanismes dans une nouvelle version de notre modèle computationnel. Par exemple det tels stimuli ont récemment été utilisés sur la rétine de rongeurs~\citep{Ravello19}. De plus, nous avons testé notre hypothèse que dans les scènes naturelles, ces mécanismes non-linéaires augmentent la précision des réponses et diminuent leur variabilité d'un essai à l'autre, ce qui conduit à des réponses motrices optimales. En comparant ces réponses motrices avec les jugements perceptifs, nous avons pu mettre en évidence une seconde hypothèse de travail: ces calculs non-linéaires dépendent de la tâche et du contexte sensoriel ou sensori-moteur~\citep{Simoncini12}. En particulier, nous avons vu dans quelle mesure les structures géométriques des scènes visuelles sont décisives pour la perception, au-delà du seul calcul de l'énergie de mouvement qui est utilisée par les mouvements oculaires. %
 % - - - - - - - - - - - - - - - - - - - - - ----------------------------------------------- - - - - - - - - - - - -
-% figure showing the psycho and model CRFs
-\begin{figure}%
-\centerline{\includegraphics[width=\linewidth]{Simoncini12fig1.png}}
-\caption{\textbf{Construction de stimuli de type Motion Clouds pour différentes tâches comportementales.} Pour montrer que l'estimation du mouvement est intrinsèquement un problème multi-échelle et tâche dépendant, nous avons construit le protocole suivant. (a) Dans l'espace représentant la distribution spatio-temporelle de fréquence (espace de Fourier), chaque ligne passant par l'origine correspond à des stimuli se déplaçant à la même vitesse. Un simple réseau en translation pure correspond à un seul point dans cet espace. Nos stimuli de texture en mouvement ont une énergie distribuée dans une ``ellipse''  allongée le long d'une ligne de vitesse donné, en gardant constantes les fréquences spatiales et temporelles moyennes. La bande passante spatio-temporelle a été manipulée par des largeurs de bandes différentes suivant ces axes, comme illustré par les cubes représentant les stimuli. La performance humaine a été mesurée pour deux tâches différentes, gérées en blocs parallèles. (b) Pour le suivi oculaire, les stimuli de mouvement ont été présentés pour une courte durée ($200~\ms$) à la suite d'un centrage saccadique, visant à contrôler à la fois l'attention et la précision de la fixation. (c) Pour la discrimination de la vitesse, des stimuli de test et de référence ont été présentés successivement pour la même durée et les sujets ont été invités à indiquer si le stimulus de test a été perçue comme lente ou plus rapide que la référence. Les résultats présentés dans~\citep{Simoncini12} montrent alors des effets opposés de la largeur de bande dans ces deux tâches. %
- }%
-\label{fig:simoncini12}%
-\end{figure}%
+%% figure showing the psycho and model CRFs
+%\begin{figure}%
+%\centerline{\includegraphics[width=\linewidth]{Simoncini12fig1.png}}
+%\caption{\textbf{Construction de stimuli de type Motion Clouds pour différentes tâches comportementales.} Pour montrer que l'estimation du mouvement est intrinsèquement un problème multi-échelle et tâche dépendant, nous avons construit le protocole suivant. (a) Dans l'espace représentant la distribution spatio-temporelle de fréquence (espace de Fourier), chaque ligne passant par l'origine correspond à des stimuli se déplaçant à la même vitesse. Un simple réseau en translation pure correspond à un seul point dans cet espace. Nos stimuli de texture en mouvement ont une énergie distribuée dans une ``ellipse''  allongée le long d'une ligne de vitesse donné, en gardant constantes les fréquences spatiales et temporelles moyennes. La bande passante spatio-temporelle a été manipulée par des largeurs de bandes différentes suivant ces axes, comme illustré par les cubes représentant les stimuli. La performance humaine a été mesurée pour deux tâches différentes, gérées en blocs parallèles. (b) Pour le suivi oculaire, les stimuli de mouvement ont été présentés pour une courte durée ($200~\ms$) à la suite d'un centrage saccadique, visant à contrôler à la fois l'attention et la précision de la fixation. (c) Pour la discrimination de la vitesse, des stimuli de test et de référence ont été présentés successivement pour la même durée et les sujets ont été invités à indiquer si le stimulus de test a été perçue comme lente ou plus rapide que la référence. Les résultats présentés dans~\citep{Simoncini12} montrent alors des effets opposés de la largeur de bande dans ces deux tâches. %
+% }%
+%\label{fig:simoncini12}%
+%\end{figure}%
 % - - - - - - - - - - - - - - - - - - - - - ----------------------------------------------- - - - - - - - - - - - -
 
 \subsection{Rôle fonctionnel des interactions latérales dans l'intégration spatio-temporelle~\citep{Perrinet12pred,Khoei13jpp,KhoeiMassonPerrinet17}%
@@ -723,5 +715,5 @@ La majeure innovation de ce principe est de considérer l'agent et son environne
 %%: 2. truismes: mais permet de définir e qu'est la prédictio/ l'anticipation et de mélanger des milieux qui ne se connaissent pas
 %%: 3. temps?
 %Un avantage du principe de MEL et de la formalisation proposée par Karl Friston est d'avoir défini une terminologie claire et univoque. Par exemple, alors que la prédiction est considéré comme un ajustement de l'état présent en fonction du contexte passé (en utilisant par exemple l'inférence statistique), le concept d'anticipation est alors défini de façon claire comme un changement \emph{prévu dans le futur} de l'état du système. Le principe de MEL permet ainsi de dépasser des problèmes de dialogues entre certaines disciplines qui ont freiné le développement des approches computationnelles de codage prédictif. En particulier, un objectif de recherche à long terme est d'étudier la notion de temps dans les processus neuronaux et en particulier dans le cadre du système oculomoteur. En effet, nous avons vu précédemment dans la section~\ref{sec:free} qu'une difficulté majeure dans le système oculomoteur est l'existence de délais sensori-moteurs. Si nous avons considéré dans le modèle précédent des délais fixes, ceux-ci sont plus généralement variables, et de plus peuvent exister entre des niveaux de traitement différents (ce que nous avons omis dans le modèle précédemment). Prendre en compte ces délais en toute généralité permettrait de s'attaquer explicitement à un problème essentiel en neurosciences et qui est le plus souvent éludé: l'activité que je mesure sur un neurone se réfère-t-elle au temps présent? Ou alors il correspond au temps auquel j'ai reçu l'information sensorielle, au temps auquel j'anticipe de fournir l'action motrice? Bien sûr, il semblerait que les temps auxquels se réfèrent chaque point d'activité neurale, vus de façon globale, constitue un continuum autour du temps présent et permette de situer l'agent dans un contexte temporel. Ce contexte constitue alors la base de mécanismes essentiels et pour lesquelles nous ne connaissons encore de réponse, comme les mécanismes de mémoire, ou la coordination des flux d'information dans l'ensemble du système nerveux central. C'est cet objectif de recherche fondamentale que j'espère poursuivre dans les 10 prochaines semestres autour des trois projets que j'ai défini plus haut.
-\printbibliography
-\end{document} %
+% \printbibliography
+% \end{document} %
