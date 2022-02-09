@@ -243,9 +243,9 @@ la représentation de l'information visuelle? %Existe-t-il des algorithmes d'app
 Cette dichotomie est bien sûr \emph{a priori} arbitraire et constitue plutôt une grille de lecture pour aborder ces problèmes complexes. %
 
 % plan de cette partie: thèse / INCM / INT (présentation détaillée)
-Dans cet rapport, nous résumerons donc mon activité de recherche en suivant cette grille. Nous débuterons %par un rappel rapide de mes travaux de thèse dans la section~\ref{sec:these} et en particulier par l'étude du lien entre une propriété fonctionnelle (le codage ultra-rapide d'images naturelles) et son corrélât neural (un code neural utilisant la latence de décharge d'un neurone) tout en détaillant des algorithmes faisant le lien entre ces deux niveaux. Ensuite nous détaillerons dans la section~\ref{sec:dyva} le travail initié au sein de l'équipe {\sc DyVA}, dirigée par Guillaume Masson à l'INCM et en particulier les modèles que nous avons développés autour du système oculomoteur comme modèle dynamique d'intégration sensorielle. Je détaillerai enfin
+Dans ce rapport d'activité scientifique, je résumerai mon activité de recherche en suivant cette grille. Nous débuterons %par un rappel rapide de mes travaux de thèse dans la section~\ref{sec:these} et en particulier par l'étude du lien entre une propriété fonctionnelle (le codage ultra-rapide d'images naturelles) et son corrélât neural (un code neural utilisant la latence de décharge d'un neurone) tout en détaillant des algorithmes faisant le lien entre ces deux niveaux. Ensuite nous détaillerons dans la section~\ref{sec:dyva} le travail initié au sein de l'équipe {\sc DyVA}, dirigée par Guillaume Masson à l'INCM et en particulier les modèles que nous avons développés autour du système oculomoteur comme modèle dynamique d'intégration sensorielle. Je détaillerai enfin
 dans la section~\ref{sec:invibe} les travaux de recherche effectués au sein de l'équipe {\sc inViBe} dirigée par Guillaume Masson à l'INT et nous nous sommes focalisés sur les liens entre codage neural et dynamique de la réponse oculaire. %À ce titre, j'organiserai cette section autour des publications les plus représentatives.
-Je concluerai dans la section~\ref{sec:neopto} sur les travaux de recherche effectués au sein de l'équipe {\sc NeOpTo} dirigée par Frédéric Chavane à l'INT.
+Je concluerai dans la section~\ref{sec:neopto} sur les travaux de recherche effectués depuis 2018 au sein de l'équipe {\sc NeOpTo} dirigée par Frédéric Chavane à l'INT.
 % Cette section pourra ainsi introduire mon programme de recherche que je compte mener en temps que Directeur de Recherche.
 %lors des dix derniers semestres. Cette section est écrite de façon à pouvoir être lue de façon autonome, les sections~\ref{sec:these} et~\ref{sec:dyva} étant facultatives dans ce rapport à dix semestres (elles peuvent donc être ignorées si nécessaire). Ce travail a eu lieu
 %la dernière partie de ce rapport qui détaille mes objectifs \& perspectives de recherche (voir chapitre~\ref{part:outlook}). %
@@ -414,7 +414,7 @@ Je concluerai dans la section~\ref{sec:neopto} sur les travaux de recherche effe
 %À ce titre, j'organiserai cette section autour des publications les plus représentatives.
 
 % new team
-En effet, suivant la restructuration des neurosciences sur les différents sites du CNRS à Marseille, le laboratoire INCM a intégré un nouveau site sur le campus de la faculté de médecine de la Timone, l'Institut de Neurosciences de la Timone (INT). Ce déménagement a pris place fin 2010 et a donné lieu à une restructuration des équipes arrivantes pour assurer la cohésion de l'ensemble. Notamment, l'équipe DyVA est devenue l'équipe ``inference and visual behavior'' ({\sc InViBe}). Tout en gardant de nombreux points commun avec les thèmes et méthodes développés à l'INCM, la formation de cette nouvelle équipe a permis de redéfinir son champ d'action. Notamment, l'accent a été mis sur l'intégration des pistes de recherche développées individuellement dans l'équipe et je vais développer dans cette section les principales contributions que j'ai pu apporter. %
+En 2012, suivant la restructuration des neurosciences sur les différents sites du CNRS à Marseille, le laboratoire INCM a intégré un nouveau site sur le campus de la faculté de médecine de la Timone, l'Institut de Neurosciences de la Timone (INT). Ce déménagement a pris place fin 2010 et a donné lieu à une restructuration des équipes arrivantes pour assurer la cohésion de l'ensemble. Notamment, l'équipe DyVA est devenue l'équipe ``inference and visual behavior'' ({\sc InViBe}). Tout en gardant de nombreux points commun avec les thèmes et méthodes développés à l'INCM, la formation de cette nouvelle équipe a permis de redéfinir son champ d'action. Notamment, l'accent a été mis sur l'intégration des pistes de recherche développées individuellement dans l'équipe et je vais développer dans cette section les principales contributions que j'ai pu apporter. %
 
 % contrats : structuration / collaborations
 Une étape importante dans la structuration du thème de recherche a été la recherche de nouvelles sources de financement et de nouvelles collaborations. En particulier, nous avons obtenu un financement important grâce au projet BrainScaleS (commission européenne, contrat numéro FP7-269921), qui nous a permis d'envisager l'élaboration de nouveaux types d'algorithmes basés sur ces recherches. Une autre étape importante a été la collaboration avec Karl Friston à l'University College de Londres qui a permis d'étendre la portée théorique des modèles probabilistes que nous utilisions. Cette collaboration a pris la forme d'une mission longue de 14 mois (d'octobre 2010 à février 2012) sous l'invitation de Karl Friston et a permis l'établissement de nombreuses collaborations dans Londres et nationalement (notamment Jim Bednar à Edinburgh). Ces différents facteurs ont contribué à la restructuration du projet de recherche durant cette période que je détaille ici.%
@@ -424,7 +424,7 @@ Une étape importante dans la structuration du thème de recherche a été la re
 En particulier, tout en gardant une lecture proche des niveaux d'étude de Marr, nous allons progressivement les dépasser pour mettre en avant les collaborations entre différents niveaux. Pour cela nous allons d'abord étudier une approche héritée de l'ingénierie des systèmes pour caractériser le système oculomoteur (Sec.~\ref{sec:motionclouds}), pour ensuite étudier le rôle fonctionnel des interactions latérales dans l'intégration spatio-temporelle, et en particulier le rôle du codage prédictif (Sec.~\ref{sec:prediction}% et~\ref{sec:PerrinetBednar15}
 ). %Afin de confronter de tels modèles avec des données physiologiques et comportementales, nous allons enfin montrer des modèles de réseaux neuraux impulsionnels à grande échelle, tout en formalisant une théorie de décodage de cette activité neurale en terme d'information visuelle (Sec.~\ref{sec:spikes}). %Enfin, nous synthétiserons ces différentes approches en présentant le modèle de minimisation de l'énergie libre présentée par Karl Friston et son application à l'unification des différentes théories qui ont cours en neurosciences computationnelles (Sec.~\ref{sec:free}).
 
-\subsubsection{Caractérisation fonctionnelle de la détection du mouvement~\citep{Vacher16,Ravello19}}%
+\subsubsection{Protocoles pour l'étude de la détection du mouvement~\citep{Vacher16}}%
 \label{sec:motionclouds}
 Mesurer la vitesse et la direction d'un objet en translation est une étape computationnelle cruciale pour bouger nos yeux, nos mains dans l'environnement, attraper un objet ainsi que percevoir l'organisation de la scène visuelle et de ses éléments. Par exemple, alors que nous avons une bonne connaissance des mécanismes perceptifs et neuronaux de l'encodage et du décodage de l'information de direction ainsi que des algorithmes biologiquement plausibles utilisés dans différentes espèces, comment le cerveau traite et représente l'information de vitesse reste largement incompris. Des neurones sélectifs à la vitesse ont été identifiés à différents niveaux hiérarchiques des voies visuelles chez l'homme et le singe mais ne savons toujours pas précisément comment cette sélectivité est construite. Ceci explique l'absence de modèle consensuel sur cette question. Une hypothèse de travail est que ces mécanismes neuronaux, et leurs corrélats perceptifs, combinent de façon non-lineaire l'information locale de mouvement extraite à travers plusieurs filtres spatiotemporels, prenant avantage de la structure multi-échelle des images naturelles. De plus, l'organisation perceptive de la scène et de ses parties doivent être pris en compte pour une intégration contextuelle et dépendant de la tâche. Enfin, le code neural sous-jacent à la perception de la vitesse reste lui aussi largement mystérieux et donc nous sommes loin de comprendre comment l'information de vitesse est décodé pour contrôler des réponses (oculo-)motrices et des jugements perceptifs. Récemment, nous avons proposé que l'estimation de la vitesse est intrinsèquement un problème multi-échelle et dépendant de la tâche~\citep{Simoncini12}. Nous avons défini un nouveau type de stimulus visuel de mouvement, des textures dynamiques dont la phase est aléatoire. Ces stimuli possèdent plusieurs des propriétés statistiques des images naturelles~\citep{Sanz12,Vacher15nips}.
 
@@ -455,6 +455,8 @@ En modélisant la génération aléatoire de  textures en trois dimensions trans
 %%
 %Cette approche est donc novatrice et pertinente pour étudier les propriétés non-linéaires de l'intégration de mouvement, dans un contexte de réponse motrice ou de jugement perceptif sur la vitesse.
 
+\subsubsection{Caractérisation fonctionnelle de la détection du mouvement~\citep{Ravello19}}%
+
 Ce projet a réuni des psychophysiciens, des spécialistes du contrôle oculomoteur chez l'homme et des modélisateurs pour caractériser le système oculomoteur. Notre but est d'étendre le travail élaboré ensemble ces dernières années pour comprendre comment mouvements de poursuite et perception visuelle tirent avantage d'un traitement multi-échelle pour estimer le mouvement d'une cible. Nous poursuivons notre travail de conception mathématique de stimuli de haute dimensionnalité grâce à notre modèle génératif des images naturelles. Grâce à eux, nous recherchons comment la vitesse est encodé grâce à l'extraction de l'énergie de mouvement dans différents filtres spatiotemporels. En analysant les réponses motrices et perceptives, nous mettons ainsi en évidence les mécanismes non-linéaires (dépendance au contraste, superposition, supra-linéarité, précision...) sous-jacente à l'intégration des sorties de ces filtres et nous pouvons donc modéliser ces mécanismes dans une nouvelle version de notre modèle computationnel. Par exemple det tels stimuli ont récemment été utilisés sur la rétine de rongeurs~\citep{Ravello19}. De plus, nous avons testé notre hypothèse que dans les scènes naturelles, ces mécanismes non-linéaires augmentent la précision des réponses et diminuent leur variabilité d'un essai à l'autre, ce qui conduit à des réponses motrices optimales. En comparant ces réponses motrices avec les jugements perceptifs, nous avons pu mettre en évidence une seconde hypothèse de travail: ces calculs non-linéaires dépendent de la tâche et du contexte sensoriel ou sensori-moteur~\citep{Simoncini12}. En particulier, nous avons vu dans quelle mesure les structures géométriques des scènes visuelles sont décisives pour la perception, au-delà du seul calcul de l'énergie de mouvement qui est utilisée par les mouvements oculaires. %
 % - - - - - - - - - - - - - - - - - - - - - ----------------------------------------------- - - - - - - - - - - - -
 %% figure showing the psycho and model CRFs
@@ -466,7 +468,7 @@ Ce projet a réuni des psychophysiciens, des spécialistes du contrôle oculomot
 \end{figure}%
 % - - - - - - - - - - - - - - - - - - - - - ----------------------------------------------- - - - - - - - - - - - -
 
-\subsubsection{Rôle fonctionnel des interactions latérales dans l'intégration spatio-temporelle~\citep{KhoeiMassonPerrinet17}%
+\subsubsection{Rôle fonctionnel des interactions latérales dans l'intégration spatio-temporelle%
 }%
 \label{sec:prediction}%
 %----------------------------------------------------------------------------------------------------------------
@@ -475,7 +477,11 @@ Les Motion Clouds ne sont qu'une étape dans la construction d'une approche syst
 
 Partant de ce constat, j'ai proposé un modèle d'intégration spatio-temporelle qui propose d'inclure l'information a priori que le mouvement d'un mouvement est continu et doit donc être pris en compte dans la dynamique globale du modèle. Nous avons mis en évidence la proximité de cette approche avec celle de~\citet{Burgi00} et aussi les limites de ce dernier modèle. En effet, établir des prédictions sur un espace de position et de vitesse entraine une explosion du nombre combinatoire de prédictions possible. À l'inverse du modèle précédent qui considère une approximation grossière de l'espace topographique de position et de vitesse, nous avons utilisé une technique de traitement de l'image appliquée au suivi de contours, les filtres particulaires. J'ai implanté un tel algorithme qui fournit ainsi une plateforme de modélisation que nous appliquons à différents problèmes.
 
-Une première application de cette méthode a consisté à résoudre le problème de l'ouverture. En effet, ce problème est remarquable car il souligne qu'une information locale (par exemple le mouvement d'une ligne infinie) n'est pas suffisant pour caractériser le mouvement global (le mouvement d'un segment fini dans une direction non perpendiculaire à son orientation). Classiquement, il est établi que ce problème est résolu par des mécanismes spécialisés qui détectent soit le mouvement au centre du segment, soit le mouvement des fins de lignes. Alors, il est courant d'admettre que cette dernière information résout le problème de l'ouverture par un processus de compétition. Grâce au modèle de codage prédictif basé sur le mouvement, nous avons au contraire montré que ces mécanismes spécialisés étaient plutôt une propriété émergente du système: il est suffisant pour résoudre le problèmes de l'ouverture. % (voir Fig.~\ref{fig:perrinet12pred}).
+Une première application de cette méthode a consisté à résoudre le problème de l'ouverture. En effet, ce problème est remarquable car il souligne qu'une information locale (par exemple le mouvement d'une ligne infinie) n'est pas suffisant pour caractériser le mouvement global (le mouvement d'un segment fini dans une direction non perpendiculaire à son orientation). Classiquement, il est établi que ce problème est résolu par des mécanismes spécialisés qui détectent soit le mouvement au centre du segment, soit le mouvement des fins de lignes. Alors, il est courant d'admettre que cette dernière information résout le problème de l'ouverture par un processus de compétition. Grâce au modèle de codage prédictif basé sur le mouvement, nous avons au contraire montré que ces mécanismes spécialisés étaient plutôt une propriété émergente du système: il est suffisant pour résoudre le problèmes de l'ouverture~\citep{Perrinet12pred}. %
+
+%: extension avec motion extrapolation avec Anna Montagnini
+Il est étonnant de constater qu'avec des hypothèses simples ---le codage prédictif basé sur le mouvement, nous pouvons ainsi caractériser des propriétés du système oculomoteur attribués classiquement à des mécanismes complexes et non-linéaires. Nous avons ainsi étendu, en collaboration avec Mina Khoei (en thèse FACETS-ITN) et Anna Montagnini (inViBe-INT), notre étude à un autre modèle classique pour l'oculomotricité: l'extrapolation du mouvement.
+Cette extension consiste à étudier le comportement du modèle lors d'une interruption transiente de l'entrée sensorielle. En effet, il est courant ---par exemple lors d'un clignement de l'\oe il--- que l'entrée sensorielle soit perturbée ou suspendue, et il est important pour le système de représenter une certaine continuité. Celle-ci se traduit à partir de certaines étapes dans la hiérarchie du système visuel par une activité neurale soutenue pendant l'interruption, comme montré dans le cortex infero-temporal chez le macaque~\citep{Assad95}. Nous avons mis en évidence que notre modèle pouvait répliquer un tel comportement et en particulier, nous avons apporté trois points: 1) une prédiction à la fois en position et en vitesse est nécessaire pour avoir un comportement robuste, 2) la représentation du mouvement perd progressivement de sa précision lors de l'interruption, et 3) le système doit avoir accumulé assez d'information pour être dans un mode de suivi. Nous avons publié ces résultats dans différentes conférences et journaux~\citep{Khoei13jpp,KhoeiMassonPerrinet17}. Bien que ce modèle se base sur une conceptualisation de la propagation de l'information au sein d'une carte corticale (utilisant les filtres particulaires), nous verrons dans la section suivante (Sec.~\ref{sec:spikes}) qu'elle admet une implantation neuromimétique. % (voir Fig.~\ref{fig:perrinet12pred}).
 % - - - - - - - - - - - - - - - - - - - - - ----------------------------------------------- - - - - - - - - - - - -
 % % figure showing the psycho and model CRFs
 % \begin{figure}%
@@ -491,17 +497,16 @@ Une première application de cette méthode a consisté à résoudre le problèm
 % \end{figure}%
 % - - - - - - - - - - - - - - - - - - - - - ----------------------------------------------- - - - - - - - - - - - -
 
-
-\subsection{Traitement prédictif sur les cartes visuelles}
-\label{sec:maps}
-Dans un premier temps, nous ayons montré le rôle du traitement prédictif à l'échelle
-macroscopique en concevant chaque assemblage neural comme un nœud dans
-un graphe de dépendance. Mais existe-t-il des preuves de l'existence de tels
-processus à l'échelle de l'espace visuel ?
+%
+% \subsection{Traitement prédictif sur les cartes visuelles}
+% \label{sec:maps}
+% Dans un premier temps, nous ayons montré le rôle du traitement prédictif à l'échelle
+% macroscopique en concevant chaque assemblage neural comme un nœud dans
+% un graphe de dépendance. Mais existe-t-il des preuves de l'existence de tels
+% processus à l'échelle de l'espace visuel ?
 
 \subsubsection{L'effet du flash retardé comme preuve pour le traitement
-prédictif dans les cartes
-topographiques}
+prédictif dans les cartes topographiques~\citep{KhoeiMassonPerrinet17}}
 %-------------------------------------------------------------%
 \begin{figure}%[b!]
 \centering{
@@ -600,11 +605,12 @@ encore transitoirement cohérente et extrapolée à l'aide d'une large
 distribution de vitesses centrée au préalable : Bien qu'elle soit moins
 précise, cette position du point à la fin du flash n'est donc pas perçue comme étant en avant du flash, mais \emph{rétrospectivement} dû à cette nouvelle information.
 
-
-%: extension avec motion extrapolation avec Anna Montagnini
-Il est étonnant de constater qu'avec des hypothèses simples ---le codage prédictif basé sur le mouvement, nous pouvons ainsi caractériser des propriétés du système oculomoteur attribués classiquement à des mécanismes complexes et non-linéaires. Nous avons ainsi étendu, en collaboration avec Mina Khoei (en thèse FACETS-ITN) et Anna Montagnini (inViBe-INT), notre étude à un autre modèle classique pour l'oculomotricité: l'extrapolation du mouvement.
-Cette extension consiste à étudier le comportement du modèle lors d'une interruption transiente de l'entrée sensorielle. En effet, il est courant ---par exemple lors d'un clignement de l'\oe il--- que l'entrée sensorielle soit perturbée ou suspendue, et il est important pour le système de représenter une certaine continuité. Celle-ci se traduit à partir de certaines étapes dans la hiérarchie du système visuel par une activité neurale soutenue pendant l'interruption, comme montré dans le cortex infero-temporal chez le macaque~\citep{Assad95}. Nous avons mis en évidence que notre modèle pouvait répliquer un tel comportement et en particulier, nous avons apporté trois points: 1) une prédiction à la fois en position et en vitesse est nécessaire pour avoir un comportement robuste, 2) la représentation du mouvement perd progressivement de sa précision lors de l'interruption, et 3) le système doit avoir accumulé assez d'information pour être dans un mode de suivi. Nous avons publié ces résultats dans différentes conférences et journaux~\citep{Khoei13jpp,KhoeiMassonPerrinet17}. Bien que ce modèle se base sur une conceptualisation de la propagation de l'information au sein d'une carte corticale (utilisant les filtres particulaires), nous verrons dans la section suivante (Sec.~\ref{sec:spikes}) qu'elle admet une implantation neuromimétique.
 %
+% %: extension avec motion extrapolation avec Anna Montagnini
+% Il est étonnant de constater qu'avec des hypothèses simples ---le codage prédictif basé sur le mouvement, nous pouvons ainsi caractériser des propriétés du système oculomoteur attribués classiquement à des mécanismes complexes et non-linéaires. Nous avons ainsi étendu, en collaboration avec Mina Khoei (en thèse FACETS-ITN) et Anna Montagnini (inViBe-INT), notre étude à un autre modèle classique pour l'oculomotricité: l'extrapolation du mouvement.
+% Cette extension consiste à étudier le comportement du modèle lors d'une interruption transiente de l'entrée sensorielle. En effet, il est courant ---par exemple lors d'un clignement de l'\oe il--- que l'entrée sensorielle soit perturbée ou suspendue, et il est important pour le système de représenter une certaine continuité. Celle-ci se traduit à partir de certaines étapes dans la hiérarchie du système visuel par une activité neurale soutenue pendant l'interruption, comme montré dans le cortex infero-temporal chez le macaque~\citep{Assad95}. Nous avons mis en évidence que notre modèle pouvait répliquer un tel comportement et en particulier, nous avons apporté trois points: 1) une prédiction à la fois en position et en vitesse est nécessaire pour avoir un comportement robuste, 2) la représentation du mouvement perd progressivement de sa précision lors de l'interruption, et 3) le système doit avoir accumulé assez d'information pour être dans un mode de suivi. Nous avons publié ces résultats dans différentes conférences et journaux~\citep{Khoei13jpp,KhoeiMassonPerrinet17}. Bien que ce modèle se base sur une conceptualisation de la propagation de l'information au sein d'une carte corticale (utilisant les filtres particulaires), nous verrons dans la section suivante (Sec.~\ref{sec:spikes}) qu'elle admet une implantation neuromimétique.
+%
+
 
 % \subsection{Rôle fonctionnel des interactions latérales dans l'intégration spatiale~\citep{PerrinetBednar15}%
 % }%
@@ -673,6 +679,83 @@ Un aspect complémentaire à la simulation est l'étude du décodage de l'activi
 Pour ce faire nous avons recruté une étudiante en post doctorat, Wahiba Taouali, pour mieux comprendre les fondements mathématiques du décodage neural. Une première tâche a consisté à quantifier les différentes sources de bruit dans les enregistrements neurophysiologiques obtenus au laboratoire. En particulier, nous avons développé une méthodologie mathématique permettant de caractériser la variabilité des trains de potentiels d'action. Ce test statistique novateur nous a permis de montrer que la variabilité intrinsèque aux enregistrements s'établissaient de façon différentielle de la rétine, au thalamus et aux aires corticales supérieures. Ces travaux on fait l'objet d'une publication dans un journal à comité de lecture~\citep{Taouali16}.
 
 Une fois que ces principes du codage neural étaient mieux compris, nous les avons appliqués à des enregistrements effectués dans le cortex visuel primaire  évoqué par une barre en mouvement. Grâce à la méthode de décodage neural nous avons pu valider l'hypothèse selon laquelle dans la représentation neurale, une population de neurones peut coder de façon efficace la position et l'orientation d'une barre en mouvement. En particulier, une signature particulière du codage neural montre qu'une barre en mouvement selon une trajectoire prédictive anticiper le long de son mouvement~\citep{Taouali15vss,Taouali16areadne,Perrinet19nccd}. %Ces travaux sont en cours écriture pour une publication dans un journal à comité de lecture.
+
+
+
+\subsubsection{Corrélat neural du mouvement apparent}
+Appliquons une approche similaire à une autre illusion visuelle :
+Lorsque deux points stationnaires clignotent à des positions et à des
+moments rapprochés l'un de l'autre, l'observateur peut percevoir une
+sensation de mouvement. Ce processus transforme la présentation d'un motif
+discret en un motif continu et est à la base des processus qui nous font percevoir au cinéma une image animée alors que nos yeux ne ressentent qu'une succession rapide d'images statiques.
+Cette illusion visuelle est appelée
+\href{https://en.wikipedia.org/wiki/Beta_movement}{mouvement apparent}
+et peut persister sur une distance spatiale relativement longue (supérieure à la
+taille caractéristique de la RF d'un neurone dans le cortex visuel
+primaire, V1). Comme dans l'étude ci-dessus pour le FLE, nous pensons que ce
+mouvement apparent à longue portée (long-range Apparent Motion, lrAM) peut s'expliquer par des
+processus prédictifs. En raison des caractéristiques dynamiques du lrAM,
+une implémentation neurale de cette illusion peut consister en la
+propagation d'informations visuelles par des interactions
+intra-corticales. En particulier, ces interactions latérales peuvent
+évoquer des vagues d'activité dans V1 qui peuvent moduler l'intégration de
+l'information sensorielle provenant des connexions thalamo-corticales.
+Une perspective intéressante est donc d'enregistrer l'activité neurale
+lors de la présentation du stimulus lrAM. Ceci permet d'évaluer
+quantitativement pourquoi la superposition de deux points comme dans le
+lrAM est ``plus'' que la somme des deux points isolés.
+
+Dans une étude récente~\citep{Chemla19}, nous avons utilisé la VSDI
+pour enregistrer l'activité du cortex visuel primaire (V1) de macaques
+éveillés. Y a-t-il une différence entre la réponse au point unique et
+celle aux deux points ? En effet, les enregistrements VSD permettent
+d'enregistrer l'activité de populations de neurones V1 qui sont
+approximativement à l'échelle d'une colonne corticale. De plus, la
+réponse enregistrée est assez rapide pour saisir la dynamique du
+stimulus lrAM. Les enregistrements montrent que lorsque l'activité
+évoquée par le second point atteint V1, une onde corticale suppressive se
+propage vers la vague rétinotopique évoquée par le premier point. Cela a
+été mis en évidence en comparant statistiquement la réponse du cerveau à
+la réponse des deux points isolés. En particulier, nous avons constaté
+que grâce à cette onde suppressive, l'activité du stimulus cérébral
+était plus précise, ce qui suggère que cette onde suppressive pourrait
+servir d'étape de traitement prédictive pour être lue dans les aires
+corticales en amont.
+
+En particulier, nous avons constaté que l'activité que nous avons
+enregistrée était bien décrite par un modèle de champ moyen utilisant un
+contrôle de gain dynamique. Qualitativement, ce modèle reproduit la
+propagation de l'activité sur le cortex. Il est important de noter que
+ce modèle a permis de montrer que l'activité observée était mieux
+ajustée lorsque la vitesse des connexions latérales dans le champ moyen
+était d'environ $1 m/s$, une vitesse de propagation qui est de l'ordre de
+celle mesurée pour les connexions intra-corticales dans le cortex visuel
+primaire (pour une revue, voir~\citep{Muller18}). Un modèle plus
+fonctionnel (probabiliste) a également montré que la vague
+corticale suppressive permettait de lever l'ambiguïté sur le stimulus en supprimant
+les alternatives improbables. Par conséquent,
+(1) les interactions latérales sont essentielles pour générer des vagues d'activité
+en mouvement à la surface du cortex et (2) ces vagues aident à affiner la représentation
+du stimulus en entrée. Cela correspond à la mise en œuvre d'un processus
+prédictif utilisant une connaissance \emph{a priori} des objets visuels
+en mouvement régulier.
+
+
+\subsubsection{Résumé}
+En résumé, nous avons vu qu'il est possible d'étendre le traitement
+prédictif aux cartes topographiques. En particulier, les calculs qui en
+résultent sont particulièrement adaptés à la vision. Nous avons montré
+(voir~\ref{fig:KhoeiMassonPerrinet17}) un modèle qui représente (à un instant donné) différentes
+variables (ici ``Source'' et ``Cible''). Dans un modèle plus réaliste,
+l'activité neurale est plus susceptible de former des représentations
+intermédiaires entre les représentations passées, présentes et futures~\citep{Glaser18} et à différents niveaux d'adaptation comme
+l'illustre le stimulus lrAM~\citep{Chemla19}. En conséquence, de
+tels processus sont observés phénoménologiquement comme la propagation
+de l'information neurale tangentiellement à la surface corticale,
+modulant dynamiquement les flux convergeant sur l'aire corticale (``feed-forward'' vs ``feed-back''). En
+particulier, la question reste ouverte de savoir si de tels calculs
+neuraux pourraient être mis en œuvre par des vagues d'activité sur la
+surface corticale~\citep{Muller18}.
 
 % %
 % \subsection{Unification des théories computationnelles par la minimisation de l'énergie libre (MEL)~\citep{PerrinetAdamsFriston14} }
